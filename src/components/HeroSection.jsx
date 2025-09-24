@@ -1,469 +1,294 @@
-import { 
-  TrendingUp, 
-  TrendingDown,
-  BarChart3, 
-  Shield, 
-  ArrowRight,
-  Play,
-  CheckCircle,
-  Sparkles,
-  Settings,
-  Clock
-} from 'lucide-react'
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-
-import { useAuth } from '../auth/AuthProvider'
-import useRSITrackerStore from '../store/useRSITrackerStore'
 
 const HeroSection = () => {
-  const { user } = useAuth()
-  const { 
-    ohlcData, 
-    tickData, 
-    isConnected,
-    connect,
-    subscribe
-  } = useRSITrackerStore()
-  
-  const [_currentPrice, _setCurrentPrice] = useState(0)
-  const [_priceChange, _setPriceChange] = useState(0)
-  const [_chartData, _setChartData] = useState([])
-  const [_activeChart, _setActiveChart] = useState(0)
-  const [selectedSymbol] = useState('EURUSDm')
-  // Static real data to prevent flickering - using actual values from console logs
-  const [btcData, setBtcData] = useState({ price: 112874.66, change: 0, changePercent: 0 })
-  const [ethData, setEthData] = useState({ price: 0, change: 0, changePercent: 0 })
-  const [marketTrend, setMarketTrend] = useState('Neutral')
-  const [isDataLoading, setIsDataLoading] = useState(false)
-  const [_hasRealData, _setHasRealData] = useState(true)
-  const [dataInitialized, setDataInitialized] = useState(false)
-  const _scale = 1
+  const [currentSlide, setCurrentSlide] = useState(1)
+  const [animationLoaded, setAnimationLoaded] = useState(false)
 
-  // Connect to real market data
+  // Auto-advance slideshow
   useEffect(() => {
-    if (!isConnected) {
-      connect()
-    }
-  }, [isConnected, connect])
+    const interval = setInterval(() => {
+      setCurrentSlide(prev => prev === 3 ? 1 : prev + 1)
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [])
 
-  // Set loading state based on connection and data availability
+  // Handle animation loading
   useEffect(() => {
-    if (isConnected && (btcData.price > 0 || ethData.price > 0)) {
-      setIsDataLoading(false)
-    } else if (!isConnected) {
-      setIsDataLoading(true)
-    }
-  }, [isConnected, btcData.price, ethData.price])
-
-  // Subscribe to market data
-  useEffect(() => {
-    if (isConnected) {
-      // Subscribe to main symbol for chart
-      subscribe(selectedSymbol, '1H', ['ticks', 'ohlc'])
+    const checkAnimation = () => {
+      const player = document.querySelector('dotlottie-player')
+      const staticAnimation = document.getElementById('static-animation')
       
-      // Subscribe to additional pairs for live data
-      const livePairs = ['GBPUSDm', 'USDJPYm', 'AUDUSDm', 'BTCUSDm', 'ETHUSDm']
-      livePairs.forEach(symbol => {
-        subscribe(symbol, '1H', ['ticks', 'ohlc'])
-      })
-    }
-  }, [isConnected, selectedSymbol, subscribe])
-
-  // Update chart data from real market data
-  useEffect(() => {
-    // Try OHLC data first
-    const ohlcSymbolData = ohlcData.get(selectedSymbol)
-    if (ohlcSymbolData && ohlcSymbolData.bars && ohlcSymbolData.bars.length > 0) {
-      const bars = ohlcSymbolData.bars.slice(-30) // Get last 30 bars
-      const data = bars.map((bar, index) => ({
-        x: index,
-        y: bar.close,
-        open: bar.open,
-        high: bar.high,
-        low: bar.low,
-        close: bar.close
-      }))
-      _setChartData(data)
-    } else {
-      // Fallback to tick data for line chart
-      const tickSymbolData = tickData.get(selectedSymbol)
-      if (tickSymbolData && tickSymbolData.ticks && tickSymbolData.ticks.length > 0) {
-        const ticks = tickSymbolData.ticks.slice(-30) // Get last 30 ticks
-        const data = ticks.map((tick, index) => {
-          const price = tick.bid || tick.ask || tick.price || tick.close || 0
-          return {
-            x: index,
-            y: price,
-            open: price,
-            high: price,
-            low: price,
-            close: price,
-            volume: Math.abs(tick.change || 0) * 1000 || 0 // Calculate volume from price change
+      if (player) {
+        player.addEventListener('ready', () => {
+          setAnimationLoaded(true)
+          if (staticAnimation) {
+            staticAnimation.style.display = 'none'
           }
         })
-        _setChartData(data)
+        
+        player.addEventListener('error', () => {
+          setAnimationLoaded(false)
+          if (staticAnimation) {
+            staticAnimation.style.display = 'flex'
+          }
+        })
+        
+        // Fallback timeout - show static animation if Lottie doesn't load within 3 seconds
+        setTimeout(() => {
+          if (!animationLoaded && staticAnimation) {
+            staticAnimation.style.display = 'flex'
+          }
+        }, 3000)
       } else {
-        // No data available
-        _setChartData([])
+        // If dotlottie-player is not available, show static animation
+        if (staticAnimation) {
+          staticAnimation.style.display = 'flex'
+        }
       }
     }
-  }, [ohlcData, tickData, selectedSymbol])
 
-  // Update price from real tick data
-  useEffect(() => {
-    const symbolData = tickData.get(selectedSymbol)
-    if (symbolData && symbolData.ticks && symbolData.ticks.length > 0) {
-      // Get the latest tick (last element in the array)
-      const latestTick = symbolData.ticks[symbolData.ticks.length - 1]
-      if (latestTick && latestTick.bid) {
-        const newPrice = latestTick.bid
-        _setCurrentPrice(prev => {
-          const change = newPrice - prev
-          _setPriceChange(change)
-          return newPrice
-        })
-      }
+    // Wait for DOM to be ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', checkAnimation)
+    } else {
+      checkAnimation()
     }
-  }, [tickData, selectedSymbol])
+  }, [animationLoaded])
 
-  // Update Bitcoin data from real market data - only once to prevent flickering
-  useEffect(() => {
-    const btcSymbolData = tickData.get('BTCUSDm')
-    
-    if (btcSymbolData && btcSymbolData.ticks && btcSymbolData.ticks.length > 0 && !dataInitialized) {
-      const latestTick = btcSymbolData.ticks[btcSymbolData.ticks.length - 1]
-      
-      if (latestTick && latestTick.bid) {
-        const newPrice = latestTick.bid
-        // console.log('💰 BTC Static Price Set:', newPrice)
-        
-        setBtcData({
-          price: newPrice,
-          change: 0,
-          changePercent: 0
-        })
-        setDataInitialized(true)
-        _setHasRealData(true)
-      }
-    }
-  }, [tickData, dataInitialized])
+  const showSlide = (n) => {
+    setCurrentSlide(n)
+  }
 
-  // Update Ethereum data from real market data - only once to prevent flickering
-  useEffect(() => {
-    const ethSymbolData = tickData.get('ETHUSDm')
-    
-    if (ethSymbolData && ethSymbolData.ticks && ethSymbolData.ticks.length > 0 && !dataInitialized) {
-      const latestTick = ethSymbolData.ticks[ethSymbolData.ticks.length - 1]
-      
-      if (latestTick && latestTick.bid) {
-        const newPrice = latestTick.bid
-        // console.log('💰 ETH Static Price Set:', newPrice)
-        
-        setEthData({
-          price: newPrice,
-          change: 0,
-          changePercent: 0
-        })
-      }
-    }
-  }, [tickData, dataInitialized])
+  const nextSlide = () => {
+    setCurrentSlide(prev => prev === 3 ? 1 : prev + 1)
+  }
 
-  // Set static market trend to prevent flickering
-  useEffect(() => {
-    if (dataInitialized) {
-      setMarketTrend('Neutral')
-    }
-  }, [dataInitialized])
+  const prevSlide = () => {
+    setCurrentSlide(prev => prev === 1 ? 3 : prev - 1)
+  }
 
   return (
-    <section className="relative min-h-screen flex items-center">
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          
-          {/* Left Side - Text Content */}
-          <div className="space-y-6">
-            {/* Premium Badge */}
-           
+    <section className="pt-32 pb-16 px-4 sm:pt-40 sm:pb-20 md:px-6 w-full">
+      <div className="container mx-auto max-w-7xl">
+        <div className="flex flex-col lg:flex-row items-center">
+          <div className="lg:w-1/2 text-center lg:text-left mb-8 lg:mb-0">
+            <div className="mb-4 flex flex-col items-center lg:items-start space-y-2">
+              <div className="flex items-center bg-green-100 dark:bg-green-900/30 rounded-full px-4 py-1 text-green-800 dark:text-green-300 text-sm font-medium transition-colors duration-300" style={{fontFamily: 'Pier Sans, sans-serif'}}>
+                <i className="fas fa-check-circle mr-2"></i> Say Goodbye to All-Day Chart Monitoring!
+              </div>
+              <div className="flex items-center bg-blue-50 dark:bg-blue-900/30 rounded-full px-4 py-1 text-blue-800 dark:text-blue-300 text-xs font-medium transition-colors duration-300" style={{fontFamily: 'Pier Sans, sans-serif'}}>
+                <i className="fas fa-users mr-2"></i> 100+ traders using our proven system
+              </div>
+              </div>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mb-4" style={{fontFamily: 'Pier Sans, sans-serif'}}>
+              <span className="text-[#19235d] dark:text-white transition-colors duration-300">Stop Chasing Losses: <span className="bg-gradient-to-r from-emerald-500 via-green-500 to-emerald-600 dark:from-emerald-400 dark:via-green-400 dark:to-emerald-500 bg-clip-text text-transparent">Achieve Consistent Results with Our Proven Trading Algorithm</span></span>
+            </h1>
+            <p className="text-base md:text-lg text-[#19235d] dark:text-gray-300 mb-6 transition-colors duration-300" style={{fontFamily: 'Pier Sans, sans-serif'}}>
+              Quit losing money on manual trades. Our proven automated system has empowered hundreds of clients to achieve consistent success in trading.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 mb-6">
+              <a href="https://t.me/+NgzWiBMfEj02YTM1" target="_blank" rel="noopener noreferrer" className="bg-yellow-600 dark:bg-yellow-500 text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-yellow-700 dark:hover:bg-yellow-600 transition duration-300 cta-button w-full sm:w-auto text-center" style={{fontFamily: 'Pier Sans, sans-serif'}}>
+                Join Successful Traders
+              </a>
+              <a href="#demo-video" className="border-2 border-green-600 dark:border-green-500 text-green-600 dark:text-green-400 px-6 py-3 rounded-full text-lg font-medium hover:bg-green-50 dark:hover:bg-green-900/20 transition duration-300 cta-button flex items-center justify-center w-full sm:w-auto" style={{fontFamily: 'Pier Sans, sans-serif'}}>
+                <i className="fas fa-play-circle mr-2"></i> Watch Demo
+              </a>
+              </div>
+            </div>
 
-            {/* Main Headline */}
-            <div className="space-y-4">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-left font-poppins">
-                <span className="bg-gradient-to-r from-green-600 via-emerald-500 to-teal-600 dark:from-green-400 dark:via-emerald-300 dark:to-teal-400 bg-clip-text text-transparent animate-pulse ml-2 sm:ml-4 md:ml-6 lg:ml-8 xl:ml-10">
-                  Decode the
-                </span>
-                <br />
-                <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-green-600 dark:from-blue-400 dark:via-cyan-300 dark:to-green-400 bg-clip-text text-transparent">
-                Market with AI
-                </span>
-              </h1>
+          <div className="lg:w-1/2 flex justify-center relative w-full">
+            {/* Algo Trading Animation */}
+            <div className="relative w-full max-w-[500px] h-[400px] flex items-center justify-center">
+              {/* Lottie Animation */}
+              <dotlottie-player
+                src="https://lottie.host/809992b4-2bc5-4354-90c9-6f141d2ba8e0/5a1a9bzphT.lottie"
+                background="transparent"
+                speed="1"
+                style={{width: '100%', height: '100%'}}
+                loop
+                autoplay
+              ></dotlottie-player>
               
-              <p className="text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-300 leading-relaxed max-w-xl text-left transition-colors duration-300">
-                Professional-grade AI tools for <span className="text-green-600 dark:text-green-400 font-semibold">market analysis</span>, 
-                <span className="text-blue-600 dark:text-blue-400 font-semibold"> real-time insights</span>, and 
-                <span className="text-emerald-600 dark:text-emerald-400 font-semibold"> precision trading</span>
-              </p>
-            </div>
-
-            {/* Key Features */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="flex items-center space-x-3 text-gray-700 dark:text-gray-300 transition-colors duration-300">
-                <CheckCircle className="w-6 h-6 text-green-600 dark:text-green-400 flex-shrink-0" />
-                <span className="text-base sm:text-lg font-medium">AI Chart Analysis</span>
-              </div>
-              <div className="flex items-center space-x-3 text-gray-700 dark:text-gray-300 transition-colors duration-300">
-                <CheckCircle className="w-6 h-6 text-green-600 dark:text-green-400 flex-shrink-0" />
-                <span className="text-base sm:text-lg font-medium">AI News Analysis</span>
-              </div>
-              <div className="flex items-center space-x-3 text-gray-700 dark:text-gray-300 transition-colors duration-300">
-                <CheckCircle className="w-6 h-6 text-green-600 dark:text-green-400 flex-shrink-0" />
-                <span className="text-base sm:text-lg font-medium">Closed-Candle RSI Updates</span>
-              </div>
-              <div className="flex items-center space-x-3 text-gray-700 dark:text-gray-300 transition-colors duration-300">
-                <CheckCircle className="w-6 h-6 text-green-600 dark:text-green-400 flex-shrink-0" />
-                <span className="text-base sm:text-lg font-medium">Daily Market Overview</span>
-              </div>
-            </div>
-
-            {/* Premium CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              {user ? (
-                <Link
-                  to="/dashboard"
-                  className="group relative inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold text-base rounded-xl transition-all duration-300 shadow-2xl hover:shadow-green-500/25 transform hover:scale-105"
-                >
-                  <BarChart3 className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
-                  <span>Go to Dashboard</span>
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                </Link>
-              ) : (
-                <Link
-                  to="/login"
-                  className="group relative inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold text-base rounded-xl transition-all duration-300 shadow-2xl hover:shadow-green-500/25 transform hover:scale-105"
-                >
-                  <Shield className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
-                  <span>Get Started Now</span>
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                </Link>
-              )}
               
-              <button className="group inline-flex items-center justify-center px-6 py-3 border-2 border-gray-300 dark:border-gray-600 hover:border-green-500 dark:hover:border-green-400 text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-white font-semibold text-base rounded-xl transition-all duration-300 backdrop-blur-sm">
-                <Play className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform duration-300" />
-                <span>Watch Demo</span>
-              </button>
             </div>
-
-            {/* Premium Trust Indicators */}
-            <div className="flex flex-wrap items-center gap-3 pt-4">
-              <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-green-500/10 to-emerald-500/10 dark:from-green-500/10 dark:to-emerald-500/10 border border-green-500/20 dark:border-green-500/20 rounded-full px-4 py-2 text-green-600 dark:text-green-400 text-sm font-semibold shadow-lg shadow-green-500/20 dark:shadow-green-500/20 backdrop-blur-sm transition-all duration-300 hover:scale-105">
-                <CheckCircle className="w-4 h-4" />
-                <span>80% Accuracy</span>
+          </div>
               </div>
-              <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 dark:from-blue-500/10 dark:to-cyan-500/10 border border-blue-500/20 dark:border-blue-500/20 rounded-full px-4 py-2 text-blue-600 dark:text-blue-400 text-sm font-semibold shadow-lg shadow-blue-500/20 dark:shadow-blue-500/20 backdrop-blur-sm transition-all duration-300 hover:scale-105">
-                <Clock className="w-4 h-4" />
-                <span>24/7 Live Updates</span>
-              </div>
-              <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-500/10 to-pink-500/10 dark:from-purple-500/10 dark:to-pink-500/10 border border-purple-500/20 dark:border-purple-500/20 rounded-full px-4 py-2 text-purple-600 dark:text-purple-400 text-sm font-semibold shadow-lg shadow-purple-500/20 dark:shadow-purple-500/20 backdrop-blur-sm transition-all duration-300 hover:scale-105">
-                <Sparkles className="w-4 h-4" />
-                <span>10+ AI Analysis Tools</span>
+        
+        {/* Success Announcement */}
+        <div className="mt-8 md:mt-12 text-center">
+          {/* Success Banner */}
+          <div className="bg-gradient-to-r from-green-500 to-emerald-600 dark:from-green-600 dark:to-emerald-700 p-4 rounded-lg shadow-lg max-w-4xl mx-auto mb-6 transition-colors duration-300">
+            <div className="flex items-center justify-center text-white">
+              <i className="fas fa-trophy text-2xl mr-3"></i>
+              <div>
+                <h3 className="font-medium text-lg" style={{fontFamily: 'Pier Sans, sans-serif'}}>🎉 SUCCESS STORIES!</h3>
+                <p className="text-sm">150+ successful traders now using our proven system</p>
               </div>
             </div>
           </div>
 
-          {/* Right Side - Supreme Professional Visual */}
+          <div className="bg-gradient-to-r from-blue-900 via-[#19235d] to-blue-900 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 p-6 md:p-8 rounded-xl shadow-2xl max-w-4xl mx-auto border-t-4 border-[#00E676] dark:border-green-400 relative overflow-hidden transition-colors duration-300">
+            {/* Animated background elements */}
+            <div className="absolute top-0 left-0 w-full h-full opacity-10 dark:opacity-20 transition-opacity duration-300">
+              <div className="absolute top-1/4 left-1/4 w-16 h-16 rounded-full bg-[#00E676] dark:bg-green-400 animate-pulse"></div>
+              <div className="absolute bottom-1/3 right-1/3 w-24 h-24 rounded-full bg-[#1DE9B6] dark:bg-green-300 animate-pulse" style={{animationDelay: '1s'}}></div>
+              <div className="absolute top-1/2 right-1/4 w-12 h-12 rounded-full bg-[#00BFA5] dark:bg-green-500 animate-pulse" style={{animationDelay: '1.5s'}}></div>
+            </div>
+            
+            <div className="relative z-10">
+              {/* Header with pulse effect */}
+              <div className="inline-flex items-center justify-center px-4 py-2 bg-[#00E676] bg-opacity-20 dark:bg-green-400 dark:bg-opacity-30 rounded-full mb-4 transition-colors duration-300">
+                <i className="fas fa-chart-trending-up text-[#00E676] dark:text-green-400 mr-2 transition-colors duration-300"></i>
+                <span className="text-white font-medium tracking-wide" style={{fontFamily: 'Pier Sans, sans-serif'}}>PROVEN TRACK RECORD</span>
+              </div>
+              
+              <h3 className="text-white text-2xl md:text-3xl font-medium mb-3" style={{fontFamily: 'Pier Sans, sans-serif'}}>Join Our Established Trading Community</h3>
+              
+              <p className="text-gray-200 dark:text-gray-300 text-lg mb-6 max-w-3xl mx-auto transition-colors duration-300">
+                Our founding members have generated consistent profits using our proven system. 
+                <span className="font-medium text-[#00E676] dark:text-green-400" style={{fontFamily: 'Pier Sans, sans-serif'}}>Join 150+ successful traders today!</span>
+              </p>
+              
+              {/* Success Stats */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 max-w-2xl mx-auto">
+                <div className="bg-white bg-opacity-10 dark:bg-gray-800 dark:bg-opacity-30 rounded-lg p-4 text-center backdrop-blur-sm transition-colors duration-300">
+                  <div className="text-2xl font-medium text-[#00E676] dark:text-green-400 mb-1" style={{fontFamily: 'Pier Sans, sans-serif'}}>150+</div>
+                  <p className="text-gray-300 dark:text-gray-400 text-sm transition-colors duration-300">Active Traders</p>
+                  </div>
+                <div className="bg-white bg-opacity-10 dark:bg-gray-800 dark:bg-opacity-30 rounded-lg p-4 text-center backdrop-blur-sm transition-colors duration-300">
+                  <div className="text-2xl font-medium text-[#00E676] dark:text-green-400 mb-1" style={{fontFamily: 'Pier Sans, sans-serif'}}>6-months</div>
+                  <p className="text-gray-300 dark:text-gray-400 text-sm transition-colors duration-300">Track Record</p>
+                </div>
+                <div className="bg-white bg-opacity-10 dark:bg-gray-800 dark:bg-opacity-30 rounded-lg p-4 text-center backdrop-blur-sm transition-colors duration-300">
+                  <div className="text-2xl font-medium text-[#00E676] dark:text-green-400 mb-1" style={{fontFamily: 'Pier Sans, sans-serif'}}>$230k+</div>
+                  <p className="text-gray-300 dark:text-gray-400 text-sm transition-colors duration-300">Total Profits Generated</p>
+                </div>
+              </div>
+
+              {/* CTA Button */}
+              <a href="#packages" className="inline-block bg-[#00E676] hover:bg-[#00BFA5] dark:bg-green-500 dark:hover:bg-green-600 text-[#19235d] dark:text-white font-medium px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg" style={{fontFamily: 'Pier Sans, sans-serif'}}>
+                Join Successful Traders
+              </a>
+              
+              {/* Social proof */}
+              <div className="mt-4 text-gray-400 dark:text-gray-500 text-sm flex items-center justify-center transition-colors duration-300">
+                <i className="fas fa-users mr-2 text-green-400 dark:text-green-300"></i>
+                <span>Active community with daily support and results sharing</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+        
+        {/* Premium Verified Results Section */}
+        <div id="demo-video" className="mt-12 md:mt-16 mx-auto px-4 md:px-8 max-w-6xl">
+          {/* Premium Header */}
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center px-6 py-3 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 rounded-full shadow-sm mb-4">
+              <img src="https://www.myfxbook.com/favicon.ico" alt="Myfxbook" className="w-5 h-5 mr-3" />
+              <span className="text-gray-700 dark:text-gray-300 font-semibold text-sm tracking-wide" style={{fontFamily: 'Pier Sans, sans-serif'}}>VERIFIED BY MYFXBOOK</span>
+            </div>
+            
+            <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white mb-3" style={{fontFamily: 'Pier Sans, sans-serif'}}>
+              <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">Real Trading Results</span>
+            </h3>
+            
+            <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
+              See the actual performance data that speaks for itself
+            </p>
+          </div>
+
+          {/* Frameless Premium Carousel */}
           <div className="relative group">
-            {/* Master Trader AI Dashboard Container */}
-            <div className="relative bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 backdrop-blur-xl rounded-3xl p-6 border border-green-500/20 shadow-2xl cursor-pointer transition-all duration-700 group-hover:scale-[1.02] group-hover:rotate-1 group-hover:shadow-3xl overflow-hidden"
-                 style={{
-                   transformStyle: 'preserve-3d',
-                   perspective: '1000px',
-                   boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(16, 185, 129, 0.2)'
-                 }}>
+            {/* Main Carousel Container */}
+            <div className="relative overflow-hidden rounded-3xl shadow-2xl bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 border border-gray-200/50 dark:border-gray-700/50">
               
-              {/* Master Trader AI Header */}
-              <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center">
-                    <Settings className="w-4 h-4 text-green-600 dark:text-green-400" />
-                  </div>
-                  <span className="text-gray-800 dark:text-white text-base sm:text-lg font-bold font-poppins">Master Trader AI</span>
+              {/* Slides */}
+              <div className="relative h-[500px] md:h-[600px]">
+                <div className={`absolute inset-0 transition-all duration-500 ease-in-out ${currentSlide === 1 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+                  <img 
+                    src="https://i.ibb.co/vCJCmq6B/Screenshot-2025-07-02-at-6-32-35-PM.png" 
+                    alt="Trading Results 1"
+                    className="w-full h-full object-cover object-center"
+                  />
                 </div>
-                <div className="flex items-center space-x-2 bg-green-500/20 backdrop-blur-md rounded-xl px-4 py-2 border border-green-500/30">
-                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                  <span className="text-green-600 dark:text-green-400 text-sm font-semibold">Live Analysis</span>
+                
+                <div className={`absolute inset-0 transition-all duration-500 ease-in-out ${currentSlide === 2 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+                  <img 
+                    src="https://www.milesweb.in/blog/wp-content/uploads/2023/03/forex-trading-software-top-picks-for-your-capital-gain.png" 
+                    alt="Trading Results 2"
+                    className="w-full h-full object-cover object-center"
+                  />
+                </div>
+                
+                <div className={`absolute inset-0 transition-all duration-500 ease-in-out ${currentSlide === 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+                  <img 
+                    src="https://www.shareindia.com/wp-content/uploads/2023/12/Decoding-Forex-Trading.webp" 
+                    alt="Trading Results 3"
+                    className="w-full h-full object-cover object-center"
+                  />
                 </div>
               </div>
 
-              {/* Cryptocurrency Analysis Cards */}
-              <div className="space-y-4">
-                {/* Bitcoin Analysis Card */}
-                <div className="bg-gradient-to-br from-white to-gray-50 dark:from-slate-800 dark:to-slate-700 rounded-2xl p-4 border border-green-500/20 dark:border-green-500/20 shadow-lg">
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 bg-green-500/20 dark:bg-green-500/20 rounded-full flex items-center justify-center">
-                        <span className="text-gray-800 dark:text-white font-bold text-sm">BTC</span>
-                      </div>
-                      <div>
-                        <div className="text-gray-800 dark:text-white font-semibold">Bitcoin</div>
-                        <div className="text-gray-600 dark:text-gray-400 text-sm">BTC/USD</div>
-                      </div>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-gray-800 dark:text-white font-bold text-lg">
-                        {isDataLoading ? (
-                          <div className="flex items-center space-x-2">
-                            <div className="w-4 h-4 border-2 border-green-400 border-t-transparent rounded-full animate-spin"></div>
-                            <span>Loading...</span>
-                          </div>
-                        ) : (
-                          <div className="flex items-center space-x-2">
-                            <span>${btcData.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
-                            <div className="w-2 h-2 bg-green-400 rounded-full" title="Real Data (Static)"></div>
-                          </div>
-                        )}
-                      </div>
-                      <div className={`text-sm flex items-center ${btcData.changePercent >= 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
-                        {!isDataLoading && (
-                          <>
-                            {btcData.changePercent >= 0 ? <TrendingUp className="w-3 h-3 mr-1" /> : <TrendingDown className="w-3 h-3 mr-1" />}
-                            {`${btcData.changePercent >= 0 ? '+' : ''}${btcData.changePercent.toFixed(2)}%`}
-                          </>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Bitcoin Price Chart */}
-                  <div className="h-16 mb-3 relative">
-                    <svg className="w-full h-full" viewBox="0 0 200 60">
-                      <path
-                        d="M0,45 L20,40 L40,35 L60,30 L80,25 L100,20 L120,25 L140,30 L160,35 L180,40 L200,45"
-                        stroke="#10b981"
-                        strokeWidth="2"
-                        fill="none"
-                        opacity="0.6"
-                      />
-                    </svg>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <div>
-                      <div className="text-gray-600 dark:text-gray-400 text-xs mb-1">Success Probability</div>
-                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                        <div className="bg-orange-500 h-2 rounded-full" style={{width: '35%'}}></div>
-                      </div>
-                      <div className="text-orange-600 dark:text-orange-400 text-xs mt-1">35%</div>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2">
-                        <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs">✓</span>
-                        </div>
-                        <span className="text-gray-800 dark:text-white text-sm">Weak Downtrend</span>
-                      </div>
-                      <div className="flex items-center space-x-1 text-gray-600 dark:text-gray-400 text-xs">
-                        <Clock className="w-3 h-3" />
-                        <span>Just now</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Ethereum Analysis Card */}
-                <div className="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-slate-800 dark:to-slate-700 rounded-2xl p-4 border border-green-500/20 shadow-lg">
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center">
-                        <span className="text-gray-800 dark:text-white font-bold text-sm">ETH</span>
-                      </div>
-                      <div>
-                        <div className="text-gray-800 dark:text-white font-semibold">Ethereum</div>
-                        <div className="text-gray-600 dark:text-gray-400 text-sm">ETH/USD</div>
-                      </div>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-gray-800 dark:text-white font-bold text-lg">
-                        {isDataLoading ? (
-                          <div className="flex items-center space-x-2">
-                            <div className="w-4 h-4 border-2 border-green-400 border-t-transparent rounded-full animate-spin"></div>
-                            <span>Loading...</span>
-                          </div>
-                        ) : (
-                          <div className="flex items-center space-x-2">
-                            <span>${ethData.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
-                            <div className="w-2 h-2 bg-green-400 rounded-full" title="Real Data (Static)"></div>
-                          </div>
-                        )}
-                      </div>
-                      <div className={`text-sm flex items-center ${ethData.changePercent >= 0 ? 'text-green-400' : 'text-red-400'}`}>
-                        {!isDataLoading && (
-                          <>
-                            {ethData.changePercent >= 0 ? <TrendingUp className="w-3 h-3 mr-1" /> : <TrendingDown className="w-3 h-3 mr-1" />}
-                            {`${ethData.changePercent >= 0 ? '+' : ''}${ethData.changePercent.toFixed(2)}%`}
-                          </>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Ethereum Price Chart */}
-                  <div className="h-16 mb-3 relative">
-                    <svg className="w-full h-full" viewBox="0 0 200 60">
-                      <path
-                        d="M0,50 L20,45 L40,40 L60,35 L80,30 L100,25 L120,30 L140,35 L160,40 L180,45 L200,50"
-                        stroke="#06b6d4"
-                        strokeWidth="2"
-                        fill="none"
-                        opacity="0.6"
-                      />
-                    </svg>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <div>
-                      <div className="text-gray-600 dark:text-gray-400 text-xs mb-1">Success Probability</div>
-                      <div className="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-2">
-                        <div className="bg-orange-500 h-2 rounded-full" style={{width: '35%'}}></div>
-                      </div>
-                      <div className="text-orange-600 dark:text-orange-400 text-xs mt-1">35%</div>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2">
-                        <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs">✓</span>
-                        </div>
-                        <span className="text-gray-800 dark:text-white text-sm">Weak Downtrend</span>
-                      </div>
-                      <div className="flex items-center space-x-1 text-gray-600 dark:text-gray-400 text-xs">
-                        <Clock className="w-3 h-3" />
-                        <span>Just now</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              {/* Premium Navigation Arrows - Hidden */}
+              <button 
+                type="button" 
+                onClick={prevSlide} 
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm text-gray-700 dark:text-gray-300 w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 opacity-0 z-20 border border-gray-200/50 dark:border-gray-700/50"
+              >
+                <i className="fas fa-chevron-left text-lg"></i>
+              </button>
               
-              {/* Market Trend Section */}
-              <div className="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-slate-800 dark:to-slate-700 rounded-2xl p-4 border border-green-500/20 shadow-lg mt-4">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center">
-                      <BarChart3 className="w-4 h-4 text-green-600 dark:text-green-400" />
-                    </div>
-                    <span className={`font-semibold ${
-                      marketTrend === 'Bullish' ? 'text-green-600 dark:text-green-400' : 
-                      marketTrend === 'Bearish' ? 'text-red-600 dark:text-red-400' : 
-                      'text-yellow-600 dark:text-yellow-400'
-                    }`}>
-                      Market Trend: {marketTrend}
-                    </span>
-                  </div>
-                  <button className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors ">
-                    View Full Analysis
-                  </button>
-                </div>
+              <button 
+                type="button" 
+                onClick={nextSlide} 
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm text-gray-700 dark:text-gray-300 w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 opacity-0 z-20 border border-gray-200/50 dark:border-gray-700/50"
+              >
+                <i className="fas fa-chevron-right text-lg"></i>
+              </button>
+
+              {/* Premium Dots Indicator */}
+              <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex items-center space-x-3 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-gray-200/50 dark:border-gray-700/50">
+                <button 
+                  type="button" 
+                  onClick={() => showSlide(1)} 
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${currentSlide === 1 ? 'bg-emerald-600 scale-125' : 'bg-gray-400 hover:bg-gray-500'}`}
+                ></button>
+                <button 
+                  type="button" 
+                  onClick={() => showSlide(2)} 
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${currentSlide === 2 ? 'bg-emerald-600 scale-125' : 'bg-gray-400 hover:bg-gray-500'}`}
+                ></button>
+                <button 
+                  type="button" 
+                  onClick={() => showSlide(3)} 
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${currentSlide === 3 ? 'bg-emerald-600 scale-125' : 'bg-gray-400 hover:bg-gray-500'}`}
+                ></button>
               </div>
 
+              {/* Premium Overlay Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none"></div>
+            </div>
+
+            {/* Premium Stats Overlay */}
+            <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 rounded-2xl px-6 py-4 shadow-xl">
+              <div className="flex items-center space-x-6 text-center">
+                <div>
+                  <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400" style={{fontFamily: 'Pier Sans, sans-serif'}}>98.5%</div>
+                  <p className="text-xs text-gray-600 dark:text-gray-400 font-medium">Win Rate</p>
+                </div>
+                <div className="w-px h-8 bg-gray-300 dark:bg-gray-600"></div>
+                <div>
+                  <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400" style={{fontFamily: 'Pier Sans, sans-serif'}}>6+</div>
+                  <p className="text-xs text-gray-600 dark:text-gray-400 font-medium">Months</p>
+                </div>
+                <div className="w-px h-8 bg-gray-300 dark:bg-gray-600"></div>
+                <div>
+                  <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400" style={{fontFamily: 'Pier Sans, sans-serif'}}>$230k+</div>
+                  <p className="text-xs text-gray-600 dark:text-gray-400 font-medium">Profits</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

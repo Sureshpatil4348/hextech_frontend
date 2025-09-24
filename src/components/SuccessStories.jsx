@@ -39,7 +39,7 @@ const SuccessStories = () => {
         type: "telegram",
         content: "EUR/USD Alert: Strong RSI divergence detected. Entry: 1.0850"
       },
-      pullQuote: "FXLabs paid for itself in my first week.",
+      pullQuote: "HEXTECH ALGO paid for itself in my first week.",
       profit: "+$12,500 in 30 days"
     },
     {
@@ -108,7 +108,7 @@ const SuccessStories = () => {
           </h2>
           
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            See how real traders transformed their results with <span className="text-emerald-600 dark:text-emerald-400 font-semibold">FXLabs.AI</span> - 
+            See how real traders transformed their results with <span className="text-emerald-600 dark:text-emerald-400 font-semibold">HEXTECH ALGO</span> - 
             from missed opportunities to <span className="text-green-600 dark:text-green-400 font-semibold">consistent profits</span>
           </p>
         </div>

@@ -1,13 +1,15 @@
 import React from 'react'
 
 import { useAuth } from '../auth/AuthProvider'
+import FAQSection from '../components/FAQSection'
 import HeroSection from '../components/HeroSection'
 import InteractiveFooter from '../components/InteractiveFooter'
 import Navbar from '../components/Navbar'
 import SubscriptionSection from '../components/SubscriptionSection'
-import SuccessStories from '../components/SuccessStories'
-import TradingDashboardSection from '../components/TradingDashboardSection'
+// import SuccessStories from '../components/SuccessStories'
+// import TradingDashboardSection from '../components/TradingDashboardSection'
 import VideoExplanationSection from '../components/VideoExplanationSection'
+import WhySystemWorks from '../components/WhySystemWorks'
 
 
 const Home = () => {
@@ -104,10 +106,15 @@ const Home = () => {
           <HeroSection />
         </div>
 
-        {/* Trading Dashboard Section */}
-        <div id="trading-dashboard">
-          <TradingDashboardSection />
+        {/* Why Our Trading System Works Section */}
+        <div id="why-system-works">
+          <WhySystemWorks />
         </div>
+
+        {/* Trading Dashboard Section - Commented Out */}
+        {/* <div id="trading-dashboard">
+          <TradingDashboardSection />
+        </div> */}
 
         {/* Video Explanation Section */}
         <div id="video-explanation">
@@ -119,10 +126,15 @@ const Home = () => {
           <SubscriptionSection />
         </div>
 
-        {/* Success Stories Section */}
+        {/* FAQ Section */}
+        <div id="faq">
+          <FAQSection />
+        </div>
+
+        {/* Success Stories Section
         <div id="success-stories">
           <SuccessStories />
-        </div>
+        </div> */}
 
         {/* Interactive Footer */}
         <InteractiveFooter />
