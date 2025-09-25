@@ -12,8 +12,7 @@ const Navbar = () => {
   const { isDarkMode, toggleTheme } = useTheme()
   const location = useLocation()
   const isOnDashboard = location.pathname === '/dashboard'
-  const isOnTools = location.pathname === '/tools'
-  const isOnProtectedPage = isOnDashboard || isOnTools
+  const isOnProtectedPage = isOnDashboard
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [_liveMarketData, _setLiveMarketData] = useState({
@@ -56,17 +55,27 @@ const Navbar = () => {
               <div className="flex justify-between items-center h-12">
                 {/* Logo Section - Raw Logo */}
                 <div className="flex items-center">
-                  <a 
-                    href="/" 
-                    className="group" 
-                    onClick={() => window.scrollTo(0, 0)}
-                  >
-                    <img 
-                      src={isDarkMode ? require('../assets/black.png') : require('../assets/white.png')} 
-                      alt="HEXTECH ALGO Logo" 
-                      className="w-30 h-30 sm:w-30 sm:h-30 md:w-32 md:h-32 object-contain transition-all duration-300 group-hover:scale-105"
-                    />
-                  </a>
+                  {isOnProtectedPage ? (
+                    <div className="group cursor-default">
+                      <img 
+                        src={isDarkMode ? require('../assets/black.png') : require('../assets/white.png')} 
+                        alt="HEXTECH ALGO Logo" 
+                        className="w-30 h-30 sm:w-30 sm:h-30 md:w-32 md:h-32 object-contain transition-all duration-300"
+                      />
+                    </div>
+                  ) : (
+                    <a 
+                      href="/" 
+                      className="group" 
+                      onClick={() => window.scrollTo(0, 0)}
+                    >
+                      <img 
+                        src={isDarkMode ? require('../assets/black.png') : require('../assets/white.png')} 
+                        alt="HEXTECH ALGO Logo" 
+                        className="w-30 h-30 sm:w-30 sm:h-30 md:w-32 md:h-32 object-contain transition-all duration-300 group-hover:scale-105"
+                      />
+                    </a>
+                  )}
                 </div>
             
                 {/* Center Section - Navigation Links */}
@@ -103,34 +112,7 @@ const Navbar = () => {
                     </>
                   )}
 
-                  {/* Analysis and Tools buttons - only show on protected pages */}
-                  {isOnProtectedPage && (
-                    <>
-                      <Link
-                        to="/dashboard"
-                        className={`flex items-center space-x-2 transition-all duration-300 group px-4 py-2 rounded-full ${
-                          isOnDashboard 
-                            ? 'bg-blue-500/30 text-blue-800 dark:text-blue-300 border border-blue-400/50' 
-                            : 'text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-200 bg-white/20 dark:bg-gray-800/20 hover:bg-white/30 dark:hover:bg-gray-700/30'
-                        }`}
-                      >
-                        <BarChart3 className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
-                        <span className="font-medium text-sm">Analysis</span>
-                      </Link>
-
-                      <Link
-                        to="/tools"
-                        className={`flex items-center space-x-2 transition-all duration-300 group px-4 py-2 rounded-full ${
-                          isOnTools 
-                            ? 'bg-purple-500/30 text-purple-800 dark:text-purple-300 border border-purple-400/50' 
-                            : 'text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-200 bg-white/20 dark:bg-gray-800/20 hover:bg-white/30 dark:hover:bg-gray-700/30'
-                        }`}
-                      >
-                        <Settings className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
-                        <span className="font-medium text-sm">Tools</span>
-                      </Link>
-                    </>
-                  )}
+                  {/* Protected page uses in-page tabs; no per-URL nav needed */}
 
                   {/* Dashboard (for logged in users) - only show when NOT on protected pages */}
                   {user && !isOnProtectedPage && (

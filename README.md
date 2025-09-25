@@ -4,6 +4,10 @@ A comprehensive forex trading dashboard with real-time market data, RSI analysis
 
 ## Recent Updates
 
+### UI Alignment & Routing Fix (Latest)
+- Centered Dashboard tabs (Analysis/Tools) horizontally for better usability.
+- Prevented unintended navigation to Home when on Dashboard by disabling the navbar logo link on protected pages.
+
 ### Lot Size Calculator (Latest)
 - **LOT SIZE CALCULATOR**: Created comprehensive lot size calculator for professional trading position sizing:
   - **Multi-Instrument Support**: Supports Forex, Commodities, and Cryptocurrency trading
@@ -26,7 +30,7 @@ A comprehensive forex trading dashboard with real-time market data, RSI analysis
     - **Real-time Validation**: Immediate feedback on input errors
     - **Calculation Results**: Clear display of position size, risk amount, and calculation formula
     - **Risk Management Tips**: Built-in educational content for proper risk management
-  - **Tools Page Integration**: Seamlessly integrated into Tools page with tabbed interface:
+  - **Tools Tab Integration**: Available under the Dashboard as a tabbed section:
     - **Tab Navigation**: Switch between Trading Charts and Lot Size Calculator
     - **Responsive Layout**: Adapts to all screen sizes with proper spacing
     - **Dark Mode Support**: Full dark mode compatibility with consistent styling
@@ -51,7 +55,7 @@ A comprehensive forex trading dashboard with real-time market data, RSI analysis
   - **Responsive Design**: Fully responsive layout that adapts to all screen sizes
   - **Loading States**: Professional loading indicators and error handling
   - **Widget Recreation**: Dynamic widget recreation with proper cleanup and memory management
-- **TOOLS PAGE ENHANCEMENT**: Updated Tools page with TradingView widget integration:
+- **TOOLS TAB ENHANCEMENT**: Updated Tools tab (under Dashboard) with TradingView widget integration:
   - **Professional Layout**: Clean, modern design with proper spacing and typography
   - **Widget Integration**: Full-featured TradingView widget as the main tool
   - **Additional Tools Placeholder**: Grid layout for future trading tools (Portfolio Tracker, Risk Calculator, Signal Generator)
@@ -71,20 +75,15 @@ A comprehensive forex trading dashboard with real-time market data, RSI analysis
   - **Event Handling**: Proper event listeners and cleanup
   - **CSS Integration**: Tailwind CSS classes for consistent styling
 
-### Dashboard Navigation Enhancement
-- **PREMIUM NAVIGATION BUTTONS**: Added centered premium navigation buttons in Dashboard for seamless switching between Analysis and Tools sections:
-  - **Analysis Button**: Blue gradient button that navigates to `/dashboard` (current analysis dashboard)
-  - **Tools Button**: Purple gradient button that navigates to `/tools` (new tools page)
-  - **Compact Design**: Premium-styled buttons with hover effects, shadows, and smooth transitions
-  - **Responsive Layout**: Buttons are centered and properly spaced for all screen sizes
-  - **Visual Feedback**: Hover effects with scale transformation and enhanced shadows
-- **NEW TOOLS PAGE**: Created dedicated Tools page (`/tools`) with:
-  - **TradingView Integration**: Full-featured TradingView widget as the main trading tool
-  - **Professional Design**: Clean, modern layout with proper spacing and typography
-  - **Protected Route**: Tools page is protected and requires user authentication
-  - **Navigation Integration**: Seamlessly integrated with existing routing system
-- **ROUTING ENHANCEMENT**: Updated App.js to include Tools route with proper protection
-- **USER EXPERIENCE**: Enhanced navigation flow between Analysis and Tools sections with premium button styling
+### Dashboard Tabs Enhancement
+- **IN-PAGE TABS**: Added in-page tabs within the Dashboard for seamless switching between Analysis and Tools — no separate URLs.
+  - **Analysis Tab**: Default dashboard with charts, AI news, currency strength, and RSI tracker
+  - **Tools Tab**: Lot Size Calculator, Multi Time Analysis, and Multi‑Indicator Heatmap
+  - **Compact Design**: Premium-styled tabs with hover effects, shadows, and smooth transitions
+  - **Responsive Layout**: Tabs are accessible and properly spaced across screen sizes
+  - **Visual Feedback**: Active tab highlighting with clear visual cues
+- **ROUTING SIMPLIFICATION**: Removed the `/tools` route; everything now lives under `/dashboard`.
+- **USER EXPERIENCE**: Cleaner navigation with a unified dashboard surface
 
 ### HeroSection Text Dark Mode Support
 - **DARK MODE TEXT ENHANCEMENT**: Updated hero section text elements for comprehensive dark mode compatibility:
@@ -834,7 +833,7 @@ function MyComponent() {
 
 ### Integration
 
-The TradingView Widget is integrated into the Tools page (`/tools`) and provides:
+The TradingView Widget is integrated into the Tools tab within the Dashboard (`/dashboard`) and provides:
 - **Professional Trading Interface**: Full-featured TradingView charts as the main trading tool
 - **Consistent Styling**: Matches existing dashboard design with dark mode support
 - **Responsive Layout**: Adapts to different screen sizes and orientations
