@@ -314,8 +314,8 @@ const CurrencyStrengthMeter = () => {
 
   return (
     <div className="card z-10 relative h-full flex flex-col">
-      {/* Fixed Header Section */}
-      <div className="flex-shrink-0">
+      {/* Scrollable Content Area - Now includes header */}
+      <div className="flex-1 overflow-y-auto min-h-0 max-h-96">
         {/* Header */}
         <div className="widget-header flex items-center justify-between mb-2">
         <div>
@@ -369,10 +369,6 @@ const CurrencyStrengthMeter = () => {
           );
         })}
         </div>
-      </div>
-
-      {/* Scrollable Content Area */}
-      <div className="flex-1 overflow-y-auto min-h-0">
         {strengthData.length > 0 ? (
           <>
             {viewMode === 'bars' && (

@@ -9,6 +9,8 @@ import Dashboard from './pages/Dashboard';
 import ForgotPassword from './pages/ForgotPassword';
 import Home from './pages/Home';
 import Reset from './pages/Reset';
+import Tools from './pages/Tools';
+
 
 function App() {
   const { loading } = useAuth();
@@ -36,6 +38,11 @@ function App() {
         <Route path="/dashboard" element={
           <ProtectedRoute>
             <Dashboard />
+          </ProtectedRoute>
+        } />
+        <Route path="/tools" element={
+          <ProtectedRoute>
+            <Tools />
           </ProtectedRoute>
         } />
         <Route path="/change-password" element={

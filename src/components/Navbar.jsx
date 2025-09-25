@@ -12,6 +12,8 @@ const Navbar = () => {
   const { isDarkMode, toggleTheme } = useTheme()
   const location = useLocation()
   const isOnDashboard = location.pathname === '/dashboard'
+  const isOnTools = location.pathname === '/tools'
+  const isOnProtectedPage = isOnDashboard || isOnTools
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [_liveMarketData, _setLiveMarketData] = useState({
@@ -69,8 +71,8 @@ const Navbar = () => {
             
                 {/* Center Section - Navigation Links */}
                 <div className="hidden lg:flex flex-1 justify-center items-center space-x-6">
-                  {/* Only show these navigation items when NOT on dashboard */}
-                  {!isOnDashboard && (
+                  {/* Only show these navigation items when NOT on protected pages */}
+                  {!isOnProtectedPage && (
                     <>
                       {/* Features */}
                       <button
@@ -101,8 +103,37 @@ const Navbar = () => {
                     </>
                   )}
 
-                  {/* Dashboard (for logged in users) - only show when NOT on dashboard */}
-                  {user && !isOnDashboard && (
+                  {/* Analysis and Tools buttons - only show on protected pages */}
+                  {isOnProtectedPage && (
+                    <>
+                      <Link
+                        to="/dashboard"
+                        className={`flex items-center space-x-2 transition-all duration-300 group px-4 py-2 rounded-full ${
+                          isOnDashboard 
+                            ? 'bg-blue-500/30 text-blue-800 dark:text-blue-300 border border-blue-400/50' 
+                            : 'text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-200 bg-white/20 dark:bg-gray-800/20 hover:bg-white/30 dark:hover:bg-gray-700/30'
+                        }`}
+                      >
+                        <BarChart3 className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
+                        <span className="font-medium text-sm">Analysis</span>
+                      </Link>
+
+                      <Link
+                        to="/tools"
+                        className={`flex items-center space-x-2 transition-all duration-300 group px-4 py-2 rounded-full ${
+                          isOnTools 
+                            ? 'bg-purple-500/30 text-purple-800 dark:text-purple-300 border border-purple-400/50' 
+                            : 'text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-200 bg-white/20 dark:bg-gray-800/20 hover:bg-white/30 dark:hover:bg-gray-700/30'
+                        }`}
+                      >
+                        <Settings className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
+                        <span className="font-medium text-sm">Tools</span>
+                      </Link>
+                    </>
+                  )}
+
+                  {/* Dashboard (for logged in users) - only show when NOT on protected pages */}
+                  {user && !isOnProtectedPage && (
                     <Link
                       to="/dashboard"
                       className="flex items-center space-x-2 text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-200 transition-all duration-300 group bg-white/20 dark:bg-gray-800/20 px-4 py-2 rounded-full hover:bg-white/30 dark:hover:bg-gray-700/30"
@@ -117,7 +148,7 @@ const Navbar = () => {
                 <div className="flex items-center space-x-3">
                   
                   {/* Market is Live Pill - Only show on landing page */}
-                  {!isOnDashboard && (
+                  {!isOnProtectedPage && (
                     <div className="hidden sm:flex items-center space-x-2">
                       <div className="flex items-center space-x-2 bg-green-500/20 text-green-800 dark:text-green-300 px-3 py-1.5 rounded-full border border-green-400/30 backdrop-blur-sm">
                         <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
@@ -181,7 +212,7 @@ const Navbar = () => {
             <div className="px-6 py-4">
               {/* Simple Menu List */}
               <div className="space-y-2">
-                {!isOnDashboard && (
+                {!isOnProtectedPage && (
                   <>
                     <button
                       onClick={() => scrollToSection('trading-dashboard')}
@@ -209,7 +240,7 @@ const Navbar = () => {
                   </>
                 )}
 
-                {user && !isOnDashboard && (
+                {user && !isOnProtectedPage && (
                   <Link
                     to="/dashboard"
                     className="flex items-center space-x-3 w-full text-left text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-200 transition-all duration-300 py-3 px-4 rounded-full hover:bg-white/20 dark:hover:bg-gray-800/20"
