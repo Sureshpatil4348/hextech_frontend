@@ -4,7 +4,89 @@ A comprehensive forex trading dashboard with real-time market data, RSI analysis
 
 ## Recent Updates
 
-### HeroSection Text Dark Mode Support (Latest)
+### Lot Size Calculator (Latest)
+- **LOT SIZE CALCULATOR**: Created comprehensive lot size calculator for professional trading position sizing:
+  - **Multi-Instrument Support**: Supports Forex, Commodities, and Cryptocurrency trading
+  - **Advanced Calculations**: Implements proper formulas for each instrument type:
+    - **Forex**: Lot Size = (Account Balance × Risk %) ÷ (Stop Loss (pips) × Pip Value)
+    - **Commodities**: Lot Size = (Account Balance × Risk %) ÷ (Stop Loss (price difference) × Contract Size)
+    - **Cryptocurrency**: Position Size = (Account Balance × Risk %) ÷ Stop Loss (price difference)
+  - **Instrument Configurations**: Pre-configured settings for major trading instruments:
+    - **Forex Pairs**: EUR/USD, GBP/USD, USD/JPY, USD/CHF, AUD/USD, USD/CAD, NZD/USD
+    - **Commodities**: Gold (XAU/USD), Silver (XAG/USD), Crude Oil (WTI), Brent Oil, Natural Gas
+    - **Cryptocurrencies**: BTC/USD, ETH/USD, LTC/USD, XRP/USD, ADA/USD
+  - **Risk Management**: Built-in risk management features with proper validation:
+    - Account balance validation (must be > 0)
+    - Risk percentage validation (0.1% to 100%)
+    - Stop loss validation (must be > 0)
+    - Current price requirement for crypto calculations
+  - **Professional UI/UX**: Modern, responsive design with:
+    - **Instrument Type Selection**: Visual cards for Forex, Commodities, and Crypto
+    - **Dynamic Form Fields**: Form adapts based on selected instrument type
+    - **Real-time Validation**: Immediate feedback on input errors
+    - **Calculation Results**: Clear display of position size, risk amount, and calculation formula
+    - **Risk Management Tips**: Built-in educational content for proper risk management
+  - **Tools Page Integration**: Seamlessly integrated into Tools page with tabbed interface:
+    - **Tab Navigation**: Switch between Trading Charts and Lot Size Calculator
+    - **Responsive Layout**: Adapts to all screen sizes with proper spacing
+    - **Dark Mode Support**: Full dark mode compatibility with consistent styling
+  - **Educational Features**: Comprehensive trading education:
+    - **Formula Display**: Shows exact calculation formulas for transparency
+    - **Risk Management Tips**: Built-in tips for proper position sizing
+    - **Instrument-Specific Guidance**: Tailored advice for each trading instrument type
+  - **Technical Implementation**:
+    - **React Hooks**: Uses useState and useEffect for state management
+    - **Form Validation**: Comprehensive client-side validation with error handling
+    - **Dynamic Configuration**: Instrument-specific settings and calculations
+    - **Responsive Design**: Mobile-first design with Tailwind CSS
+    - **Accessibility**: Proper ARIA labels and keyboard navigation support
+
+### TradingView Widget Integration
+- **TRADINGVIEW WIDGET COMPONENT**: Created comprehensive TradingView widget component with advanced features:
+  - **Real-time Charts**: Professional TradingView charts with live market data
+  - **Symbol Selection**: Support for major currency pairs, stocks, and cryptocurrencies (OANDA, NASDAQ, BINANCE)
+  - **Interval Controls**: Multiple timeframe options from 1 minute to 1 month
+  - **Dark Theme**: Native dark theme integration matching dashboard design
+  - **Technical Indicators**: Built-in RSI indicator and comprehensive charting tools
+  - **Responsive Design**: Fully responsive layout that adapts to all screen sizes
+  - **Loading States**: Professional loading indicators and error handling
+  - **Widget Recreation**: Dynamic widget recreation with proper cleanup and memory management
+- **TOOLS PAGE ENHANCEMENT**: Updated Tools page with TradingView widget integration:
+  - **Professional Layout**: Clean, modern design with proper spacing and typography
+  - **Widget Integration**: Full-featured TradingView widget as the main tool
+  - **Additional Tools Placeholder**: Grid layout for future trading tools (Portfolio Tracker, Risk Calculator, Signal Generator)
+  - **Consistent Styling**: Matches existing dashboard design with dark mode support
+- **COMPONENT FEATURES**:
+  - **Script Loading**: Dynamic TradingView script loading with error handling
+  - **Symbol Options**: 10+ major trading symbols including forex, stocks, and crypto
+  - **Interval Options**: 8 different timeframes from 1m to 1M
+  - **Control Panel**: User-friendly dropdowns for symbol and interval selection
+  - **Load Button**: Manual widget recreation with loading states
+  - **Memory Management**: Proper cleanup and widget destruction on unmount
+  - **Error Handling**: Comprehensive error handling with user feedback
+- **TECHNICAL IMPLEMENTATION**:
+  - **React Hooks**: Uses useEffect for lifecycle management and cleanup
+  - **Ref Management**: Proper useRef for DOM manipulation and widget control
+  - **State Management**: Local state for symbol/interval selection and loading states
+  - **Event Handling**: Proper event listeners and cleanup
+  - **CSS Integration**: Tailwind CSS classes for consistent styling
+
+### Dashboard Navigation Enhancement
+- **PREMIUM NAVIGATION BUTTONS**: Added centered premium navigation buttons in Dashboard for seamless switching between Analysis and Tools sections:
+  - **Analysis Button**: Blue gradient button that navigates to `/dashboard` (current analysis dashboard)
+  - **Tools Button**: Purple gradient button that navigates to `/tools` (new tools page)
+  - **Compact Design**: Premium-styled buttons with hover effects, shadows, and smooth transitions
+  - **Responsive Layout**: Buttons are centered and properly spaced for all screen sizes
+  - **Visual Feedback**: Hover effects with scale transformation and enhanced shadows
+- **NEW TOOLS PAGE**: Created dedicated Tools page (`/tools`) with:
+  - **TradingView Integration**: Full-featured TradingView widget as the main trading tool
+  - **Professional Design**: Clean, modern layout with proper spacing and typography
+  - **Protected Route**: Tools page is protected and requires user authentication
+  - **Navigation Integration**: Seamlessly integrated with existing routing system
+- **ROUTING ENHANCEMENT**: Updated App.js to include Tools route with proper protection
+- **USER EXPERIENCE**: Enhanced navigation flow between Analysis and Tools sections with premium button styling
+
+### HeroSection Text Dark Mode Support
 - **DARK MODE TEXT ENHANCEMENT**: Updated hero section text elements for comprehensive dark mode compatibility:
   - **Status Badges**: 
     - **Green Badge**: "Say Goodbye to All-Day Chart Monitoring!" - background (green-100 → green-900/30), text (green-800 → green-300)
@@ -644,9 +726,127 @@ Run the SQL scripts provided:
 - **Currency Strength Meter**: Multi-view currency strength visualization
 - **Multi-Indicator Heatmap**: Advanced technical analysis dashboard
 - **AI News Analysis**: Intelligent news filtering and analysis
+- **TradingViewWidget**: Professional TradingView charts with real-time data and technical indicators
 - **HeatmapAlertConfig**: Alert configuration modal for multi-indicator heatmap alerts
 - **RSIAlertConfig**: Alert configuration modal for RSI Tracker alerts
 - **RSICorrelationAlertConfig**: Alert configuration modal for RSI Correlation Dashboard alerts
+
+## TradingView Widget
+
+### Overview
+
+The TradingView Widget component provides professional-grade trading charts with real-time market data, technical indicators, and advanced charting tools. It integrates seamlessly with the HEXTECH ALGO dashboard and provides a comprehensive trading analysis platform.
+
+### Key Features
+
+#### Chart Capabilities
+- **Real-time Data**: Live market data from TradingView's professional data feeds
+- **Multiple Symbols**: Support for forex, stocks, and cryptocurrency pairs
+- **Timeframe Selection**: 8 different timeframes from 1 minute to 1 month
+- **Technical Indicators**: Built-in RSI indicator with additional indicator support
+- **Professional Tools**: Full TradingView charting toolkit with drawing tools and analysis features
+
+#### Supported Symbols
+- **Forex Pairs**: XAUUSD, EURUSD, GBPUSD, USDJPY, AUDUSD, USDCAD, NZDUSD (OANDA)
+- **Stocks**: AAPL, TSLA (NASDAQ)
+- **Cryptocurrencies**: BTCUSDT (Binance)
+
+#### Supported Timeframes
+- **Short-term**: 1m, 5m, 15m
+- **Medium-term**: 1h, 4h
+- **Long-term**: 1D, 1W, 1M
+
+#### User Interface
+- **Symbol Selector**: Dropdown with 10+ major trading symbols
+- **Interval Selector**: Dropdown with 8 different timeframe options
+- **Load Button**: Manual widget recreation with loading states
+- **Dark Theme**: Native dark theme integration matching dashboard design
+- **Responsive Design**: Fully responsive layout that adapts to all screen sizes
+
+### Technical Implementation
+
+#### Component Architecture
+- **React Hooks**: Uses useEffect for lifecycle management and cleanup
+- **Ref Management**: Proper useRef for DOM manipulation and widget control
+- **State Management**: Local state for symbol/interval selection and loading states
+- **Event Handling**: Proper event listeners and cleanup
+
+#### Widget Management
+- **Script Loading**: Dynamic TradingView script loading with error handling
+- **Widget Creation**: Creates new TradingView widget instances with proper configuration
+- **Widget Recreation**: Dynamic widget recreation with proper cleanup and memory management
+- **Memory Management**: Proper cleanup and widget destruction on unmount
+
+#### Configuration Options
+```javascript
+const widgetConfig = {
+  container_id: container.id,
+  symbol: symbol,
+  interval: interval,
+  autosize: true,
+  theme: "dark",
+  style: "1", // 1 = candles
+  locale: "en",
+  withdateranges: true,
+  hide_side_toolbar: false,
+  allow_symbol_change: true,
+  studies: ["RSI@tv-basicstudies"],
+  details: true,
+  hotlist: false,
+  calendar: false,
+  toolbar_bg: "#0b0e11",
+  enable_publishing: false,
+  hide_top_toolbar: false,
+  hide_legend: false,
+  save_image: false
+};
+```
+
+### Usage Examples
+
+#### Basic Usage
+```jsx
+import TradingViewWidget from '../components/TradingViewWidget';
+
+function MyComponent() {
+  return (
+    <TradingViewWidget 
+      initialSymbol="OANDA:XAUUSD"
+      initialInterval="60"
+      height="70vh"
+      showControls={true}
+      className="w-full"
+    />
+  );
+}
+```
+
+#### Advanced Configuration
+```jsx
+<TradingViewWidget 
+  initialSymbol="BINANCE:BTCUSDT"
+  initialInterval="240"
+  height="80vh"
+  showControls={true}
+  className="trading-chart"
+/>
+```
+
+### Integration
+
+The TradingView Widget is integrated into the Tools page (`/tools`) and provides:
+- **Professional Trading Interface**: Full-featured TradingView charts as the main trading tool
+- **Consistent Styling**: Matches existing dashboard design with dark mode support
+- **Responsive Layout**: Adapts to different screen sizes and orientations
+- **Error Handling**: Comprehensive error handling with user feedback
+
+### Future Enhancements
+
+- **Additional Indicators**: Support for more technical indicators
+- **Custom Themes**: Additional theme options beyond dark mode
+- **Symbol Search**: Enhanced symbol search and selection
+- **Chart Templates**: Pre-configured chart templates for different trading strategies
+- **Data Export**: Export chart data and analysis results
 
 ## Multi-Indicator Heatmap
 
