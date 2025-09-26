@@ -10,6 +10,7 @@ import MultiTimeAnalysis from '../components/MultiTimeAnalysis'
 import Navbar from '../components/Navbar'
 import RSIOverboughtOversoldTracker from '../components/RSIOverboughtOversoldTracker'
 import TradingViewWidget from '../components/TradingViewWidget'
+import TrendingPairs from '../components/TrendingPairs'
 import useBaseMarketStore from '../store/useBaseMarketStore'
 import useMarketStore from '../store/useMarketStore'
 
@@ -25,7 +26,7 @@ const Dashboard = () => {
     const connectionAttempts = useMarketStore(state => state.globalConnectionState.connectionAttempts)
     const dashboardConnections = useMarketStore(state => state.globalConnectionState.dashboardConnections)
 
-  const { loadTabState, tabStateHasLoaded: _tabStateHasLoaded } = useBaseMarketStore();
+    const { loadTabState, tabStateHasLoaded: _tabStateHasLoaded } = useBaseMarketStore();
 
     React.useEffect(() => {
       // Only reset if we're dealing with a different user
@@ -170,8 +171,8 @@ const Dashboard = () => {
             <>
               {/* Tools Tab Content */}
               <div className="h-full flex flex-col gap-2">
-                {/* Grid Layout - Top Two Sections */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 flex-1 min-h-0">
+                {/* Grid Layout - Top Three Sections */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 flex-1 min-h-0">
                   {/* Top Left - Lot Size Calculator */}
                   <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden p-2">
                     <div className="h-full overflow-y-auto">
@@ -179,10 +180,17 @@ const Dashboard = () => {
                     </div>
                   </div>
 
-                  {/* Top Right - Multi Time Analysis */}
+                  {/* Top Center - Multi Time Analysis */}
                   <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden p-2">
                     <div className="h-full overflow-y-auto">
                       <MultiTimeAnalysis />
+                    </div>
+                  </div>
+
+                  {/* Top Right - Trending Pairs */}
+                  <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden p-2">
+                    <div className="h-full overflow-y-auto">
+                      <TrendingPairs />
                     </div>
                   </div>
                 </div>

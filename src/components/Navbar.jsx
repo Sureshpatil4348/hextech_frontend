@@ -55,27 +55,17 @@ const Navbar = () => {
               <div className="flex justify-between items-center h-12">
                 {/* Logo Section - Raw Logo */}
                 <div className="flex items-center">
-                  {isOnProtectedPage ? (
-                    <div className="group cursor-default">
-                      <img 
-                        src={isDarkMode ? require('../assets/black.png') : require('../assets/white.png')} 
-                        alt="HEXTECH ALGO Logo" 
-                        className="w-30 h-30 sm:w-30 sm:h-30 md:w-32 md:h-32 object-contain transition-all duration-300"
-                      />
-                    </div>
-                  ) : (
-                    <a 
-                      href="/" 
-                      className="group" 
-                      onClick={() => window.scrollTo(0, 0)}
-                    >
-                      <img 
-                        src={isDarkMode ? require('../assets/black.png') : require('../assets/white.png')} 
-                        alt="HEXTECH ALGO Logo" 
-                        className="w-30 h-30 sm:w-30 sm:h-30 md:w-32 md:h-32 object-contain transition-all duration-300 group-hover:scale-105"
-                      />
-                    </a>
-                  )}
+                  <Link 
+                    to="/" 
+                    className="group" 
+                    onClick={() => window.scrollTo(0, 0)}
+                  >
+                    <img 
+                      src={isDarkMode ? require('../assets/black.png') : require('../assets/white.png')} 
+                      alt="HEXTECH ALGO Logo" 
+                      className="w-30 h-30 sm:w-30 sm:h-30 md:w-32 md:h-32 object-contain transition-all duration-300 group-hover:scale-105"
+                    />
+                  </Link>
                 </div>
             
                 {/* Center Section - Navigation Links */}

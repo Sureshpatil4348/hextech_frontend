@@ -323,7 +323,6 @@ export default function SubscriptionSection() {
                         {/* Bottom CTA */}
                         <div className="mt-12 text-center">
                             <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-emerald-500/10 to-blue-500/10 dark:from-emerald-500/20 dark:to-blue-500/20 border border-emerald-200/50 dark:border-emerald-500/30 rounded-full px-8 py-4 transition-colors duration-300">
-                                <div className="w-2 h-2 bg-emerald-500 dark:bg-emerald-400 rounded-full animate-pulse"></div>
                                 <p className="text-sm text-gray-700 dark:text-gray-300 font-medium transition-colors duration-300">
                                     Ready to join our community of successful traders?
                                 </p>
@@ -355,10 +354,6 @@ export default function SubscriptionSection() {
                 <div className="w-full h-full bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg transform rotate-45"></div>
             </div>
             
-            {/* Animated Trading Lines */}
-            <div className="absolute top-1/4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent animate-pulse"></div>
-            <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent animate-pulse delay-1000"></div>
-            <div className="absolute top-3/4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent animate-pulse delay-2000"></div>
         </div>
 
         <div className="container mx-auto max-w-7xl relative z-10">
@@ -408,10 +403,6 @@ export default function SubscriptionSection() {
                                             </defs>
                                         </svg>
                                     </div>
-                                    {/* Floating Numbers */}
-                                    <div className="absolute top-2 right-2 text-emerald-600 dark:text-emerald-400 font-medium text-sm animate-bounce">
-                                        +$2,847
-                                    </div>
                                 </div>
                             </div>
                             
@@ -447,10 +438,6 @@ export default function SubscriptionSection() {
                                                 </linearGradient>
                                             </defs>
                                         </svg>
-                                    </div>
-                                    {/* Floating Numbers */}
-                                    <div className="absolute top-2 right-2 text-blue-600 dark:text-blue-400 font-medium text-sm animate-bounce delay-500">
-                                        +$4,231
                                     </div>
                                 </div>
                             </div>
@@ -488,10 +475,6 @@ export default function SubscriptionSection() {
                                             </defs>
                                         </svg>
                                     </div>
-                                    {/* Floating Numbers */}
-                                    <div className="absolute top-2 right-2 text-purple-600 dark:text-purple-400 font-medium text-sm animate-bounce delay-1000">
-                                        +$3,156
-                                    </div>
                                 </div>
                             </div>
                             
@@ -526,7 +509,6 @@ export default function SubscriptionSection() {
             {/* Disclaimer */}
             <div className="mt-12 text-center">
                 <div className="inline-flex items-center space-x-2 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full px-6 py-3">
-                    <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
                     <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
                         *These are real trading results from our clients. Trading involves substantial risk of loss and is not suitable for everyone. Past performance is not indicative of future results.
                     </p>

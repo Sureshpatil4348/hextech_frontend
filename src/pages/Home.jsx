@@ -19,83 +19,72 @@ const Home = () => {
 
   return (
     <div className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:bg-gradient-to-br dark:from-gray-900 dark:via-black dark:to-gray-900 transition-colors duration-300">
-      {/* Matrix-Style Animated Background Elements */}
+      {/* Professional Trading Background Elements */}
       <div className="absolute inset-0">
-        {/* Floating Particles */}
-        <div className="absolute top-20 left-10 w-4 h-4 bg-green-400 rounded-full animate-pulse opacity-60"></div>
-        <div className="absolute top-40 right-20 w-6 h-6 bg-blue-400 rounded-full animate-bounce opacity-40"></div>
-        <div className="absolute bottom-40 left-20 w-3 h-3 bg-yellow-400 rounded-full animate-ping opacity-50"></div>
-        <div className="absolute top-60 right-40 w-5 h-5 bg-purple-400 rounded-full animate-pulse opacity-30"></div>
         
-        {/* Matrix Grid Pattern */}
-        <div className="absolute inset-0 opacity-20">
+        {/* Subtle Geometric Grid - Dark Mode */}
+        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.08]">
           <div className="w-full h-full" style={{
             backgroundImage: `
-              linear-gradient(rgba(16, 185, 129, 0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(16, 185, 129, 0.1) 1px, transparent 1px)
+              linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)
             `,
-            backgroundSize: '50px 50px',
-            animation: 'gridMove 20s linear infinite'
+            backgroundSize: '80px 80px'
           }}></div>
         </div>
         
-        {/* Light Mode Matrix Grid Pattern */}
-        <div className="absolute inset-0 opacity-10 dark:opacity-0">
+        {/* Subtle Geometric Grid - Light Mode */}
+        <div className="absolute inset-0 opacity-[0.05] dark:opacity-0">
           <div className="w-full h-full" style={{
             backgroundImage: `
-              linear-gradient(rgba(75, 85, 99, 0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(75, 85, 99, 0.1) 1px, transparent 1px)
+              linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px)
             `,
-            backgroundSize: '50px 50px',
-            animation: 'gridMove 20s linear infinite'
+            backgroundSize: '80px 80px'
           }}></div>
         </div>
         
-        {/* Matrix-Style Gradient Orbs - Dark Mode */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-green-500/10 to-blue-500/10 rounded-full blur-3xl animate-pulse dark:block hidden"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-pulse delay-1000 dark:block hidden"></div>
-        <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-gradient-to-r from-yellow-500/5 to-orange-500/5 rounded-full blur-2xl animate-pulse delay-500 dark:block hidden"></div>
+        {/* Professional Gradient Overlays - Dark Mode */}
+        <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-slate-800/20 via-transparent to-transparent dark:block hidden"></div>
+        <div className="absolute bottom-0 right-0 w-full h-1/2 bg-gradient-to-t from-slate-800/20 via-transparent to-transparent dark:block hidden"></div>
         
-        {/* Matrix-Style Gradient Orbs - Light Mode */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-gray-300/20 to-gray-400/20 rounded-full blur-3xl animate-pulse block dark:hidden"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-gray-400/20 to-gray-500/20 rounded-full blur-3xl animate-pulse delay-1000 block dark:hidden"></div>
-        <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-gradient-to-r from-gray-300/15 to-gray-400/15 rounded-full blur-2xl animate-pulse delay-500 block dark:hidden"></div>
+        {/* Professional Gradient Overlays - Light Mode */}
+        <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/30 via-transparent to-transparent block dark:hidden"></div>
+        <div className="absolute bottom-0 right-0 w-full h-1/2 bg-gradient-to-t from-white/30 via-transparent to-transparent block dark:hidden"></div>
         
-        {/* Matrix Code Rain Effect - Dark Mode */}
-        <div className="absolute inset-0 opacity-5 dark:block hidden">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute text-green-400 font-mono text-xs animate-pulse"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 5}s`,
-                animationDuration: `${3 + Math.random() * 4}s`
-              }}
-            >
-              {Math.random().toString(36).substring(2, 8)}
-            </div>
-          ))}
+        {/* Subtle Trading Pattern - Dark Mode */}
+        <div className="absolute inset-0 opacity-[0.02] dark:block hidden">
+          <div className="w-full h-full" style={{
+            backgroundImage: `
+              radial-gradient(circle at 20% 20%, rgba(34, 197, 94, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 40% 60%, rgba(107, 114, 128, 0.1) 0%, transparent 50%)
+            `,
+            backgroundSize: '400px 400px, 600px 600px, 500px 500px',
+            backgroundPosition: '0% 0%, 100% 100%, 50% 50%'
+          }}></div>
         </div>
         
-        {/* Matrix Code Rain Effect - Light Mode */}
-        <div className="absolute inset-0 opacity-5 block dark:hidden">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute text-gray-500 font-mono text-xs animate-pulse"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 5}s`,
-                animationDuration: `${3 + Math.random() * 4}s`
-              }}
-            >
-              {Math.random().toString(36).substring(2, 8)}
-            </div>
-          ))}
+        {/* Subtle Trading Pattern - Light Mode */}
+        <div className="absolute inset-0 opacity-[0.03] block dark:hidden">
+          <div className="w-full h-full" style={{
+            backgroundImage: `
+              radial-gradient(circle at 20% 20%, rgba(34, 197, 94, 0.05) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+              radial-gradient(circle at 40% 60%, rgba(107, 114, 128, 0.05) 0%, transparent 50%)
+            `,
+            backgroundSize: '400px 400px, 600px 600px, 500px 500px',
+            backgroundPosition: '0% 0%, 100% 100%, 50% 50%'
+          }}></div>
         </div>
+        
+        {/* Professional Corner Accents - Dark Mode */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-emerald-500/5 via-transparent to-transparent dark:block hidden"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-blue-500/5 via-transparent to-transparent dark:block hidden"></div>
+        
+        {/* Professional Corner Accents - Light Mode */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-emerald-500/10 via-transparent to-transparent block dark:hidden"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-blue-500/10 via-transparent to-transparent block dark:hidden"></div>
       </div>
 
       <div className="relative z-10 w-full">
@@ -143,15 +132,6 @@ const Home = () => {
       {/* Bottom Gradient Fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-100 dark:from-gray-900 to-transparent transition-colors duration-300"></div>
       
-      {/* Matrix CSS Animations */}
-      <style dangerouslySetInnerHTML={{
-        __html: `
-          @keyframes gridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-          }
-        `
-      }} />
     </div>
   )
 }

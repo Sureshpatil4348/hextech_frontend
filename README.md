@@ -8,6 +8,27 @@ A comprehensive forex trading dashboard with real-time market data, RSI analysis
 - Centered Dashboard tabs (Analysis/Tools) horizontally for better usability.
 - Prevented unintended navigation to Home when on Dashboard by disabling the navbar logo link on protected pages.
 
+### Trending Pairs Component (Latest)
+- **TRENDING PAIRS**: Renamed and enhanced High Value Pairs component to Trending Pairs with advanced RSI tracker integration:
+  - **Component Rename**: HighValuePairs → TrendingPairs for better semantic meaning
+  - **RSI Tracker Integration**: Now uses RSI tracker store for real-time market data and daily change calculations
+  - **Advanced Trending Analysis**: Combines multiple factors for trending score calculation:
+    - **Daily Change Percentage**: Absolute daily price movement (50% weight)
+    - **RSI Momentum**: Distance from RSI 50 level (30% weight) 
+    - **RFI Score**: Risk-Flow Imbalance analysis (20% weight)
+  - **Smart Filtering**: Only shows pairs with significant movement or strong signals:
+    - Daily change ≥ 0.5% OR RSI momentum ≥ 0.3 OR RFI score ≥ 0.7
+  - **Enhanced Display**: Shows comprehensive trading information:
+    - **Daily Change**: Color-coded percentage with proper sign (+/-)
+    - **RSI Status**: Color-coded RSI values (red ≥70, green ≤30, yellow neutral)
+    - **RFI Strength**: Strong/Moderate/Weak indicators with color coding
+    - **Trending Score**: Combined score for ranking trending pairs
+  - **Real-time Updates**: Automatically updates when RSI tracker data changes
+  - **Connection Status**: Shows connection status and loading states
+  - **Dashboard Integration**: Added to Tools tab in 3-column layout alongside Lot Size Calculator and Multi Time Analysis
+  - **Professional UI**: Clean, modern design with proper spacing and hover effects
+  - **Responsive Design**: Adapts to all screen sizes with proper mobile layout
+
 ### Lot Size Calculator (Latest)
 - **LOT SIZE CALCULATOR**: Created comprehensive lot size calculator for professional trading position sizing:
   - **Multi-Instrument Support**: Supports Forex, Commodities, and Cryptocurrency trading
@@ -55,10 +76,11 @@ A comprehensive forex trading dashboard with real-time market data, RSI analysis
   - **Responsive Design**: Fully responsive layout that adapts to all screen sizes
   - **Loading States**: Professional loading indicators and error handling
   - **Widget Recreation**: Dynamic widget recreation with proper cleanup and memory management
-- **TOOLS TAB ENHANCEMENT**: Updated Tools tab (under Dashboard) with TradingView widget integration:
+- **TOOLS TAB ENHANCEMENT**: Updated Tools tab (under Dashboard) with comprehensive trading tools:
   - **Professional Layout**: Clean, modern design with proper spacing and typography
-  - **Widget Integration**: Full-featured TradingView widget as the main tool
-  - **Additional Tools Placeholder**: Grid layout for future trading tools (Portfolio Tracker, Risk Calculator, Signal Generator)
+  - **Three-Column Grid**: Lot Size Calculator, Multi Time Analysis, and Trending Pairs
+  - **TradingView Widget**: Full-featured TradingView widget as the main tool
+  - **Multi-Indicator Heatmap**: Advanced technical analysis dashboard at the bottom
   - **Consistent Styling**: Matches existing dashboard design with dark mode support
 - **COMPONENT FEATURES**:
   - **Script Loading**: Dynamic TradingView script loading with error handling
@@ -78,7 +100,7 @@ A comprehensive forex trading dashboard with real-time market data, RSI analysis
 ### Dashboard Tabs Enhancement
 - **IN-PAGE TABS**: Added in-page tabs within the Dashboard for seamless switching between Analysis and Tools — no separate URLs.
   - **Analysis Tab**: Default dashboard with charts, AI news, currency strength, and RSI tracker
-  - **Tools Tab**: Lot Size Calculator, Multi Time Analysis, and Multi‑Indicator Heatmap
+  - **Tools Tab**: Three-column layout with Lot Size Calculator, Multi Time Analysis, Trending Pairs, and Multi‑Indicator Heatmap
   - **Compact Design**: Premium-styled tabs with hover effects, shadows, and smooth transitions
   - **Responsive Layout**: Tabs are accessible and properly spaced across screen sizes
   - **Visual Feedback**: Active tab highlighting with clear visual cues
