@@ -76,9 +76,9 @@ const FAQSection = () => {
         {/* FAQ Items */}
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <div key={faq.id} className="group">
+            <div key={faq.id} className="group" style={{animationDelay: `${index * 0.1}s`}}>
               <div 
-                className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
+                className={`bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 ease-in-out cursor-pointer transform hover:scale-[1.02] ${openIndex === index ? 'shadow-2xl border-emerald-200/70 dark:border-emerald-700/70' : ''}`}
                 onClick={() => toggleFAQ(index)}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
@@ -94,11 +94,11 @@ const FAQSection = () => {
                 {/* Question */}
                 <div className="p-6 md:p-8">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-lg md:text-xl font-medium text-gray-900 dark:text-white pr-8 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300" style={{fontFamily: 'Pier Sans, sans-serif'}}>
+                    <h3 className={`text-lg md:text-xl font-medium pr-8 transition-all duration-500 ease-in-out ${openIndex === index ? 'text-emerald-600 dark:text-emerald-400' : 'text-gray-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400'}`} style={{fontFamily: 'Pier Sans, sans-serif'}}>
                       {faq.question}
                     </h3>
-                    <div className={`flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/10 flex items-center justify-center transition-all duration-300 ${openIndex === index ? 'rotate-180 bg-emerald-500/20' : ''}`}>
-                      <ChevronDown className={`w-5 h-5 text-emerald-600 dark:text-emerald-400 transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`} />
+                    <div className={`flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/10 flex items-center justify-center transition-all duration-500 ease-in-out ${openIndex === index ? 'bg-emerald-500/20 scale-110' : 'hover:bg-emerald-500/15 hover:scale-105'}`}>
+                      <ChevronDown className={`w-5 h-5 text-emerald-600 dark:text-emerald-400 transition-all duration-500 ease-in-out ${openIndex === index ? 'rotate-180' : 'rotate-0'}`} />
                     </div>
                   </div>
                 </div>
@@ -106,12 +106,15 @@ const FAQSection = () => {
                 {/* Answer */}
                 <div 
                   id={`faq-answer-${faq.id}`}
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${openIndex === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
                   aria-hidden={openIndex !== index}
+                  style={{
+                    transition: 'max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease-in-out, padding 0.3s ease-in-out'
+                  }}
                 >
-                  <div className="px-6 md:px-8 pb-6 md:pb-8">
+                  <div className={`px-6 md:px-8 transition-all duration-300 ease-in-out ${openIndex === index ? 'pb-6 md:pb-8 pt-0' : 'pb-0 pt-0'}`}>
                     <div className="border-t border-gray-200/50 dark:border-gray-700/50 pt-6">
-                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed transition-all duration-300 ease-in-out">
                         {faq.answer}
                       </p>
                     </div>
@@ -125,7 +128,6 @@ const FAQSection = () => {
         {/* Bottom CTA */}
         <div className="mt-12 text-center">
           <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-emerald-500/10 to-blue-500/10 border border-emerald-200/50 dark:border-emerald-700/50 rounded-full px-8 py-4">
-            <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
             <p className="text-sm text-gray-700 dark:text-gray-300 font-medium" style={{fontFamily: 'Pier Sans, sans-serif'}}>
               Still have questions? <span className="text-emerald-600 dark:text-emerald-400 font-medium" style={{fontFamily: 'Pier Sans, sans-serif'}}>Contact our support team</span>
             </p>

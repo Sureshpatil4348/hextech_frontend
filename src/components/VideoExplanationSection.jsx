@@ -157,12 +157,6 @@ const VideoExplanationSection = () => {
                   {/* Trading-themed Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                   
-                  {/* Animated Trading Lines */}
-                  <div className="absolute inset-0 opacity-20">
-                    <div className="absolute top-1/4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-500 to-transparent animate-pulse"></div>
-                    <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent animate-pulse delay-1000"></div>
-                    <div className="absolute top-3/4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500 to-transparent animate-pulse delay-2000"></div>
-                  </div>
                   
                   {/* Play Button with Trading Theme */}
                   <div className="absolute inset-0 flex items-center justify-center">

@@ -4,8 +4,76 @@ import React from 'react';
 export default function SubscriptionSection() {
   return (
     <>
-    <section id="packages" className="py-16 md:py-20 px-4 md:px-6 w-full bg-white dark:bg-gray-900 transition-colors duration-300" style={{fontFamily: 'Pier Sans, sans-serif'}}>
-        <div className="container mx-auto max-w-7xl">
+    <section id="packages" className="relative py-16 md:py-20 px-4 md:px-6 w-full bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:bg-gradient-to-br dark:from-gray-900 dark:via-black dark:to-gray-900 transition-colors duration-300" style={{fontFamily: 'Pier Sans, sans-serif'}}>
+      {/* Professional Trading Background Elements */}
+      <div className="absolute inset-0">
+        
+        {/* Subtle Geometric Grid - Dark Mode */}
+        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.08]">
+          <div className="w-full h-full" style={{
+            backgroundImage: `
+              linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '80px 80px'
+          }}></div>
+        </div>
+        
+        {/* Subtle Geometric Grid - Light Mode */}
+        <div className="absolute inset-0 opacity-[0.05] dark:opacity-0">
+          <div className="w-full h-full" style={{
+            backgroundImage: `
+              linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '80px 80px'
+          }}></div>
+        </div>
+        
+        {/* Professional Gradient Overlays - Dark Mode */}
+        <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-slate-800/20 via-transparent to-transparent dark:block hidden"></div>
+        <div className="absolute bottom-0 right-0 w-full h-1/2 bg-gradient-to-t from-slate-800/20 via-transparent to-transparent dark:block hidden"></div>
+        
+        {/* Professional Gradient Overlays - Light Mode */}
+        <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/30 via-transparent to-transparent block dark:hidden"></div>
+        <div className="absolute bottom-0 right-0 w-full h-1/2 bg-gradient-to-t from-white/30 via-transparent to-transparent block dark:hidden"></div>
+        
+        {/* Subtle Trading Pattern - Dark Mode */}
+        <div className="absolute inset-0 opacity-[0.02] dark:block hidden">
+          <div className="w-full h-full" style={{
+            backgroundImage: `
+              radial-gradient(circle at 20% 20%, rgba(34, 197, 94, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 40% 60%, rgba(107, 114, 128, 0.1) 0%, transparent 50%)
+            `,
+            backgroundSize: '400px 400px, 600px 600px, 500px 500px',
+            backgroundPosition: '0% 0%, 100% 100%, 50% 50%'
+          }}></div>
+        </div>
+        
+        {/* Subtle Trading Pattern - Light Mode */}
+        <div className="absolute inset-0 opacity-[0.03] block dark:hidden">
+          <div className="w-full h-full" style={{
+            backgroundImage: `
+              radial-gradient(circle at 20% 20%, rgba(34, 197, 94, 0.05) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+              radial-gradient(circle at 40% 60%, rgba(107, 114, 128, 0.05) 0%, transparent 50%)
+            `,
+            backgroundSize: '400px 400px, 600px 600px, 500px 500px',
+            backgroundPosition: '0% 0%, 100% 100%, 50% 50%'
+          }}></div>
+        </div>
+        
+        {/* Professional Corner Accents - Dark Mode */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-emerald-500/5 via-transparent to-transparent dark:block hidden"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-blue-500/5 via-transparent to-transparent dark:block hidden"></div>
+        
+        {/* Professional Corner Accents - Light Mode */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-emerald-500/10 via-transparent to-transparent block dark:hidden"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-blue-500/10 via-transparent to-transparent block dark:hidden"></div>
+      </div>
+      
+        <div className="container mx-auto max-w-7xl relative z-10">
             <div className="text-center mb-10 md:mb-12">
                 <h2 className="text-3xl md:text-4xl font-medium mb-4 text-gray-900 dark:text-white transition-colors duration-300" style={{fontFamily: 'Pier Sans, sans-serif'}}>Choose Your <span className="text-green-500 dark:text-green-400">Trading Edge</span></h2>
                 <p className="text-lg md:text-xl text-[#19235d] dark:text-gray-300 max-w-3xl mx-auto mb-2 transition-colors duration-300">
@@ -39,7 +107,7 @@ export default function SubscriptionSection() {
                 {/* Pricing Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-0 relative z-10">
                     {/* Silver Package */}
-                    <div className="pricing-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 md:rounded-l-2xl p-6 md:p-8 transition-all duration-300 hover:shadow-xl dark:hover:shadow-gray-900/50 hover:z-10 relative flex flex-col h-full">
+                    <div className="pricing-card bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 md:rounded-l-2xl p-6 md:p-8 transition-all duration-500 ease-in-out hover:shadow-xl dark:hover:shadow-gray-900/50 hover:z-10 relative flex flex-col h-full transform hover:scale-105">
                         <div className="absolute top-0 right-0 left-0 h-1 bg-gradient-to-r from-green-300 to-gray-300 dark:from-green-400 dark:to-gray-500"></div>
                         <div className="text-center mb-6">
                             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 dark:bg-gray-700 mb-4">
@@ -104,7 +172,7 @@ export default function SubscriptionSection() {
                     </div>
                     
                     {/* Gold Package */}
-                    <div className="pricing-card bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 md:p-8 transition-all duration-300 hover:shadow-xl dark:hover:shadow-gray-900/50 hover:z-10 relative flex flex-col h-full">
+                    <div className="pricing-card bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 p-6 md:p-8 transition-all duration-500 ease-in-out hover:shadow-xl dark:hover:shadow-gray-900/50 hover:z-10 relative flex flex-col h-full transform hover:scale-105">
                         <div className="absolute top-0 right-0 left-0 h-1 bg-gradient-to-r from-gray-200 to-gray-300 dark:from-gray-400 dark:to-gray-500"></div>
                         <div className="text-center mb-6 pt-4">
                             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 dark:bg-gray-700 mb-4">
@@ -169,7 +237,7 @@ export default function SubscriptionSection() {
                     </div>
                     
                     {/* Diamond Package */}
-                    <div className="pricing-card diamond-package bg-white dark:bg-gray-800 border-2 border-green-400 dark:border-green-500 md:rounded-r-2xl p-6 md:p-8 md:transform md:scale-105 shadow-xl dark:shadow-gray-900/50 z-20 transition-all duration-300 hover:shadow-2xl dark:hover:shadow-gray-900/70 relative flex flex-col h-full">
+                    <div className="pricing-card diamond-package bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm border-2 border-emerald-400/70 dark:border-emerald-500/70 md:rounded-r-2xl p-6 md:p-8 md:transform md:scale-105 shadow-xl dark:shadow-gray-900/50 z-20 transition-all duration-500 ease-in-out hover:shadow-2xl dark:hover:shadow-gray-900/70 relative flex flex-col h-full">
                         <div className="absolute -top-8 inset-x-0 flex justify-center z-30">
                             <span className="bg-green-500 dark:bg-green-600 text-white font-medium px-6 py-2 rounded-full text-sm uppercase tracking-wide shadow-md">Most Popular</span>
                             </div>
@@ -323,7 +391,6 @@ export default function SubscriptionSection() {
                         {/* Bottom CTA */}
                         <div className="mt-12 text-center">
                             <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-emerald-500/10 to-blue-500/10 dark:from-emerald-500/20 dark:to-blue-500/20 border border-emerald-200/50 dark:border-emerald-500/30 rounded-full px-8 py-4 transition-colors duration-300">
-                                <div className="w-2 h-2 bg-emerald-500 dark:bg-emerald-400 rounded-full animate-pulse"></div>
                                 <p className="text-sm text-gray-700 dark:text-gray-300 font-medium transition-colors duration-300">
                                     Ready to join our community of successful traders?
                                 </p>
@@ -355,10 +422,6 @@ export default function SubscriptionSection() {
                 <div className="w-full h-full bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg transform rotate-45"></div>
             </div>
             
-            {/* Animated Trading Lines */}
-            <div className="absolute top-1/4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent animate-pulse"></div>
-            <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent animate-pulse delay-1000"></div>
-            <div className="absolute top-3/4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent animate-pulse delay-2000"></div>
         </div>
 
         <div className="container mx-auto max-w-7xl relative z-10">
@@ -408,10 +471,6 @@ export default function SubscriptionSection() {
                                             </defs>
                                         </svg>
                                     </div>
-                                    {/* Floating Numbers */}
-                                    <div className="absolute top-2 right-2 text-emerald-600 dark:text-emerald-400 font-medium text-sm animate-bounce">
-                                        +$2,847
-                                    </div>
                                 </div>
                             </div>
                             
@@ -447,10 +506,6 @@ export default function SubscriptionSection() {
                                                 </linearGradient>
                                             </defs>
                                         </svg>
-                                    </div>
-                                    {/* Floating Numbers */}
-                                    <div className="absolute top-2 right-2 text-blue-600 dark:text-blue-400 font-medium text-sm animate-bounce delay-500">
-                                        +$4,231
                                     </div>
                                 </div>
                             </div>
@@ -488,10 +543,6 @@ export default function SubscriptionSection() {
                                             </defs>
                                         </svg>
                                     </div>
-                                    {/* Floating Numbers */}
-                                    <div className="absolute top-2 right-2 text-purple-600 dark:text-purple-400 font-medium text-sm animate-bounce delay-1000">
-                                        +$3,156
-                                    </div>
                                 </div>
                             </div>
                             
@@ -526,7 +577,6 @@ export default function SubscriptionSection() {
             {/* Disclaimer */}
             <div className="mt-12 text-center">
                 <div className="inline-flex items-center space-x-2 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full px-6 py-3">
-                    <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
                     <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
                         *These are real trading results from our clients. Trading involves substantial risk of loss and is not suitable for everyone. Past performance is not indicative of future results.
                     </p>

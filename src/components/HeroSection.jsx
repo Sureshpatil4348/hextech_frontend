@@ -128,12 +128,6 @@ const HeroSection = () => {
           </div>
 
           <div className="bg-gradient-to-r from-blue-900 via-[#19235d] to-blue-900 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 p-6 md:p-8 rounded-xl shadow-2xl max-w-4xl mx-auto border-t-4 border-[#00E676] dark:border-green-400 relative overflow-hidden transition-colors duration-300">
-            {/* Animated background elements */}
-            <div className="absolute top-0 left-0 w-full h-full opacity-10 dark:opacity-20 transition-opacity duration-300">
-              <div className="absolute top-1/4 left-1/4 w-16 h-16 rounded-full bg-[#00E676] dark:bg-green-400 animate-pulse"></div>
-              <div className="absolute bottom-1/3 right-1/3 w-24 h-24 rounded-full bg-[#1DE9B6] dark:bg-green-300 animate-pulse" style={{animationDelay: '1s'}}></div>
-              <div className="absolute top-1/2 right-1/4 w-12 h-12 rounded-full bg-[#00BFA5] dark:bg-green-500 animate-pulse" style={{animationDelay: '1.5s'}}></div>
-            </div>
             
             <div className="relative z-10">
               {/* Header with pulse effect */}
