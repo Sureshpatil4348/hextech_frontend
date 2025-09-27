@@ -1,137 +1,74 @@
-import { ChevronDown, HelpCircle } from 'lucide-react';
-import React, { useState } from 'react';
+import React from 'react';
 
 const FAQSection = () => {
-  const [openIndex, setOpenIndex] = useState(null);
-
-  const faqs = [
-    {
-      id: 1,
-      question: "How does the HEXTECH ALGO trading system work?",
-      answer: "Our AI-powered system continuously monitors market conditions across multiple currency pairs and commodities. It uses advanced algorithms to identify high-probability trading opportunities and sends real-time alerts to your device. The system is designed to work 24/7, capturing opportunities even while you sleep."
-    },
-    {
-      id: 2,
-      question: "What trading instruments are supported?",
-      answer: "The system supports major forex pairs (EURUSD, GBPUSD, AUDUSD, USDJPY) and commodities like Gold. Different packages offer different instrument coverage - Silver package includes EURUSD and Gold, while Gold and Diamond packages include all major pairs and unlimited instruments respectively."
-    },
-    {
-      id: 3,
-      question: "Do I need trading experience to use this system?",
-      answer: "No prior trading experience is required. Our system is designed for both beginners and experienced traders. We provide comprehensive setup guides, video tutorials, and personal support to help you get started. The AI handles the complex analysis, so you just need to follow the alerts."
-    },
-    {
-      id: 4,
-      question: "What broker do you recommend?",
-      answer: "The system works with most major forex brokers including MT4 and MT5 platforms. We have tested compatibility with brokers like IC Markets, XM, FXCM, and many others. Our support team can help you choose the best broker based on your location and preferences."
-    },
-    {
-      id: 5,
-      question: "How much can I expect to make?",
-      answer: "While we can't guarantee specific returns, our community has generated over $230k+ in verified profits. Results vary based on market conditions, risk management, and individual trading discipline. We recommend starting with small position sizes and gradually increasing as you gain confidence."
-    },
-    {
-      id: 6,
-      question: "Is there ongoing support after purchase?",
-      answer: "Yes! All packages include email support, and Gold/Diamond packages include priority support. You'll also get access to our private Telegram community where you can interact with other traders, get market updates, and receive ongoing guidance from our team."
-    },
-    {
-      id: 7,
-      question: "Can I customize the trading parameters?",
-      answer: "Yes, customization options vary by package. Silver package offers basic settings, Gold package includes bi-directional trading options, and Diamond package provides full customization including custom trading hours, price ranges, and position sizing controls."
-    },
-    {
-      id: 8,
-      question: "What if I'm not satisfied with the system?",
-      answer: "We're confident in our system's performance, but if you're not satisfied within the first 30 days, we offer a full refund. Our goal is your success, and we stand behind our product with this guarantee."
-    }
-  ];
-
-  const toggleFAQ = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
   return (
-    <section className="relative py-16 md:py-20" style={{fontFamily: 'Pier Sans, sans-serif'}}>
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-6 py-2 text-emerald-600 dark:text-emerald-400 text-sm font-medium mb-6" style={{fontFamily: 'Pier Sans, sans-serif'}}>
-            <HelpCircle className="w-4 h-4" />
-            <span>FREQUENTLY ASKED</span>
-          </div>
-          
-          <h2 className="text-3xl md:text-4xl font-medium text-gray-900 dark:text-white mb-6" style={{fontFamily: 'Pier Sans, sans-serif'}}>
-            <span className="bg-gradient-to-r from-emerald-600 to-blue-600 dark:from-emerald-400 dark:to-blue-400 bg-clip-text text-transparent">
-              Got Questions?
-            </span>
-          </h2>
-          
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Find answers to the most common questions about our AI trading system
-          </p>
-        </div>
-
-        {/* FAQ Items */}
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <div key={faq.id} className="group" style={{animationDelay: `${index * 0.1}s`}}>
-              <div 
-                className={`bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 ease-in-out cursor-pointer transform hover:scale-[1.02] ${openIndex === index ? 'shadow-2xl border-emerald-200/70 dark:border-emerald-700/70' : ''}`}
-                onClick={() => toggleFAQ(index)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    toggleFAQ(index);
-                  }
-                }}
-                role="button"
-                tabIndex={0}
-                aria-expanded={openIndex === index}
-                aria-controls={`faq-answer-${faq.id}`}
-              >
-                {/* Question */}
-                <div className="p-6 md:p-8">
-                  <div className="flex items-center justify-between">
-                    <h3 className={`text-lg md:text-xl font-medium pr-8 transition-all duration-500 ease-in-out ${openIndex === index ? 'text-emerald-600 dark:text-emerald-400' : 'text-gray-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400'}`} style={{fontFamily: 'Pier Sans, sans-serif'}}>
-                      {faq.question}
-                    </h3>
-                    <div className={`flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/10 flex items-center justify-center transition-all duration-500 ease-in-out ${openIndex === index ? 'bg-emerald-500/20 scale-110' : 'hover:bg-emerald-500/15 hover:scale-105'}`}>
-                      <ChevronDown className={`w-5 h-5 text-emerald-600 dark:text-emerald-400 transition-all duration-500 ease-in-out ${openIndex === index ? 'rotate-180' : 'rotate-0'}`} />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Answer */}
-                <div 
-                  id={`faq-answer-${faq.id}`}
-                  className={`overflow-hidden transition-all duration-500 ease-in-out ${openIndex === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
-                  aria-hidden={openIndex !== index}
-                  style={{
-                    transition: 'max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease-in-out, padding 0.3s ease-in-out'
-                  }}
-                >
-                  <div className={`px-6 md:px-8 transition-all duration-300 ease-in-out ${openIndex === index ? 'pb-6 md:pb-8 pt-0' : 'pb-0 pt-0'}`}>
-                    <div className="border-t border-gray-200/50 dark:border-gray-700/50 pt-6">
-                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed transition-all duration-300 ease-in-out">
-                        {faq.answer}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="mt-12 text-center">
-          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-emerald-500/10 to-blue-500/10 border border-emerald-200/50 dark:border-emerald-700/50 rounded-full px-8 py-4">
-            <p className="text-sm text-gray-700 dark:text-gray-300 font-medium" style={{fontFamily: 'Pier Sans, sans-serif'}}>
-              Still have questions? <span className="text-emerald-600 dark:text-emerald-400 font-medium" style={{fontFamily: 'Pier Sans, sans-serif'}}>Contact our support team</span>
+    <section id="faq" className="py-16 md:py-20 px-4 md:px-6 w-full transition-colors duration-300">
+      <div className="container mx-auto max-w-7xl">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 md:mb-16 text-gray-900 dark:text-white transition-colors duration-300">
+          Frequently Asked <span className="gold-text">Questions</span>
+        </h2>
+        <div className="max-w-4xl mx-auto grid grid-cols-1 gap-6">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-colors duration-300">
+            <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white transition-colors duration-300">Do I need prior trading experience to use this system?</h3>
+            <p className="text-[#19235d] dark:text-gray-300 transition-colors duration-300">
+              No, the AURUM is designed for both beginners and experienced traders. Complete setup guides are provided, and our WhatsApp community is always there to help you. However, I recommend watching some of my YouTube tutorials to understand basic trading concepts.
             </p>
           </div>
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-colors duration-300">
+            <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white transition-colors duration-300">Which platforms and brokers are supported?</h3>
+            <p className="text-[#19235d] dark:text-gray-300 transition-colors duration-300">
+              The system works with both MetaTrader 4 (MT4) and MetaTrader 5 (MT5) platforms. It&apos;s compatible with most brokers offering gold (XAUUSD) trading. If you&apos;re unsure about your broker, contact me on WhatsApp and I&apos;ll confirm compatibility.
+            </p>
+          </div>
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-colors duration-300">
+            <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white transition-colors duration-300">What&apos;s the difference between Silver, Gold, and Diamond packages?</h3>
+            <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">
+              Silver allows trading in a single direction (either buy or sell). Gold adds bi-directional trading and enhanced re-entry logic, doubling your profit potential. Diamond includes everything plus advanced customization options like trading schedules, price range limits, and one-click management features.
+            </p>
+          </div>
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-colors duration-300">
+            <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white transition-colors duration-300">How much capital do I need to start?</h3>
+            <p className="text-[#19235d] dark:text-gray-300 transition-colors duration-300">
+              While you can start with as little as $500, I recommend at least $1,000 USD (or equivalent) to fully utilize the grid trading strategy. The system includes position sizing controls to adapt to your account size. Many of my successful students started with accounts between $1,000 - $5,000.
+            </p>
+          </div>
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-colors duration-300">
+            <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white transition-colors duration-300">What kind of support will I receive?</h3>
+            <p className="text-[#19235d] dark:text-gray-300 transition-colors duration-300">
+              All packages include installation support and access to our Telegram community. Silver includes 30-day email support, Gold includes 90-day priority support, and Diamond includes lifetime VIP support with direct access to me for strategy optimization.
+            </p>
+          </div>
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-colors duration-300">
+            <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white transition-colors duration-300">How much time do I need to spend monitoring the system?</h3>
+            <p className="text-[#19235d] dark:text-gray-300 transition-colors duration-300">
+              That&apos;s the beauty of the AURUM — it&apos;s fully automated. Once set up, it trades 24/5 while you sleep or work. Most users check results for 5-10 minutes daily. With the Diamond package, you can even set specific trading hours to match your schedule.
+            </p>
+          </div>
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-colors duration-300">
+            <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white transition-colors duration-300">Is this system only for gold trading?</h3>
+            <p className="text-[#19235d] dark:text-gray-300 transition-colors duration-300">
+              The system is Works on all pairs including gold, which offers the best volatility and profit potential. However, with a few adjustments, it can be used on major forex pairs as well. I provide setup guidance for other instruments in our community.
+            </p>
+          </div>
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-colors duration-300">
+            <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white transition-colors duration-300">What are the realistic profit expectations?</h3>
+            <p className="text-[#19235d] dark:text-gray-300 transition-colors duration-300">
+              Results vary based on market conditions, account size, and risk settings. On average, my students see 5-15% monthly returns with proper risk management. Some testimonials show higher returns, but these represent experienced traders. Always start conservative and scale up as you gain confidence.
+              <span className="text-sm block mt-2 italic text-gray-500 dark:text-gray-400 transition-colors duration-300">*Trading involves risk. Past performance is not indicative of future results.</span>
+            </p>
+          </div>
+        </div>
+        
+        <div className="mt-8 md:mt-12 text-center">
+          <p className="text-lg md:text-xl mb-4 md:mb-6 text-gray-900 dark:text-white transition-colors duration-300">Still have questions?</p>
+          <a 
+            href="https://t.me/+NgzWiBMfEj02YTM1" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition duration-300"
+          >
+            <i className="fab fa-telegram mr-2 text-xl"></i> Ask on Telegram
+          </a>
         </div>
       </div>
     </section>

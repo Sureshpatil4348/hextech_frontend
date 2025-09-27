@@ -4,7 +4,7 @@ const InteractiveFooter = () => {
   return (
     <>
       {/* Forex Ticker Tape */}
-      <div className="ticker-tape bg-white dark:bg-gray-900 border-y border-gray-200 dark:border-gray-700 py-2 md:py-3 overflow-hidden w-full transition-colors duration-300">
+      <div className="ticker-tape border-y border-gray-200 dark:border-gray-700 py-2 md:py-3 overflow-hidden w-full transition-colors duration-300">
         <div className="ticker-content flex items-center animate-scroll">
           {/* First Set */}
           {/* EUR/USD */}
@@ -113,7 +113,7 @@ const InteractiveFooter = () => {
       </div>
 
       {/* Newsletter Section */}
-      <section className="bg-white dark:bg-gray-900 py-8 md:py-10 w-full transition-colors duration-300">
+      <section className="py-8 md:py-10 w-full transition-colors duration-300">
         <div className="container mx-auto px-4 md:px-6 max-w-7xl">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0 text-center md:text-left w-full md:w-auto">
@@ -148,7 +148,7 @@ const InteractiveFooter = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-400 py-10 md:py-12 px-4 md:px-6 w-full transition-colors duration-300">
+      <footer className="text-gray-700 dark:text-gray-400 py-10 md:py-12 px-4 md:px-6 w-full transition-colors duration-300">
         <div className="container mx-auto max-w-7xl">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             <div>

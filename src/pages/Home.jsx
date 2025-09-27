@@ -4,7 +4,9 @@ import { useAuth } from '../auth/AuthProvider'
 import FAQSection from '../components/FAQSection'
 import HeroSection from '../components/HeroSection'
 import InteractiveFooter from '../components/InteractiveFooter'
+// import ForexTimeZoneConverter from '../components/MultiTimeAnalysis'
 import Navbar from '../components/Navbar'
+import PsychologicalBenefitsSection from '../components/PsychologicalBenefitsSection'
 import SubscriptionSection from '../components/SubscriptionSection'
 // import SuccessStories from '../components/SuccessStories'
 // import TradingDashboardSection from '../components/TradingDashboardSection'
@@ -100,6 +102,25 @@ const Home = () => {
           <WhySystemWorks />
         </div>
 
+        {/* Multi Time Analysis Section */}
+        {/* <div id="multi-time-analysis" className="py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                Forex Market Time Zone Converter
+              </h2>
+              <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                Track real-time market hours across major trading centers and optimize your trading schedule
+              </p>
+            </div>
+            <div className="max-w-6xl mx-auto">
+              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
+                <ForexTimeZoneConverter />
+              </div>
+            </div>
+          </div>
+        </div> */}
+
         {/* Trading Dashboard Section - Commented Out */}
         {/* <div id="trading-dashboard">
           <TradingDashboardSection />
@@ -108,6 +129,11 @@ const Home = () => {
         {/* Video Explanation Section */}
         <div id="video-explanation">
           <VideoExplanationSection />
+        </div>
+
+        {/* Psychological Benefits Section */}
+        <div id="psychological-benefits">
+          <PsychologicalBenefitsSection />
         </div>
 
         {/* Subscription Section */}

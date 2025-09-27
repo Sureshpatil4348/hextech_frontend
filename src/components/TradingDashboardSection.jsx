@@ -316,7 +316,7 @@ const TradingDashboardSection = () => {
 
 
   return (
-    <section className="relative py-16">
+    <section className="relative py-16 transition-colors duration-300">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         
        
