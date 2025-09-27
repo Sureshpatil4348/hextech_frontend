@@ -68,7 +68,7 @@ const HeroSection = () => {
   }
 
   return (
-    <section className="pt-32 pb-16 px-4 sm:pt-40 sm:pb-20 md:px-6 w-full">
+    <section className="pt-32 pb-16 px-4 sm:pt-40 sm:pb-20 md:px-6 w-full transition-colors duration-300">
       <div className="container mx-auto max-w-7xl">
         <div className="flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2 text-center lg:text-left mb-8 lg:mb-0">

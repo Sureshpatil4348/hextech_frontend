@@ -6,7 +6,6 @@ import CurrencyStrengthMeter from '../components/CurrencyStrengthMeter'
 import LoadingOverlay from '../components/LoadingOverlay'
 import LotSizeCalculator from '../components/LotSizeCalculator'
 import MultiIndicatorHeatmap from '../components/MultiIndicatorHeatmap'
-import MultiTimeAnalysis from '../components/MultiTimeAnalysis'
 import Navbar from '../components/Navbar'
 import RSIOverboughtOversoldTracker from '../components/RSIOverboughtOversoldTracker'
 import TradingViewWidget from '../components/TradingViewWidget'
@@ -180,10 +179,17 @@ const Dashboard = () => {
                     </div>
                   </div>
 
-                  {/* Top Center - Multi Time Analysis */}
+                  {/* Top Center - Placeholder */}
                   <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden p-2">
-                    <div className="h-full overflow-y-auto">
-                      <MultiTimeAnalysis />
+                    <div className="h-full overflow-y-auto flex items-center justify-center">
+                      <div className="text-center">
+                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                          Coming Soon
+                        </h3>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                          Additional trading tools will be available here
+                        </p>
+                      </div>
                     </div>
                   </div>
 

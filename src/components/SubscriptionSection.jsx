@@ -4,76 +4,9 @@ import React from 'react';
 export default function SubscriptionSection() {
   return (
     <>
-    <section id="packages" className="relative py-16 md:py-20 px-4 md:px-6 w-full bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:bg-gradient-to-br dark:from-gray-900 dark:via-black dark:to-gray-900 transition-colors duration-300" style={{fontFamily: 'Pier Sans, sans-serif'}}>
-      {/* Professional Trading Background Elements */}
-      <div className="absolute inset-0">
-        
-        {/* Subtle Geometric Grid - Dark Mode */}
-        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.08]">
-          <div className="w-full h-full" style={{
-            backgroundImage: `
-              linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: '80px 80px'
-          }}></div>
-        </div>
-        
-        {/* Subtle Geometric Grid - Light Mode */}
-        <div className="absolute inset-0 opacity-[0.05] dark:opacity-0">
-          <div className="w-full h-full" style={{
-            backgroundImage: `
-              linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: '80px 80px'
-          }}></div>
-        </div>
-        
-        {/* Professional Gradient Overlays - Dark Mode */}
-        <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-slate-800/20 via-transparent to-transparent dark:block hidden"></div>
-        <div className="absolute bottom-0 right-0 w-full h-1/2 bg-gradient-to-t from-slate-800/20 via-transparent to-transparent dark:block hidden"></div>
-        
-        {/* Professional Gradient Overlays - Light Mode */}
-        <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/30 via-transparent to-transparent block dark:hidden"></div>
-        <div className="absolute bottom-0 right-0 w-full h-1/2 bg-gradient-to-t from-white/30 via-transparent to-transparent block dark:hidden"></div>
-        
-        {/* Subtle Trading Pattern - Dark Mode */}
-        <div className="absolute inset-0 opacity-[0.02] dark:block hidden">
-          <div className="w-full h-full" style={{
-            backgroundImage: `
-              radial-gradient(circle at 20% 20%, rgba(34, 197, 94, 0.1) 0%, transparent 50%),
-              radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-              radial-gradient(circle at 40% 60%, rgba(107, 114, 128, 0.1) 0%, transparent 50%)
-            `,
-            backgroundSize: '400px 400px, 600px 600px, 500px 500px',
-            backgroundPosition: '0% 0%, 100% 100%, 50% 50%'
-          }}></div>
-        </div>
-        
-        {/* Subtle Trading Pattern - Light Mode */}
-        <div className="absolute inset-0 opacity-[0.03] block dark:hidden">
-          <div className="w-full h-full" style={{
-            backgroundImage: `
-              radial-gradient(circle at 20% 20%, rgba(34, 197, 94, 0.05) 0%, transparent 50%),
-              radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
-              radial-gradient(circle at 40% 60%, rgba(107, 114, 128, 0.05) 0%, transparent 50%)
-            `,
-            backgroundSize: '400px 400px, 600px 600px, 500px 500px',
-            backgroundPosition: '0% 0%, 100% 100%, 50% 50%'
-          }}></div>
-        </div>
-        
-        {/* Professional Corner Accents - Dark Mode */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-emerald-500/5 via-transparent to-transparent dark:block hidden"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-blue-500/5 via-transparent to-transparent dark:block hidden"></div>
-        
-        {/* Professional Corner Accents - Light Mode */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-emerald-500/10 via-transparent to-transparent block dark:hidden"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-blue-500/10 via-transparent to-transparent block dark:hidden"></div>
-      </div>
+    <section id="packages" className="py-16 md:py-20 px-4 md:px-6 w-full transition-colors duration-300" style={{fontFamily: 'Pier Sans, sans-serif'}}>
       
-        <div className="container mx-auto max-w-7xl relative z-10">
+        <div className="container mx-auto max-w-7xl">
             <div className="text-center mb-10 md:mb-12">
                 <h2 className="text-3xl md:text-4xl font-medium mb-4 text-gray-900 dark:text-white transition-colors duration-300" style={{fontFamily: 'Pier Sans, sans-serif'}}>Choose Your <span className="text-green-500 dark:text-green-400">Trading Edge</span></h2>
                 <p className="text-lg md:text-xl text-[#19235d] dark:text-gray-300 max-w-3xl mx-auto mb-2 transition-colors duration-300">
@@ -311,340 +244,126 @@ export default function SubscriptionSection() {
                 </div>
             </div>
             
+            {/* Success Stories Section */}
+            <div className="max-w-5xl mx-auto mb-12">
+                <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-xl p-6 md:p-8 dark:from-green-900/20 dark:to-blue-900/20 dark:border-green-700/30 transition-colors duration-300">
+                    <div className="text-center mb-6">
+                        <h3 className="text-xl md:text-2xl font-bold text-gray-800 dark:text-white mb-2 transition-colors duration-300">Success Stories</h3>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-100 dark:border-gray-700 transition-colors duration-300">
+                            <div className="text-center">
+                                <div className="text-2xl font-bold text-green-600 dark:text-green-400 mb-1">150+</div>
+                                <p className="text-sm text-gray-600 dark:text-gray-300">successful traders using our proven system</p>
+                            </div>
+                        </div>
+                        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-100 dark:border-gray-700 transition-colors duration-300">
+                            <div className="text-center">
+                                <div className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-1">$230k+</div>
+                                <p className="text-sm text-gray-600 dark:text-gray-300">Total verified profits generated by our community</p>
+                            </div>
+                        </div>
+                        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-100 dark:border-gray-700 transition-colors duration-300">
+                            <div className="text-center">
+                                <div className="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-1">6+ Months</div>
+                                <p className="text-sm text-gray-600 dark:text-gray-300">Proven track record with consistent results</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div className="mt-6 text-center">
+                        <p className="text-xs text-gray-500 dark:text-gray-400 italic">*Results based on verified community reports and Myfxbook data from our founding members</p>
+                    </div>
+                </div>
+            </div>
+
+
            
+            
 
-            {/* Premium What Happens Next Section */}
-            <div className="max-w-6xl mx-auto mb-16">
-                <div className="relative">
-                    {/* Background Elements */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-emerald-50/50 dark:from-blue-900/20 dark:via-transparent dark:to-emerald-900/20 rounded-3xl transition-colors duration-300"></div>
-                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-blue-500 to-emerald-500 dark:from-blue-400 dark:to-emerald-400 rounded-full transition-colors duration-300"></div>
+
+            
+            
+
+    {/* Testimonials with Phone Mockups */}
+    <section id="testimonials" className="py-16 md:py-20 px-4 md:px-6 bg-gray-50 dark:bg-gray-900 w-full transition-colors duration-300">
+        <div className="container mx-auto max-w-7xl">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 text-gray-900 dark:text-white transition-colors duration-300">Proven Results from Our <span className="text-green-500 dark:text-green-400">Community</span></h2>
+            <p className="text-lg md:text-xl text-[#19235d] dark:text-gray-300 mb-8 md:mb-10 text-center max-w-3xl mx-auto transition-colors duration-300">
+                Real results from our 150+ founding members using our established system:
+            </p>
+            
+            {/* Phone Mockups Container */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+                {/* Phone 1 */}
+                <div className="relative mx-auto">
+                    <div className="phone-mockup relative w-[280px] h-[570px] bg-black rounded-[3rem] shadow-xl">
+                        {/* Phone Frame */}
+                        <div className="absolute top-0 w-full h-full rounded-[3rem] overflow-hidden border-[8px] border-black">
+                            {/* Notch */}
+                            <div className="absolute top-0 inset-x-0 h-6 bg-black"></div>
+                            {/* Screen Content */}
+                            <img src="https://media.istockphoto.com/id/1465618017/photo/businessmen-investor-think-before-buying-stock-market-investment-using-smartphone-to-analyze.jpg?s=612x612&w=0&k=20&c=YNEkfoME1jbz6FUJImxCQtaGZZntrf7u-Byxmgk4pOY=" 
+                                 alt="Trading Results Screenshot 1"
+                                 className="w-full h-full object-cover"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                {/* Phone 2 */}
+                <div className="relative mx-auto">
+                    <div className="phone-mockup relative w-[280px] h-[570px] bg-black rounded-[3rem] shadow-xl">
+                        {/* Phone Frame */}
+                        <div className="absolute top-0 w-full h-full rounded-[3rem] overflow-hidden border-[8px] border-black">
+                            {/* Notch */}
+                            <div className="absolute top-0 inset-x-0 h-6 bg-black"></div>
+                            {/* Screen Content */}
+                            <img src="https://hycm.s3.amazonaws.com/public/files/articles/how_to_trade.webp" 
+                                 alt="Trading Results Screenshot 2"
+                                 className="w-full h-full object-cover"
+                            />
+                        </div>
+                    </div>
+                </div>
                     
-                    <div className="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-100/50 dark:border-gray-700/50 rounded-3xl p-8 md:p-12 shadow-xl dark:shadow-gray-900/50 transition-colors duration-300">
-                        {/* Header */}
-                        <div className="text-center mb-12">
-                            <div className="inline-flex items-center space-x-2 bg-blue-500/10 dark:bg-blue-500/20 border border-blue-500/20 dark:border-blue-500/30 rounded-full px-6 py-2 text-blue-600 dark:text-blue-400 text-sm font-medium mb-6 transition-colors duration-300">
-                                <i className="fas fa-clipboard-check w-4 h-4"></i>
-                                <span>NEXT STEPS</span>
-                            </div>
-                            <h3 className="text-3xl md:text-4xl font-medium text-gray-900 dark:text-white mb-4 font-poppins transition-colors duration-300">
-                                <span className="bg-gradient-to-r from-blue-600 to-emerald-600 dark:from-blue-400 dark:to-emerald-400 bg-clip-text text-transparent">
-                                    What Happens Next?
-                                </span>
-                            </h3>
-                            <p className="text-gray-600 dark:text-gray-300 text-lg max-w-2xl mx-auto transition-colors duration-300">
-                                Your journey to profitable trading starts immediately after purchase
-                            </p>
-                        </div>
-                        
-                        {/* Process Steps */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                            {/* Step 1 */}
-                            <div className="group relative">
-                                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-green-500/10 dark:from-emerald-500/20 dark:to-green-500/20 rounded-2xl transform group-hover:scale-105 transition-all duration-300"></div>
-                                <div className="relative bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl p-6 border border-emerald-100/50 dark:border-emerald-500/20 shadow-lg dark:shadow-gray-900/50 group-hover:shadow-xl dark:group-hover:shadow-gray-900/70 transition-all duration-300 text-center">
-                                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-emerald-500 to-green-600 dark:from-emerald-400 dark:to-green-500 rounded-2xl mb-6 shadow-lg">
-                                        <span className="text-2xl font-medium text-white">1</span>
-                                    </div>
-                                    <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-3 font-poppins transition-colors duration-300">Instant Access</h4>
-                                    <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed transition-colors duration-300">You&apos;ll receive login details to download your system immediately</p>
-                                </div>
-                            </div>
-                            
-                            {/* Step 2 */}
-                            <div className="group relative">
-                                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 dark:from-blue-500/20 dark:to-cyan-500/20 rounded-2xl transform group-hover:scale-105 transition-all duration-300"></div>
-                                <div className="relative bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl p-6 border border-blue-100/50 dark:border-blue-500/20 shadow-lg dark:shadow-gray-900/50 group-hover:shadow-xl dark:group-hover:shadow-gray-900/70 transition-all duration-300 text-center">
-                                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 dark:from-blue-400 dark:to-cyan-500 rounded-2xl mb-6 shadow-lg">
-                                        <span className="text-2xl font-medium text-white">2</span>
-                                    </div>
-                                    <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-3 font-poppins transition-colors duration-300">Telegram Support</h4>
-                                    <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed transition-colors duration-300">I&apos;ll personally add you to our private community group</p>
-                        </div>
-                            </div>
-                            
-                            {/* Step 3 */}
-                            <div className="group relative">
-                                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 dark:from-purple-500/20 dark:to-pink-500/20 rounded-2xl transform group-hover:scale-105 transition-all duration-300"></div>
-                                <div className="relative bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl p-6 border border-purple-100/50 dark:border-purple-500/20 shadow-lg dark:shadow-gray-900/50 group-hover:shadow-xl dark:group-hover:shadow-gray-900/70 transition-all duration-300 text-center">
-                                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 dark:from-purple-400 dark:to-pink-500 rounded-2xl mb-6 shadow-lg">
-                                        <span className="text-2xl font-medium text-white">3</span>
-                                    </div>
-                                    <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-3 font-poppins transition-colors duration-300">Setup Assistance</h4>
-                                    <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed transition-colors duration-300">Follow our step-by-step installation guide or get personal help</p>
-                        </div>
-                    </div>
-                    
-                            {/* Step 4 */}
-                            <div className="group relative">
-                                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-red-500/10 dark:from-orange-500/20 dark:to-red-500/20 rounded-2xl transform group-hover:scale-105 transition-all duration-300"></div>
-                                <div className="relative bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl p-6 border border-orange-100/50 dark:border-orange-500/20 shadow-lg dark:shadow-gray-900/50 group-hover:shadow-xl dark:group-hover:shadow-gray-900/70 transition-all duration-300 text-center">
-                                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 dark:from-orange-400 dark:to-red-500 rounded-2xl mb-6 shadow-lg">
-                                        <span className="text-2xl font-medium text-white">4</span>
-                                    </div>
-                                    <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-3 font-poppins transition-colors duration-300">Start Trading</h4>
-                                    <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed transition-colors duration-300">Be up and running within 5 minutes on your preferred broker</p>
-                    </div>
-                </div>
-            </div>
-
-                        {/* Bottom CTA */}
-                        <div className="mt-12 text-center">
-                            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-emerald-500/10 to-blue-500/10 dark:from-emerald-500/20 dark:to-blue-500/20 border border-emerald-200/50 dark:border-emerald-500/30 rounded-full px-8 py-4 transition-colors duration-300">
-                                <p className="text-sm text-gray-700 dark:text-gray-300 font-medium transition-colors duration-300">
-                                    Ready to join our community of successful traders?
-                                </p>
-                            </div>
+                {/* Phone 3 */}
+                <div className="relative mx-auto">
+                    <div className="phone-mockup relative w-[280px] h-[570px] bg-black rounded-[3rem] shadow-xl">
+                        {/* Phone Frame */}
+                        <div className="absolute top-0 w-full h-full rounded-[3rem] overflow-hidden border-[8px] border-black">
+                            {/* Notch */}
+                            <div className="absolute top-0 inset-x-0 h-6 bg-black"></div>
+                            {/* Screen Content */}
+                            <img src="https://www.shareindia.com/wp-content/uploads/2023/12/What-is-Forex-Trading.webp" 
+                                 alt="Trading Results Screenshot 3"
+                                 className="w-full h-full object-cover"
+                            />
                         </div>
                     </div>
                 </div>
             </div>
-            
-
-
-            
-            {/* Guarantee Section */}
-           
-
-
-    
-    <section id="testimonials" className="py-16 md:py-20 px-4 md:px-6 bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:bg-gradient-to-br dark:from-gray-900 dark:via-black dark:to-gray-900 w-full relative overflow-hidden">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0">
-            {/* Floating Trading Charts */}
-            <div className="absolute top-20 left-10 w-16 h-16 opacity-20 animate-float">
-                <div className="w-full h-full bg-gradient-to-br from-emerald-500 to-green-600 rounded-lg transform rotate-12"></div>
-            </div>
-            <div className="absolute top-40 right-20 w-12 h-12 opacity-15 animate-float-delayed">
-                <div className="w-full h-full bg-gradient-to-br from-blue-500 to-cyan-600 rounded-lg transform -rotate-12"></div>
-            </div>
-            <div className="absolute bottom-40 left-20 w-20 h-20 opacity-10 animate-float-slow">
-                <div className="w-full h-full bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg transform rotate-45"></div>
-            </div>
-            
-        </div>
-
-        <div className="container mx-auto max-w-7xl relative z-10">
-            {/* Header */}
-            <div className="text-center mb-16">
-                <div className="inline-flex items-center space-x-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-6 py-2 text-emerald-600 dark:text-emerald-400 text-sm font-medium mb-6">
-                    <Award className="w-4 h-4" />
-                    <span>PROVEN RESULTS</span>
-                </div>
-                
-                <h2 className="text-3xl md:text-4xl font-medium text-gray-900 dark:text-white mb-6 font-poppins">
-                    <span className="bg-gradient-to-r from-emerald-600 to-blue-600 dark:from-emerald-400 dark:to-blue-400 bg-clip-text text-transparent">
-                        Proven Results from Our Community
-                    </span>
-                </h2>
-                
-                <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                    Real results from our 150+ founding members using our established system
-                </p>
-            </div>
-            
-            {/* Animated Trading Results Display */}
-            <div className="max-w-6xl mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {/* Result Card 1 */}
-                    <div className="group relative">
-                        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-green-500/20 rounded-3xl transform group-hover:scale-105 transition-all duration-500 animate-fade-in-up"></div>
-                        <div className="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl p-8 border border-emerald-200/50 dark:border-emerald-700/50 shadow-xl group-hover:shadow-2xl transition-all duration-500">
-                            {/* Animated Chart */}
-                            <div className="mb-6">
-                                <div className="h-32 bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 rounded-2xl p-4 relative overflow-hidden">
-                                    {/* Simulated Trading Chart */}
-                                    <div className="absolute inset-4">
-                                        <svg viewBox="0 0 200 100" className="w-full h-full">
-                                            <polyline
-                                                points="0,80 20,70 40,60 60,45 80,35 100,25 120,20 140,15 160,10 180,5 200,0"
-                                                fill="none"
-                                                stroke="url(#gradient1)"
-                                                strokeWidth="3"
-                                                className="animate-draw-line"
-                                            />
-                                            <defs>
-                                                <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-                                                    <stop offset="0%" stopColor="#10b981" />
-                                                    <stop offset="100%" stopColor="#059669" />
-                                                </linearGradient>
-                                            </defs>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div className="text-center">
-                                <div className="text-3xl font-medium text-emerald-600 dark:text-emerald-400 mb-2 font-poppins">+$2,847</div>
-                                <p className="text-gray-600 dark:text-gray-300 text-sm font-medium">EURUSD Trade</p>
-                                <p className="text-gray-500 dark:text-gray-400 text-xs mt-1">Member: Alex K.</p>
-                    </div>
-                        </div>
-                        </div>
-
-                    {/* Result Card 2 */}
-                    <div className="group relative">
-                        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-3xl transform group-hover:scale-105 transition-all duration-500 animate-fade-in-up delay-200"></div>
-                        <div className="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl p-8 border border-blue-200/50 dark:border-blue-700/50 shadow-xl group-hover:shadow-2xl transition-all duration-500">
-                            {/* Animated Chart */}
-                            <div className="mb-6">
-                                <div className="h-32 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-2xl p-4 relative overflow-hidden">
-                                    {/* Simulated Trading Chart */}
-                                    <div className="absolute inset-4">
-                                        <svg viewBox="0 0 200 100" className="w-full h-full">
-                                            <polyline
-                                                points="0,90 20,85 40,75 60,60 80,45 100,30 120,20 140,15 160,10 180,8 200,5"
-                                                fill="none"
-                                                stroke="url(#gradient2)"
-                                                strokeWidth="3"
-                                                className="animate-draw-line-delayed"
-                                            />
-                                            <defs>
-                                                <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-                                                    <stop offset="0%" stopColor="#3b82f6" />
-                                                    <stop offset="100%" stopColor="#06b6d4" />
-                                                </linearGradient>
-                                            </defs>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div className="text-center">
-                                <div className="text-3xl font-medium text-blue-600 dark:text-blue-400 mb-2 font-poppins">+$4,231</div>
-                                <p className="text-gray-600 dark:text-gray-300 text-sm font-medium">GOLD Trade</p>
-                                <p className="text-gray-500 dark:text-gray-400 text-xs mt-1">Member: Sarah M.</p>
-                    </div>
-                </div>
-                    </div>
-                    
-                    {/* Result Card 3 */}
-                    <div className="group relative">
-                        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-3xl transform group-hover:scale-105 transition-all duration-500 animate-fade-in-up delay-400"></div>
-                        <div className="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl p-8 border border-purple-200/50 dark:border-purple-700/50 shadow-xl group-hover:shadow-2xl transition-all duration-500">
-                            {/* Animated Chart */}
-                            <div className="mb-6">
-                                <div className="h-32 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl p-4 relative overflow-hidden">
-                                    {/* Simulated Trading Chart */}
-                                    <div className="absolute inset-4">
-                                        <svg viewBox="0 0 200 100" className="w-full h-full">
-                                            <polyline
-                                                points="0,85 20,80 40,70 60,55 80,40 100,25 120,15 140,10 160,8 180,6 200,4"
-                                                fill="none"
-                                                stroke="url(#gradient3)"
-                                                strokeWidth="3"
-                                                className="animate-draw-line-slow"
-                                            />
-                                            <defs>
-                                                <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="0%">
-                                                    <stop offset="0%" stopColor="#8b5cf6" />
-                                                    <stop offset="100%" stopColor="#ec4899" />
-                                                </linearGradient>
-                                            </defs>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div className="text-center">
-                                <div className="text-3xl font-medium text-purple-600 dark:text-purple-400 mb-2 font-poppins">+$3,156</div>
-                                <p className="text-gray-600 dark:text-gray-300 text-sm font-medium">GBPUSD Trade</p>
-                                <p className="text-gray-500 dark:text-gray-400 text-xs mt-1">Member: David L.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Animated Stats Bar */}
-                <div className="mt-12 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 dark:border-gray-700/50 shadow-lg">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                        <div className="group">
-                            <div className="text-4xl font-medium text-emerald-600 dark:text-emerald-400 mb-2 font-poppins animate-count-up">150+</div>
-                            <p className="text-gray-600 dark:text-gray-300 font-medium">Active Members</p>
-                        </div>
-                        <div className="group">
-                            <div className="text-4xl font-medium text-blue-600 dark:text-blue-400 mb-2 font-poppins animate-count-up-delayed">$230k+</div>
-                            <p className="text-gray-600 dark:text-gray-300 font-medium">Total Profits</p>
-                        </div>
-                        <div className="group">
-                            <div className="text-4xl font-medium text-purple-600 dark:text-purple-400 mb-2 font-poppins animate-count-up-slow">6+ Months</div>
-                            <p className="text-gray-600 dark:text-gray-300 font-medium">Proven Track Record</p>
-                    </div>
-                        </div>
-                    </div>
-                </div>
                 
             {/* Disclaimer */}
-            <div className="mt-12 text-center">
-                <div className="inline-flex items-center space-x-2 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full px-6 py-3">
-                    <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
-                        *These are real trading results from our clients. Trading involves substantial risk of loss and is not suitable for everyone. Past performance is not indicative of future results.
-                    </p>
-                </div>
+            <div className="mt-8 md:mt-12 text-center text-sm text-gray-500 dark:text-gray-400 max-w-3xl mx-auto transition-colors duration-300">
+                <p>*These are real trading results from our clients. Trading involves substantial risk of loss and is not suitable for everyone. Past performance is not indicative of future results.</p>
             </div>
         </div>
-
-        {/* Custom Animations */}
-        <style dangerouslySetInnerHTML={{
-            __html: `
-                @keyframes float {
-                    0%, 100% { transform: translateY(0px) rotate(0deg); }
-                    50% { transform: translateY(-20px) rotate(5deg); }
-                }
-                @keyframes float-delayed {
-                    0%, 100% { transform: translateY(0px) rotate(0deg); }
-                    50% { transform: translateY(-15px) rotate(-3deg); }
-                }
-                @keyframes float-slow {
-                    0%, 100% { transform: translateY(0px) rotate(0deg); }
-                    50% { transform: translateY(-25px) rotate(8deg); }
-                }
-                @keyframes fade-in-up {
-                    0% { opacity: 0; transform: translateY(30px); }
-                    100% { opacity: 1; transform: translateY(0); }
-                }
-                @keyframes draw-line {
-                    0% { stroke-dasharray: 0 1000; }
-                    100% { stroke-dasharray: 1000 0; }
-                }
-                @keyframes draw-line-delayed {
-                    0% { stroke-dasharray: 0 1000; }
-                    100% { stroke-dasharray: 1000 0; }
-                }
-                @keyframes draw-line-slow {
-                    0% { stroke-dasharray: 0 1000; }
-                    100% { stroke-dasharray: 1000 0; }
-                }
-                @keyframes count-up {
-                    0% { opacity: 0; transform: scale(0.5); }
-                    100% { opacity: 1; transform: scale(1); }
-                }
-                .animate-float { animation: float 6s ease-in-out infinite; }
-                .animate-float-delayed { animation: float-delayed 8s ease-in-out infinite; }
-                .animate-float-slow { animation: float-slow 10s ease-in-out infinite; }
-                .animate-fade-in-up { animation: fade-in-up 0.8s ease-out forwards; }
-                .animate-draw-line { animation: draw-line 2s ease-in-out forwards; }
-                .animate-draw-line-delayed { animation: draw-line-delayed 2s ease-in-out 0.5s forwards; }
-                .animate-draw-line-slow { animation: draw-line-slow 2s ease-in-out 1s forwards; }
-                .animate-count-up { animation: count-up 1s ease-out forwards; }
-                .animate-count-up-delayed { animation: count-up 1s ease-out 0.3s forwards; }
-                .animate-count-up-slow { animation: count-up 1s ease-out 0.6s forwards; }
-            `
-        }} />
     </section>
 
     {/* Community Section */}
-    <section id="community" className="py-16 md:py-20 px-4 md:px-6 bg-white dark:bg-gray-900 w-full transition-colors duration-300">
+    <section id="community" className="py-16 md:py-20 px-4 md:px-6 w-full transition-colors duration-300">
         <div className="container mx-auto max-w-7xl">
             <div className="flex flex-col lg:flex-row items-start gap-8 md:gap-12">
                 <div className="lg:w-1/2 flex flex-col h-full">
-                    <h2 className="text-3xl md:text-4xl font-medium mb-6 text-gray-900 dark:text-white transition-colors duration-300">Join 150+ <span className="brand-text">Successful Traders</span></h2>
+                    <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-white transition-colors duration-300">Join 150+ <span className="text-green-500 dark:text-green-400">Successful Traders</span></h2>
                     <p className="text-base md:text-lg text-[#19235d] dark:text-gray-300 mb-8 transition-colors duration-300">
                         When you purchase the Hextech Algo Trading System, you&apos;re not just getting software - you&apos;re joining an established community of 150+ successful forex traders with a proven track record.
                     </p>
                     
                     <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 mb-8 flex-grow transition-colors duration-300">
-                        <h3 className="text-xl font-medium mb-4 text-gray-900 dark:text-white transition-colors duration-300">What You Get:</h3>
+                        <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white transition-colors duration-300">What You Get:</h3>
                         <ul className="space-y-4">
                             <li className="flex items-start">
                                 <div className="flex-shrink-0 h-6 w-6 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mt-1 transition-colors duration-300">
@@ -669,8 +388,8 @@ export default function SubscriptionSection() {
                                     <i className="fas fa-laptop text-green-600 dark:text-green-400 text-sm transition-colors duration-300"></i>
                                 </div>
                                 <p className="ml-3 text-[#19235d] dark:text-gray-300 transition-colors duration-300"><strong>System Updates</strong> – Get all future upgrades</p>
-                      </li>
-                  </ul>
+                            </li>
+                        </ul>
                     </div>
                     
                     <div className="mt-auto flex space-x-4">
@@ -691,7 +410,7 @@ export default function SubscriptionSection() {
                         loop
                         autoplay
                       ></dotlottie-player>
-                                </div>
+                    </div>
                 </div>
             </div>
         </div>
