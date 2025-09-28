@@ -145,6 +145,11 @@ A comprehensive forex trading dashboard with real-time market data, RSI analysis
 
 ### Dashboard Tabs Enhancement
 - **IN-PAGE TABS**: Added in-page tabs within the Dashboard for seamless switching between Analysis and Tools — no separate URLs.
+
+#### Analysis Layout Update
+- **Right Top**: `TrendingPairs` above `RSIOverboughtOversoldTracker`. Their combined height matches the left `TradingViewWidget` height.
+- **Right Bottom**: `AINewsAnalysis` positioned below, with height matching the left `CurrencyStrengthMeter`.
+- **Tools Tab**: `TrendingPairs` moved from Tools to Analysis; placeholders remain in the top grid cells.
   - **Analysis Tab**: Default dashboard with charts, AI news, currency strength, and RSI tracker
   - **Tools Tab**: Three-column layout with Lot Size Calculator, Multi Time Analysis, Trending Pairs, and Multi‑Indicator Heatmap
   - **Compact Design**: Premium-styled tabs with hover effects, shadows, and smooth transitions

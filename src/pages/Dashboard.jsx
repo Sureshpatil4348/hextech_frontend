@@ -137,7 +137,7 @@ const Dashboard = () => {
                 </div>
               </div>
 
-              {/* Desktop Layout - Original 12x12 grid preserved exactly */}
+              {/* Desktop Layout - 12x12 grid */}
               <div className="hidden lg:grid h-full grid-cols-12 grid-rows-12 gap-2">
                 {/* Section 1 - TradingView Widget (75% width - top left) */}
                 <div className="col-span-9 row-span-8 min-h-0 flex flex-col">
@@ -150,9 +150,14 @@ const Dashboard = () => {
                   />
                 </div>
 
-                {/* Section 3rd - AI News Analysis (25% width - top right) */}
-                <div className="col-span-3 row-span-8">
-                  <AINewsAnalysis />
+                {/* Right Top: Trending Pairs over RSI (combined height == TradingView) */}
+                <div className="col-span-3 row-span-8 min-h-0 flex flex-col gap-2">
+                  <div className="flex-1 min-h-0">
+                    <TrendingPairs />
+                  </div>
+                  <div className="flex-1 min-h-0">
+                    <RSIOverboughtOversoldTracker />
+                  </div>
                 </div>
 
                 {/* Section 2nd - Currency Strength Meter (75% width - bottom left) */}
@@ -160,9 +165,9 @@ const Dashboard = () => {
                   <CurrencyStrengthMeter />
                 </div>
 
-                {/* Section 5th - RSI Tracker (25% width - bottom right) */}
+                {/* Right Bottom: AI News Analysis (height == Currency Strength Meter) */}
                 <div className="col-span-3 row-span-4 row-start-9">
-                  <RSIOverboughtOversoldTracker />
+                  <AINewsAnalysis />
                 </div>
               </div>
             </>
@@ -170,7 +175,7 @@ const Dashboard = () => {
             <>
               {/* Tools Tab Content */}
               <div className="h-full flex flex-col gap-2">
-                {/* Grid Layout - Top Three Sections */}
+                {/* Grid Layout - Top Two Sections (Trending moved to Analysis) */}
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 flex-1 min-h-0">
                   {/* Top Left - Lot Size Calculator */}
                   <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden p-2">
@@ -193,10 +198,17 @@ const Dashboard = () => {
                     </div>
                   </div>
 
-                  {/* Top Right - Trending Pairs */}
+                  {/* Top Right - Placeholder */}
                   <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden p-2">
-                    <div className="h-full overflow-y-auto">
-                      <TrendingPairs />
+                    <div className="h-full overflow-y-auto flex items-center justify-center">
+                      <div className="text-center">
+                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                          Coming Soon
+                        </h3>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                          Additional trading tools will be available here
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
