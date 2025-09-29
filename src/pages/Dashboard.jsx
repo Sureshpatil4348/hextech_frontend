@@ -6,6 +6,7 @@ import CurrencyStrengthMeter from '../components/CurrencyStrengthMeter'
 import LoadingOverlay from '../components/LoadingOverlay'
 import LotSizeCalculator from '../components/LotSizeCalculator'
 import MultiIndicatorHeatmap from '../components/MultiIndicatorHeatmap'
+import MultiTimeAnalysis from '../components/MultiTimeAnalysis'
 import Navbar from '../components/Navbar'
 import RSIOverboughtOversoldTracker from '../components/RSIOverboughtOversoldTracker'
 import TradingViewWidget from '../components/TradingViewWidget'
@@ -109,7 +110,7 @@ const Dashboard = () => {
           {activeTab === 'analysis' ? (
             <>
               {/* Mobile Layout - Stack vertically */}
-              <div className="block lg:hidden space-y-3">
+              <div className="block lg:hidden ">
                 {/* Section 1 - TradingView Widget */}
                 <div className="h-96 overflow-hidden">
                   <TradingViewWidget
@@ -176,7 +177,7 @@ const Dashboard = () => {
               {/* Tools Tab Content */}
               <div className="h-full flex flex-col gap-2">
                 {/* Grid Layout - Top Two Sections (Trending moved to Analysis) */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 flex-1 min-h-0">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 flex-1 min-h-0">
                   {/* Top Left - Lot Size Calculator */}
                   <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden p-2">
                     <div className="h-full overflow-y-auto">
@@ -184,30 +185,11 @@ const Dashboard = () => {
                     </div>
                   </div>
 
-                  {/* Top Center - Placeholder */}
+                  {/* Top Right - Multi Time Analysis */}
                   <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden p-2">
-                    <div className="h-full overflow-y-auto flex items-center justify-center">
-                      <div className="text-center">
-                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                          Coming Soon
-                        </h3>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
-                          Additional trading tools will be available here
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Top Right - Placeholder */}
-                  <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden p-2">
-                    <div className="h-full overflow-y-auto flex items-center justify-center">
-                      <div className="text-center">
-                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                          Coming Soon
-                        </h3>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
-                          Additional trading tools will be available here
-                        </p>
+                    <div className="h-full overflow-y-auto">
+                      <div className="transform scale-75 origin-top-left w-[133%] h-[133%]">
+                        <MultiTimeAnalysis />
                       </div>
                     </div>
                   </div>
