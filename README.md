@@ -799,6 +799,7 @@ Run the SQL scripts provided:
 - **Multi-Indicator Heatmap**: Advanced technical analysis dashboard
 - **AI News Analysis**: Intelligent news filtering and analysis
 - **TradingViewWidget**: Professional TradingView charts with real-time data and technical indicators
+- **ForexMarketTimeZone**: Interactive forex market time zone converter with trading volume analysis
 - **HeatmapAlertConfig**: Alert configuration modal for multi-indicator heatmap alerts
 - **RSIAlertConfig**: Alert configuration modal for RSI Tracker alerts
 - **RSICorrelationAlertConfig**: Alert configuration modal for RSI Correlation Dashboard alerts

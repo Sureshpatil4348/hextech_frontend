@@ -237,3 +237,34 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+/* Striped pattern backgrounds for Forex Market Time Zone */
+.stripes-blue {
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(59, 130, 246, 0.4),
+    rgba(59, 130, 246, 0.4) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+}
+
+.stripes-pink {
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(236, 72, 153, 0.4),
+    rgba(236, 72, 153, 0.4) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+}
+
+.stripes-green {
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(34, 197, 94, 0.4),
+    rgba(34, 197, 94, 0.4) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+}
