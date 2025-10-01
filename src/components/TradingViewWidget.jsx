@@ -150,7 +150,7 @@ const TradingViewWidget = ({
             <select
               value={selectedSymbol}
               onChange={handleSymbolChange}
-              className="flex-1 min-w-[200px] px-3 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="flex-1 min-w-[120px] sm:min-w-[200px] px-3 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             >
               {symbolOptions.map((option) => (
                 <option key={option.value} value={option.value}>
@@ -163,7 +163,7 @@ const TradingViewWidget = ({
             <select
               value={selectedInterval}
               onChange={handleIntervalChange}
-              className="flex-1 min-w-[120px] px-3 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="flex-1 min-w-[80px] sm:min-w-[120px] px-3 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             >
               {intervalOptions.map((option) => (
                 <option key={option.value} value={option.value}>

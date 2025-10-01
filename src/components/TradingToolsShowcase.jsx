@@ -12,7 +12,7 @@ import {
 } from 'lucide-react'
 
 const TradingToolsShowcase = () => {
-  const [activeTab, setActiveTab] = useState(0)
+  const [activeTab, setActiveTab] = useState(1)
 
   const tools = [
     {
@@ -70,7 +70,7 @@ const TradingToolsShowcase = () => {
       title: "6-in-1 Indicator Analysis",
       description: "Get comprehensive market analysis with 6-7 powerful indicators working across multiple timeframes simultaneously.",
       features: [
-        "RSI, MACD, Bollinger Bands, and more",
+        "RSI, MACD, Ichimoku, and more",
         "Multi-timeframe correlation",
         "Automated signal generation",
         "Customizable thresholds",
@@ -89,7 +89,7 @@ const TradingToolsShowcase = () => {
         "Position size calculator",
         "Risk/reward calculator",
         "Pip value calculator",
-        "Margin calculator",
+        "Stop-loss calculator",
         "Multi-asset support"
       ],
       gradient: "from-cyan-500 to-blue-500",
@@ -116,7 +116,7 @@ const TradingToolsShowcase = () => {
   const activeTool = tools[activeTab]
 
   return (
-    <section className="py-16 md:py-24 px-4 md:px-6 w-full transition-colors duration-300 relative overflow-hidden">
+    <section className="py-12 md:py-16 px-4 md:px-6 w-full transition-colors duration-300 relative overflow-hidden">
       {/* Background Decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 -left-48 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl"></div>
@@ -142,7 +142,7 @@ const TradingToolsShowcase = () => {
           </h2>
           
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Explore our suite of professional trading tools designed to give you a competitive edge in the markets.
+            
           </p>
         </div>
 
@@ -238,35 +238,9 @@ const TradingToolsShowcase = () => {
                 </ul>
               </div>
             </div>
-
-            {/* Bottom Gradient Bar */}
-            <div className={`h-2 bg-gradient-to-r ${activeTool.gradient}`}></div>
           </div>
         </div>
 
-        {/* Bottom Stats with Glassy Cards */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white/40 dark:bg-gray-800/40 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-            <div className="text-4xl font-bold bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent mb-2">
-              10+
-            </div>
-            <p className="text-gray-600 dark:text-gray-300 font-semibold">Trading Tools</p>
-          </div>
-          
-          <div className="bg-white/40 dark:bg-gray-800/40 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-            <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-2">
-              24/7
-            </div>
-            <p className="text-gray-600 dark:text-gray-300 font-semibold">Real-Time Data</p>
-          </div>
-          
-          <div className="bg-white/40 dark:bg-gray-800/40 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-            <div className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
-              100%
-            </div>
-            <p className="text-gray-600 dark:text-gray-300 font-semibold">Web-Based</p>
-          </div>
-        </div>
       </div>
     </section>
   )

@@ -90,7 +90,7 @@ const Dashboard = () => {
               className={`px-4 py-2 rounded-full border transition-all duration-200 ${
                 activeTab === 'analysis'
                   ? 'bg-blue-500/30 text-blue-800 dark:text-blue-300 border-blue-400/50'
-                  : 'bg-white/20 dark:bg-gray-800/20 text-black dark:text-white hover:bg-white/30 dark:hover:bg-gray-700/30 border-white/30 dark:border-gray-700/40'
+                  : 'bg-white/20 dark:bg-gray-800/20 text-[#19235d] dark:text-white hover:bg-white/30 dark:hover:bg-gray-700/30 border-white/30 dark:border-gray-700/40'
               }`}
             >
               Analysis
@@ -100,7 +100,7 @@ const Dashboard = () => {
               className={`px-4 py-2 rounded-full border transition-all duration-200 ${
                 activeTab === 'tools'
                   ? 'bg-purple-500/30 text-purple-800 dark:text-purple-300 border-purple-400/50'
-                  : 'bg-white/20 dark:bg-gray-800/20 text-black dark:text-white hover:bg-white/30 dark:hover:bg-gray-700/30 border-white/30 dark:border-gray-700/40'
+                  : 'bg-white/20 dark:bg-gray-800/20 text-[#19235d] dark:text-white hover:bg-white/30 dark:hover:bg-gray-700/30 border-white/30 dark:border-gray-700/40'
               }`}
             >
               Tools

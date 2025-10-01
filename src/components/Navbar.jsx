@@ -75,8 +75,8 @@ const Navbar = () => {
                     <>
                       {/* Features */}
                       <button
-                        onClick={() => scrollToSection('trading-dashboard')}
-                        className="flex items-center space-x-2 text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-200 transition-all duration-300 group bg-white/20 dark:bg-gray-800/20 px-4 py-2 rounded-full hover:bg-white/30 dark:hover:bg-gray-700/30"
+                        onClick={() => scrollToSection('trading-tools')}
+                        className="flex items-center space-x-2 text-[#19235d] dark:text-white hover:text-gray-700 dark:hover:text-gray-200 transition-all duration-300 group bg-white/20 dark:bg-gray-800/20 px-4 py-2 rounded-full hover:bg-white/30 dark:hover:bg-gray-700/30"
                       >
                         <Settings className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
                         <span className="font-medium text-sm">Features</span>
@@ -85,7 +85,7 @@ const Navbar = () => {
                       {/* About Us */}
                       <button
                         onClick={() => scrollToSection('video-explanation')}
-                        className="flex items-center space-x-2 text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-200 transition-all duration-300 group bg-white/20 dark:bg-gray-800/20 px-4 py-2 rounded-full hover:bg-white/30 dark:hover:bg-gray-700/30"
+                        className="flex items-center space-x-2 text-[#19235d] dark:text-white hover:text-gray-700 dark:hover:text-gray-200 transition-all duration-300 group bg-white/20 dark:bg-gray-800/20 px-4 py-2 rounded-full hover:bg-white/30 dark:hover:bg-gray-700/30"
                       >
                         <Users className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
                         <span className="font-medium text-sm">About Us</span>
@@ -94,7 +94,7 @@ const Navbar = () => {
                       {/* FAQ */}
                       <button
                         onClick={() => scrollToSection('faq')}
-                        className="flex items-center space-x-2 text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-200 transition-all duration-300 group bg-white/20 dark:bg-gray-800/20 px-4 py-2 rounded-full hover:bg-white/30 dark:hover:bg-gray-700/30"
+                        className="flex items-center space-x-2 text-[#19235d] dark:text-white hover:text-gray-700 dark:hover:text-gray-200 transition-all duration-300 group bg-white/20 dark:bg-gray-800/20 px-4 py-2 rounded-full hover:bg-white/30 dark:hover:bg-gray-700/30"
                       >
                         <HelpCircle className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
                         <span className="font-medium text-sm">FAQ</span>
@@ -108,7 +108,7 @@ const Navbar = () => {
                   {user && !isOnProtectedPage && (
                     <Link
                       to="/dashboard"
-                      className="flex items-center space-x-2 text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-200 transition-all duration-300 group bg-white/20 dark:bg-gray-800/20 px-4 py-2 rounded-full hover:bg-white/30 dark:hover:bg-gray-700/30"
+                      className="flex items-center space-x-2 text-[#19235d] dark:text-white hover:text-gray-700 dark:hover:text-gray-200 transition-all duration-300 group bg-white/20 dark:bg-gray-800/20 px-4 py-2 rounded-full hover:bg-white/30 dark:hover:bg-gray-700/30"
                     >
                       <BarChart3 className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
                       <span className="font-medium text-sm">Dashboard</span>
@@ -129,10 +129,10 @@ const Navbar = () => {
                     </div>
                   )}
 
-                  {/* Theme Toggle Button */}
-                  <button
+                  {/* Theme Toggle Button - Hidden as requested */}
+                  {/* <button
                     onClick={toggleTheme}
-                    className="p-2 rounded-full bg-white/20 dark:bg-gray-800/20 hover:bg-white/30 dark:hover:bg-gray-700/30 text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-200 transition-all duration-300 border border-white/20 dark:border-gray-700/30"
+                    className="p-2 rounded-full bg-white/20 dark:bg-gray-800/20 hover:bg-white/30 dark:hover:bg-gray-700/30 text-[#19235d] dark:text-white hover:text-gray-700 dark:hover:text-gray-200 transition-all duration-300 border border-white/20 dark:border-gray-700/30"
                     title={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
                   >
                     {isDarkMode ? (
@@ -140,7 +140,7 @@ const Navbar = () => {
                     ) : (
                       <Moon className="w-4 h-4" />
                     )}
-                  </button>
+                  </button> */}
 
                   {/* Desktop User Section - Hidden on mobile */}
                   <div className="hidden lg:flex items-center">
@@ -163,7 +163,7 @@ const Navbar = () => {
                   {/* Mobile Menu Button */}
                   <button
                     onClick={toggleMobileMenu}
-                    className="lg:hidden p-2 rounded-full bg-white/20 dark:bg-gray-800/20 hover:bg-white/30 dark:hover:bg-gray-700/30 text-black dark:text-white transition-all duration-300 border border-white/20 dark:border-gray-700/30"
+                    className="lg:hidden p-2 rounded-full bg-white/20 dark:bg-gray-800/20 hover:bg-white/30 dark:hover:bg-gray-700/30 text-[#19235d] dark:text-white transition-all duration-300 border border-white/20 dark:border-gray-700/30"
                     aria-label="Toggle mobile menu"
                   >
                     {isMobileMenuOpen ? (
@@ -187,8 +187,8 @@ const Navbar = () => {
                 {!isOnProtectedPage && (
                   <>
                     <button
-                      onClick={() => scrollToSection('trading-dashboard')}
-                      className="flex items-center space-x-3 w-full text-left text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-200 transition-all duration-300 py-3 px-4 rounded-full hover:bg-white/20 dark:hover:bg-gray-800/20"
+                      onClick={() => scrollToSection('trading-tools')}
+                      className="flex items-center space-x-3 w-full text-left text-[#19235d] dark:text-white hover:text-gray-700 dark:hover:text-gray-200 transition-all duration-300 py-3 px-4 rounded-full hover:bg-white/20 dark:hover:bg-gray-800/20"
                     >
                       <Settings className="w-5 h-5" />
                       <span className="font-medium">Features</span>
@@ -196,7 +196,7 @@ const Navbar = () => {
 
                     <button
                       onClick={() => scrollToSection('video-explanation')}
-                      className="flex items-center space-x-3 w-full text-left text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-200 transition-all duration-300 py-3 px-4 rounded-full hover:bg-white/20 dark:hover:bg-gray-800/20"
+                      className="flex items-center space-x-3 w-full text-left text-[#19235d] dark:text-white hover:text-gray-700 dark:hover:text-gray-200 transition-all duration-300 py-3 px-4 rounded-full hover:bg-white/20 dark:hover:bg-gray-800/20"
                     >
                       <Users className="w-5 h-5" />
                       <span className="font-medium">About Us</span>
@@ -204,7 +204,7 @@ const Navbar = () => {
 
                     <button
                       onClick={() => scrollToSection('faq')}
-                      className="flex items-center space-x-3 w-full text-left text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-200 transition-all duration-300 py-3 px-4 rounded-full hover:bg-white/20 dark:hover:bg-gray-800/20"
+                      className="flex items-center space-x-3 w-full text-left text-[#19235d] dark:text-white hover:text-gray-700 dark:hover:text-gray-200 transition-all duration-300 py-3 px-4 rounded-full hover:bg-white/20 dark:hover:bg-gray-800/20"
                     >
                       <HelpCircle className="w-5 h-5" />
                       <span className="font-medium">FAQ</span>
@@ -215,7 +215,7 @@ const Navbar = () => {
                 {user && !isOnProtectedPage && (
                   <Link
                     to="/dashboard"
-                    className="flex items-center space-x-3 w-full text-left text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-200 transition-all duration-300 py-3 px-4 rounded-full hover:bg-white/20 dark:hover:bg-gray-800/20"
+                    className="flex items-center space-x-3 w-full text-left text-[#19235d] dark:text-white hover:text-gray-700 dark:hover:text-gray-200 transition-all duration-300 py-3 px-4 rounded-full hover:bg-white/20 dark:hover:bg-gray-800/20"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <BarChart3 className="w-5 h-5" />
@@ -235,7 +235,7 @@ const Navbar = () => {
                         handleLoginClick()
                         setIsMobileMenuOpen(false)
                       }}
-                      className="flex items-center space-x-3 w-full text-left text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-200 transition-all duration-300 py-3 px-4 rounded-full hover:bg-white/20 dark:hover:bg-gray-800/20"
+                      className="flex items-center space-x-3 w-full text-left text-[#19235d] dark:text-white hover:text-gray-700 dark:hover:text-gray-200 transition-all duration-300 py-3 px-4 rounded-full hover:bg-white/20 dark:hover:bg-gray-800/20"
                     >
                       <LogIn className="w-5 h-5" />
                       <span className="font-medium">Login</span>

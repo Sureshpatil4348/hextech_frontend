@@ -3,7 +3,7 @@ import React from 'react';
 
 const PsychologicalBenefitsSection = () => {
   return (
-    <section className="py-16 md:py-20 px-4 md:px-6 w-full transition-colors duration-300">
+    <section className="py-12 md:py-16 px-4 md:px-6 w-full transition-colors duration-300">
       <div className="container mx-auto max-w-7xl">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 md:mb-16 text-gray-900 dark:text-white transition-colors duration-300">
           Built with <span className="text-4xl md:text-5xl font-black bg-gradient-to-r from-green-500 to-emerald-600 dark:from-green-400 dark:to-emerald-500 bg-clip-text text-transparent">Trader Psychology</span> in Mind

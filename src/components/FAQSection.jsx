@@ -2,59 +2,62 @@ import React from 'react';
 
 const FAQSection = () => {
   return (
-    <section id="faq" className="py-16 md:py-20 px-4 md:px-6 w-full transition-colors duration-300">
+    <section id="faq" className="py-12 md:py-16 px-4 md:px-6 w-full transition-colors duration-300">
       <div className="container mx-auto max-w-7xl">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 md:mb-16 text-gray-900 dark:text-white transition-colors duration-300">
           Frequently Asked <span className="gold-text">Questions</span>
         </h2>
         <div className="max-w-4xl mx-auto grid grid-cols-1 gap-6">
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-colors duration-300">
-            <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white transition-colors duration-300">Do I need prior trading experience to use this system?</h3>
+            <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white transition-colors duration-300">What is Hextech?</h3>
             <p className="text-[#19235d] dark:text-gray-300 transition-colors duration-300">
-              No, the AURUM is designed for both beginners and experienced traders. Complete setup guides are provided, and our WhatsApp community is always there to help you. However, I recommend watching some of my YouTube tutorials to understand basic trading concepts.
+              Hextech is a smart trading tool. It helps you see market signals, news impact, and analysis in one place. We do not trade for you. You use our tools to make your own trading choices.
             </p>
           </div>
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-colors duration-300">
-            <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white transition-colors duration-300">Which platforms and brokers are supported?</h3>
+            <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white transition-colors duration-300">On which email id i will receive the alerts?</h3>
             <p className="text-[#19235d] dark:text-gray-300 transition-colors duration-300">
-              The system works with both MetaTrader 4 (MT4) and MetaTrader 5 (MT5) platforms. It&apos;s compatible with most brokers offering gold (XAUUSD) trading. If you&apos;re unsure about your broker, contact me on WhatsApp and I&apos;ll confirm compatibility.
+              You will receive the alerts to the registered mail id
             </p>
           </div>
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-colors duration-300">
-            <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white transition-colors duration-300">What&apos;s the difference between Silver, Gold, and Diamond packages?</h3>
+            <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white transition-colors duration-300">How can I start using Hextech?</h3>
             <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">
-              Silver allows trading in a single direction (either buy or sell). Gold adds bi-directional trading and enhanced re-entry logic, doubling your profit potential. Diamond includes everything plus advanced customization options like trading schedules, price range limits, and one-click management features.
+              Just sign up on our website, choose a plan (Free, Quarterly, or Yearly), and pay online. After payment, you will get login details by email.
             </p>
           </div>
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-colors duration-300">
-            <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white transition-colors duration-300">How much capital do I need to start?</h3>
+            <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white transition-colors duration-300">Can I use Hextech on my phone?</h3>
             <p className="text-[#19235d] dark:text-gray-300 transition-colors duration-300">
-              While you can start with as little as $500, I recommend at least $1,000 USD (or equivalent) to fully utilize the grid trading strategy. The system includes position sizing controls to adapt to your account size. Many of my successful students started with accounts between $1,000 - $5,000.
+              Yes. Hextech works on mobile, tablet, and computer. You only need internet and a browser to use it.
             </p>
           </div>
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-colors duration-300">
-            <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white transition-colors duration-300">What kind of support will I receive?</h3>
+            <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white transition-colors duration-300">What if my payment fails?</h3>
             <p className="text-[#19235d] dark:text-gray-300 transition-colors duration-300">
-              All packages include installation support and access to our Telegram community. Silver includes 30-day email support, Gold includes 90-day priority support, and Diamond includes lifetime VIP support with direct access to me for strategy optimization.
+              If payment fails, you will not get access. Try again or use another card/bank method. If money was taken but no access is given, contact our support team.
             </p>
           </div>
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-colors duration-300">
-            <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white transition-colors duration-300">How much time do I need to spend monitoring the system?</h3>
+            <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white transition-colors duration-300">Do you give refunds?</h3>
             <p className="text-[#19235d] dark:text-gray-300 transition-colors duration-300">
-              That&apos;s the beauty of the AURUM — it&apos;s fully automated. Once set up, it trades 24/5 while you sleep or work. Most users check results for 5-10 minutes daily. With the Diamond package, you can even set specific trading hours to match your schedule.
+              No refunds for normal use. Refunds are only given if:
+              <br /><br />
+              1.You paid twice by mistake.
+              <br /><br />
+              2.There was a system error and you could not use the service.
             </p>
           </div>
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-colors duration-300">
-            <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white transition-colors duration-300">Is this system only for gold trading?</h3>
+            <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white transition-colors duration-300">Is my data safe with Hextech?</h3>
             <p className="text-[#19235d] dark:text-gray-300 transition-colors duration-300">
-              The system is Works on all pairs including gold, which offers the best volatility and profit potential. However, with a few adjustments, it can be used on major forex pairs as well. I provide setup guidance for other instruments in our community.
+              Yes. We use strong security, encryption, and do not sell your data. Your info is safe and private.
             </p>
           </div>
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-colors duration-300">
-            <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white transition-colors duration-300">What are the realistic profit expectations?</h3>
+            <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white transition-colors duration-300">What happens if I cancel my plan?</h3>
             <p className="text-[#19235d] dark:text-gray-300 transition-colors duration-300">
-              Results vary based on market conditions, account size, and risk settings. On average, my students see 5-15% monthly returns with proper risk management. Some testimonials show higher returns, but these represent experienced traders. Always start conservative and scale up as you gain confidence.
-              <span className="text-sm block mt-2 italic text-gray-500 dark:text-gray-400 transition-colors duration-300">*Trading involves risk. Past performance is not indicative of future results.</span>
+              If you cancel, your plan will stop auto-renew. You can still use it until the end of the period you paid for, but no money will be returned.
             </p>
           </div>
         </div>

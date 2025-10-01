@@ -63,7 +63,7 @@ const LoginModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null
 
   return createPortal(
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 bg-[#19235d]/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
       {/* Modal Container - Proper sizing without height restriction */}
       <div className="relative w-full max-w-md bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-2xl shadow-2xl border border-gray-700/50 overflow-hidden">
         

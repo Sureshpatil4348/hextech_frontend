@@ -4,7 +4,7 @@ import React from 'react';
 export default function SubscriptionSection() {
   return (
     <>
-    <section id="packages" className="py-16 md:py-20 px-4 md:px-6 w-full transition-colors duration-300" style={{fontFamily: 'Pier Sans, sans-serif'}}>
+    <section id="packages" className="py-12 md:py-16 px-4 md:px-6 w-full transition-colors duration-300" style={{fontFamily: 'Pier Sans, sans-serif'}}>
       
         <div className="container mx-auto max-w-7xl">
             <div className="text-center mb-10 md:mb-12">
@@ -291,7 +291,7 @@ export default function SubscriptionSection() {
             
 
     {/* Testimonials with Phone Mockups */}
-    <section id="testimonials" className="py-16 md:py-20 px-4 md:px-6 bg-gray-50 dark:bg-gray-900 w-full transition-colors duration-300">
+    <section id="testimonials" className="py-12 md:py-16 px-4 md:px-6 bg-gray-50 dark:bg-gray-900 w-full transition-colors duration-300">
         <div className="container mx-auto max-w-7xl">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 text-gray-900 dark:text-white transition-colors duration-300">Proven Results from Our <span className="text-green-500 dark:text-green-400">Community</span></h2>
             <p className="text-lg md:text-xl text-[#19235d] dark:text-gray-300 mb-8 md:mb-10 text-center max-w-3xl mx-auto transition-colors duration-300">
@@ -302,11 +302,11 @@ export default function SubscriptionSection() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
                 {/* Phone 1 */}
                 <div className="relative mx-auto">
-                    <div className="phone-mockup relative w-[280px] h-[570px] bg-black rounded-[3rem] shadow-xl">
+                    <div className="phone-mockup relative w-[240px] h-[480px] sm:w-[280px] sm:h-[570px] bg-[#19235d] rounded-[3rem] shadow-xl">
                         {/* Phone Frame */}
-                        <div className="absolute top-0 w-full h-full rounded-[3rem] overflow-hidden border-[8px] border-black">
+                        <div className="absolute top-0 w-full h-full rounded-[3rem] overflow-hidden border-[8px] border-[#19235d]">
                             {/* Notch */}
-                            <div className="absolute top-0 inset-x-0 h-6 bg-black"></div>
+                            <div className="absolute top-0 inset-x-0 h-6 bg-[#19235d]"></div>
                             {/* Screen Content */}
                             <img src="https://media.istockphoto.com/id/1465618017/photo/businessmen-investor-think-before-buying-stock-market-investment-using-smartphone-to-analyze.jpg?s=612x612&w=0&k=20&c=YNEkfoME1jbz6FUJImxCQtaGZZntrf7u-Byxmgk4pOY=" 
                                  alt="Trading Results Screenshot 1"
@@ -318,11 +318,11 @@ export default function SubscriptionSection() {
 
                 {/* Phone 2 */}
                 <div className="relative mx-auto">
-                    <div className="phone-mockup relative w-[280px] h-[570px] bg-black rounded-[3rem] shadow-xl">
+                    <div className="phone-mockup relative w-[240px] h-[480px] sm:w-[280px] sm:h-[570px] bg-[#19235d] rounded-[3rem] shadow-xl">
                         {/* Phone Frame */}
-                        <div className="absolute top-0 w-full h-full rounded-[3rem] overflow-hidden border-[8px] border-black">
+                        <div className="absolute top-0 w-full h-full rounded-[3rem] overflow-hidden border-[8px] border-[#19235d]">
                             {/* Notch */}
-                            <div className="absolute top-0 inset-x-0 h-6 bg-black"></div>
+                            <div className="absolute top-0 inset-x-0 h-6 bg-[#19235d]"></div>
                             {/* Screen Content */}
                             <img src="https://hycm.s3.amazonaws.com/public/files/articles/how_to_trade.webp" 
                                  alt="Trading Results Screenshot 2"
@@ -334,11 +334,11 @@ export default function SubscriptionSection() {
                     
                 {/* Phone 3 */}
                 <div className="relative mx-auto">
-                    <div className="phone-mockup relative w-[280px] h-[570px] bg-black rounded-[3rem] shadow-xl">
+                    <div className="phone-mockup relative w-[240px] h-[480px] sm:w-[280px] sm:h-[570px] bg-[#19235d] rounded-[3rem] shadow-xl">
                         {/* Phone Frame */}
-                        <div className="absolute top-0 w-full h-full rounded-[3rem] overflow-hidden border-[8px] border-black">
+                        <div className="absolute top-0 w-full h-full rounded-[3rem] overflow-hidden border-[8px] border-[#19235d]">
                             {/* Notch */}
-                            <div className="absolute top-0 inset-x-0 h-6 bg-black"></div>
+                            <div className="absolute top-0 inset-x-0 h-6 bg-[#19235d]"></div>
                             {/* Screen Content */}
                             <img src="https://www.shareindia.com/wp-content/uploads/2023/12/What-is-Forex-Trading.webp" 
                                  alt="Trading Results Screenshot 3"
@@ -357,7 +357,7 @@ export default function SubscriptionSection() {
     </section>
 
     {/* Community Section */}
-    <section id="community" className="py-16 md:py-20 px-4 md:px-6 w-full transition-colors duration-300">
+    <section id="community" className="py-12 md:py-16 px-4 md:px-6 w-full transition-colors duration-300">
         <div className="container mx-auto max-w-7xl">
             <div className="flex flex-col lg:flex-row items-start gap-8 md:gap-12">
                 <div className="lg:w-1/2 flex flex-col h-full">

@@ -44,7 +44,7 @@ const AINewsAnalysisSection = () => {
   }, [newsData.length])
 
   return (
-    <section className="relative py-20 overflow-hidden transition-colors duration-300">
+    <section className="relative py-12 md:py-16 overflow-hidden transition-colors duration-300">
       {/* Animated Background */}
       <div className="absolute inset-0">
         {/* Floating Particles */}

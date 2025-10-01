@@ -11,31 +11,31 @@ const WhySystemWorks = () => {
     {
       id: 1,
       icon: Bot,
-      title: "Fully Automated",
-      description: "Set it once and let it work 24/7. No need to watch charts all day."
+      title: "AI First Approach",
+      description: "Have an AI first approach to trading to maximize your profits"
     },
     {
       id: 2,
       icon: TrendingUp,
       title: "Adapts to All Markets",
-      description: "Uses ATR (Average True Range) to adjust to market volatility automatically."
+      description: "Uses AI to adapt to all markets and identify trends and opportunities"
     },
     {
       id: 3,
       icon: Shield,
-      title: "Built-in Protection",
-      description: "Smart stop-loss and take-profit settings protect your capital."
+      title: "All in one trading platform",
+      description: "All in one trading platform to maximize your profits"
     },
     {
       id: 4,
       icon: Monitor,
-      title: "Easy Setup",
-      description: "Install in 5 minutes with our step-by-step video guide."
+      title: "Signal Alerts",
+      description: "Get instant notifications for high-impact news events and indicator signals directly via email"
     }
   ]
 
   return (
-    <section id="features" className="py-16 md:py-24 px-4 md:px-6 w-full transition-colors duration-300 relative overflow-hidden">
+    <section id="features" className="py-12 md:py-16 px-4 md:px-6 w-full transition-colors duration-300 relative overflow-hidden">
       {/* Background Decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/3 -left-48 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl"></div>
@@ -71,21 +71,15 @@ const WhySystemWorks = () => {
                 animationDelay: `${index * 100}ms`
               }}
             >
-              {/* Gradient Glow on Hover */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-emerald-500 to-green-500 opacity-0 group-hover:opacity-10 blur-xl transition-opacity duration-500 -z-10"></div>
-              
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-green-500/20 dark:from-emerald-500/30 dark:to-green-500/30 flex items-center justify-center mb-6 mx-auto shadow-lg group-hover:scale-110 transition-transform duration-500">
                 <feature.icon className="w-8 h-8 text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform duration-300" />
               </div>
-              <h3 className="text-xl font-bold text-center mb-4 text-gray-900 dark:text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-emerald-600 group-hover:to-green-600 dark:group-hover:from-emerald-400 dark:group-hover:to-green-400 group-hover:bg-clip-text transition-all duration-300">
+              <h3 className="text-xl font-bold text-center mb-4 text-gray-900 dark:text-white transition-all duration-300">
                 {feature.title}
               </h3>
               <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed transition-colors duration-300">
                 {feature.description}
               </p>
-
-              {/* Decorative Bottom Line */}
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-b-3xl"></div>
             </div>
           ))}
         </div>
