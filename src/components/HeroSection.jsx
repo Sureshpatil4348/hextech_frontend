@@ -1,286 +1,138 @@
-import React, { useState, useEffect } from 'react'
+import { ArrowRight, BellRing, CalendarRange, LayoutDashboard, Sparkles } from 'lucide-react'
+import React from 'react'
+
+const heroStats = [
+  {
+    icon: LayoutDashboard,
+    title: 'Unified Trading Workspace',
+    description: 'TradingView charts, strength meters, sessions and analytics in one glassy dashboard.'
+  },
+  {
+    icon: BellRing,
+    title: 'Instant Intelligence',
+    description: 'Email alerts for indicators, high-impact news and multi-timeframe conditions 24/7.'
+  },
+  {
+    icon: CalendarRange,
+    title: 'Global Market Coverage',
+    description: 'Follow forex, crypto and commodities with tailored calculators and live session tracking.'
+  }
+]
 
 const HeroSection = () => {
-  const [currentSlide, setCurrentSlide] = useState(1)
-  const [animationLoaded, setAnimationLoaded] = useState(false)
-
-  // Auto-advance slideshow
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide(prev => prev === 3 ? 1 : prev + 1)
-    }, 5000)
-    return () => clearInterval(interval)
-  }, [])
-
-  // Handle animation loading
-  useEffect(() => {
-    const checkAnimation = () => {
-      const player = document.querySelector('dotlottie-player')
-      const staticAnimation = document.getElementById('static-animation')
-      
-      if (player) {
-        player.addEventListener('ready', () => {
-          setAnimationLoaded(true)
-          if (staticAnimation) {
-            staticAnimation.style.display = 'none'
-          }
-        })
-        
-        player.addEventListener('error', () => {
-          setAnimationLoaded(false)
-          if (staticAnimation) {
-            staticAnimation.style.display = 'flex'
-          }
-        })
-        
-        // Fallback timeout - show static animation if Lottie doesn't load within 3 seconds
-        setTimeout(() => {
-          if (!animationLoaded && staticAnimation) {
-            staticAnimation.style.display = 'flex'
-          }
-        }, 3000)
-      } else {
-        // If dotlottie-player is not available, show static animation
-        if (staticAnimation) {
-          staticAnimation.style.display = 'flex'
-        }
-      }
-    }
-
-    // Wait for DOM to be ready
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', checkAnimation)
-    } else {
-      checkAnimation()
-    }
-  }, [animationLoaded])
-
-  const showSlide = (n) => {
-    setCurrentSlide(n)
-  }
-
-  const nextSlide = () => {
-    setCurrentSlide(prev => prev === 3 ? 1 : prev + 1)
-  }
-
-  const prevSlide = () => {
-    setCurrentSlide(prev => prev === 1 ? 3 : prev - 1)
-  }
-
   return (
-    <section className="pt-32 pb-16 px-4 sm:pt-40 sm:pb-20 md:px-6 w-full transition-colors duration-300">
+    <section className="pt-32 pb-20 px-4 sm:pt-40 sm:pb-24 md:px-6 w-full transition-colors duration-300">
       <div className="container mx-auto max-w-7xl">
-        <div className="flex flex-col lg:flex-row items-center">
-          <div className="lg:w-1/2 text-center lg:text-left mb-8 lg:mb-0">
-            <div className="mb-4 flex flex-col items-center lg:items-start space-y-2">
-              <div className="flex items-center bg-green-100 dark:bg-green-900/30 rounded-full px-4 py-1 text-green-800 dark:text-green-300 text-sm font-medium transition-colors duration-300" style={{fontFamily: 'Pier Sans, sans-serif'}}>
-                <i className="fas fa-check-circle mr-2"></i> Say Goodbye to All-Day Chart Monitoring!
-              </div>
-              <div className="flex items-center bg-blue-50 dark:bg-blue-900/30 rounded-full px-4 py-1 text-blue-800 dark:text-blue-300 text-xs font-medium transition-colors duration-300" style={{fontFamily: 'Pier Sans, sans-serif'}}>
-                <i className="fas fa-users mr-2"></i> 100+ traders using our proven system
-              </div>
-              </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mb-4" style={{fontFamily: 'Pier Sans, sans-serif'}}>
-              <span className="text-[#19235d] dark:text-white transition-colors duration-300">Stop Chasing Losses: <span className="bg-gradient-to-r from-emerald-500 via-green-500 to-emerald-600 dark:from-emerald-400 dark:via-green-400 dark:to-emerald-500 bg-clip-text text-transparent">Achieve Consistent Results with Our Proven Trading Algorithm</span></span>
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="text-center lg:text-left space-y-6">
+            <div className="inline-flex items-center px-4 py-1 rounded-full bg-white/60 dark:bg-gray-800/60 backdrop-blur border border-white/40 dark:border-gray-700/50 shadow-lg text-sm font-medium text-[#19235d] dark:text-gray-200 transition-colors duration-300">
+              <Sparkles className="w-4 h-4 mr-2 text-emerald-500" />
+              Dubai-born all-in-one trading platform
+            </div>
+
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight text-[#19235d] dark:text-white transition-colors duration-300" style={{ fontFamily: 'Pier Sans, sans-serif' }}>
+              Trade smarter with <span className="bg-gradient-to-r from-emerald-500 via-green-500 to-emerald-600 dark:from-emerald-400 dark:via-green-400 dark:to-emerald-500 bg-clip-text text-transparent">HASHTAG</span> — your glassy command center for the markets
             </h1>
-            <p className="text-base md:text-lg text-[#19235d] dark:text-gray-300 mb-6 transition-colors duration-300" style={{fontFamily: 'Pier Sans, sans-serif'}}>
-              Quit losing money on manual trades. Our proven automated system has empowered hundreds of clients to achieve consistent success in trading.
+
+            <p className="text-base md:text-lg text-[#19235d]/80 dark:text-gray-300 max-w-2xl mx-auto lg:mx-0 transition-colors duration-300" style={{ fontFamily: 'Pier Sans, sans-serif' }}>
+              Unlock TradingView-powered execution, institutional news feeds, currency strength analytics, deep indicator confluence and automated notifications inside one premium workspace. Pay once, log in from anywhere and stay ahead of every move.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 mb-6">
-              <a href="https://t.me/+NgzWiBMfEj02YTM1" target="_blank" rel="noopener noreferrer" className="bg-yellow-600 dark:bg-yellow-500 text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-yellow-700 dark:hover:bg-yellow-600 transition duration-300 cta-button w-full sm:w-auto text-center" style={{fontFamily: 'Pier Sans, sans-serif'}}>
-                Join Successful Traders
+
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              <a
+                href="#packages"
+                className="group inline-flex items-center justify-center px-6 py-3 rounded-full bg-gradient-to-r from-emerald-500 to-emerald-600 text-white text-lg font-medium shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-0.5"
+                style={{ fontFamily: 'Pier Sans, sans-serif' }}
+              >
+                Explore Pricing
+                <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
               </a>
-              <a href="#demo-video" className="border-2 border-green-600 dark:border-green-500 text-green-600 dark:text-green-400 px-6 py-3 rounded-full text-lg font-medium hover:bg-green-50 dark:hover:bg-green-900/20 transition duration-300 cta-button flex items-center justify-center w-full sm:w-auto" style={{fontFamily: 'Pier Sans, sans-serif'}}>
-                <i className="fas fa-play-circle mr-2"></i> Watch Demo
+
+              <a
+                href="#suite-overview"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-[#19235d]/20 dark:border-gray-600 bg-white/50 dark:bg-gray-900/40 backdrop-blur text-[#19235d] dark:text-gray-100 text-lg font-medium hover:bg-white/70 dark:hover:bg-gray-900/70 transition-all duration-300 shadow-lg"
+                style={{ fontFamily: 'Pier Sans, sans-serif' }}
+              >
+                See the toolkit
               </a>
-              </div>
             </div>
 
-          <div className="lg:w-1/2 flex justify-center relative w-full">
-            {/* Algo Trading Animation */}
-            <div className="relative w-full max-w-[500px] h-[400px] flex items-center justify-center">
-              {/* Lottie Animation */}
-              <dotlottie-player
-                src="https://lottie.host/809992b4-2bc5-4354-90c9-6f141d2ba8e0/5a1a9bzphT.lottie"
-                background="transparent"
-                speed="1"
-                style={{width: '100%', height: '100%'}}
-                loop
-                autoplay
-              ></dotlottie-player>
-              
-              
-            </div>
-          </div>
-              </div>
-        
-        {/* Success Announcement */}
-        <div className="mt-8 md:mt-12 text-center">
-          {/* Success Banner */}
-          <div className="bg-gradient-to-r from-green-500 to-emerald-600 dark:from-green-600 dark:to-emerald-700 p-4 rounded-lg shadow-lg max-w-4xl mx-auto mb-6 transition-colors duration-300">
-            <div className="flex items-center justify-center text-white">
-              <i className="fas fa-trophy text-2xl mr-3"></i>
-              <div>
-                <h3 className="font-medium text-lg" style={{fontFamily: 'Pier Sans, sans-serif'}}>🎉 SUCCESS STORIES!</h3>
-                <p className="text-sm">150+ successful traders now using our proven system</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-gradient-to-r from-blue-900 via-[#19235d] to-blue-900 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 p-6 md:p-8 rounded-xl shadow-2xl max-w-4xl mx-auto border-t-4 border-[#00E676] dark:border-green-400 relative overflow-hidden transition-colors duration-300">
-            
-            <div className="relative z-10">
-              {/* Header with pulse effect */}
-              <div className="inline-flex items-center justify-center px-4 py-2 bg-[#00E676] bg-opacity-20 dark:bg-green-400 dark:bg-opacity-30 rounded-full mb-4 transition-colors duration-300">
-                <i className="fas fa-chart-trending-up text-[#00E676] dark:text-green-400 mr-2 transition-colors duration-300"></i>
-                <span className="text-white font-medium tracking-wide" style={{fontFamily: 'Pier Sans, sans-serif'}}>PROVEN TRACK RECORD</span>
-              </div>
-              
-              <h3 className="text-white text-2xl md:text-3xl font-medium mb-3" style={{fontFamily: 'Pier Sans, sans-serif'}}>Join Our Established Trading Community</h3>
-              
-              <p className="text-gray-200 dark:text-gray-300 text-lg mb-6 max-w-3xl mx-auto transition-colors duration-300">
-                Our founding members have generated consistent profits using our proven system. 
-                <span className="font-medium text-[#00E676] dark:text-green-400" style={{fontFamily: 'Pier Sans, sans-serif'}}>Join 150+ successful traders today!</span>
-              </p>
-              
-              {/* Success Stats */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 max-w-2xl mx-auto">
-                <div className="bg-white bg-opacity-10 dark:bg-gray-800 dark:bg-opacity-30 rounded-lg p-4 text-center backdrop-blur-sm transition-colors duration-300">
-                  <div className="text-2xl font-medium text-[#00E676] dark:text-green-400 mb-1" style={{fontFamily: 'Pier Sans, sans-serif'}}>150+</div>
-                  <p className="text-gray-300 dark:text-gray-400 text-sm transition-colors duration-300">Active Traders</p>
+            <div className="grid sm:grid-cols-3 gap-4 pt-6">
+              {heroStats.map(({ icon: Icon, title, description }) => (
+                <div
+                  key={title}
+                  className="bg-white/50 dark:bg-gray-900/40 backdrop-blur rounded-2xl border border-white/40 dark:border-gray-700/50 shadow-lg px-4 py-5 text-left transition-all duration-300"
+                >
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-100 to-green-100 dark:from-emerald-900/30 dark:to-green-900/30 flex items-center justify-center mb-3">
+                    <Icon className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
                   </div>
-                <div className="bg-white bg-opacity-10 dark:bg-gray-800 dark:bg-opacity-30 rounded-lg p-4 text-center backdrop-blur-sm transition-colors duration-300">
-                  <div className="text-2xl font-medium text-[#00E676] dark:text-green-400 mb-1" style={{fontFamily: 'Pier Sans, sans-serif'}}>6-months</div>
-                  <p className="text-gray-300 dark:text-gray-400 text-sm transition-colors duration-300">Track Record</p>
+                  <h3 className="text-base font-semibold text-[#19235d] dark:text-white" style={{ fontFamily: 'Pier Sans, sans-serif' }}>{title}</h3>
+                  <p className="text-sm text-[#19235d]/70 dark:text-gray-300 leading-relaxed" style={{ fontFamily: 'Pier Sans, sans-serif' }}>{description}</p>
                 </div>
-                <div className="bg-white bg-opacity-10 dark:bg-gray-800 dark:bg-opacity-30 rounded-lg p-4 text-center backdrop-blur-sm transition-colors duration-300">
-                  <div className="text-2xl font-medium text-[#00E676] dark:text-green-400 mb-1" style={{fontFamily: 'Pier Sans, sans-serif'}}>$230k+</div>
-                  <p className="text-gray-300 dark:text-gray-400 text-sm transition-colors duration-300">Total Profits Generated</p>
-                </div>
-              </div>
+              ))}
+            </div>
+          </div>
 
-              {/* CTA Button */}
-              <a href="#packages" className="inline-block bg-[#00E676] hover:bg-[#00BFA5] dark:bg-green-500 dark:hover:bg-green-600 text-[#19235d] dark:text-white font-medium px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg" style={{fontFamily: 'Pier Sans, sans-serif'}}>
-                Join Successful Traders
-              </a>
-              
-              {/* Social proof */}
-              <div className="mt-4 text-gray-400 dark:text-gray-500 text-sm flex items-center justify-center transition-colors duration-300">
-                <i className="fas fa-users mr-2 text-green-400 dark:text-green-300"></i>
-                <span>Active community with daily support and results sharing</span>
-                      </div>
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-transparent to-blue-500/10 blur-3xl rounded-full"></div>
+            <div className="relative bg-white/20 dark:bg-gray-900/20 backdrop-blur-xl border border-white/40 dark:border-gray-700/40 rounded-3xl p-6 sm:p-8 shadow-2xl">
+              <div className="flex flex-col gap-6">
+                <div className="rounded-2xl bg-gradient-to-br from-[#19235d] via-[#1f2b6d] to-[#23307a] dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 text-white p-6 shadow-xl">
+                  <div className="flex items-center justify-between mb-4">
+                    <div>
+                      <span className="uppercase text-xs tracking-[0.3em] text-white/60">Realtime Pulse</span>
+                      <h3 className="text-2xl font-semibold">Market Command</h3>
+                    </div>
+                    <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
+                      <BellRing className="w-6 h-6" />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-3 gap-3 text-sm">
+                    <div className="bg-white/10 rounded-xl px-3 py-2">
+                      <span className="block text-xs text-white/60">FX Heat</span>
+                      <span className="text-lg font-semibold">+87%</span>
+                    </div>
+                    <div className="bg-white/10 rounded-xl px-3 py-2">
+                      <span className="block text-xs text-white/60">Crypto Flow</span>
+                      <span className="text-lg font-semibold">Bullish</span>
+                    </div>
+                    <div className="bg-white/10 rounded-xl px-3 py-2">
+                      <span className="block text-xs text-white/60">Session</span>
+                      <span className="text-lg font-semibold">London</span>
+                    </div>
+                  </div>
+                  <p className="mt-4 text-sm text-white/70 leading-relaxed">
+                    Currency strength, cross-asset sentiment and live session timers align in one glance.
+                  </p>
+                </div>
+
+                <div className="bg-white/70 dark:bg-gray-900/60 rounded-2xl border border-white/40 dark:border-gray-700/50 p-5 shadow-xl">
+                  <h4 className="text-[#19235d] dark:text-white font-semibold text-lg" style={{ fontFamily: 'Pier Sans, sans-serif' }}>Auto-alert pipeline</h4>
+                  <div className="mt-4 space-y-3 text-sm" style={{ fontFamily: 'Pier Sans, sans-serif' }}>
+                    <div className="flex items-center justify-between">
+                      <span className="text-[#19235d]/80 dark:text-gray-200">Indicator alignment detected</span>
+                      <span className="text-emerald-500 font-medium">Email sent</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-[#19235d]/80 dark:text-gray-200">High impact news in 30 min</span>
+                      <span className="text-emerald-500 font-medium">SMS queued</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-[#19235d]/80 dark:text-gray-200">GBPUSD session overlap</span>
+                      <span className="text-emerald-500 font-medium">Desktop push</span>
                     </div>
                   </div>
                 </div>
 
-
-        
-        {/* Premium Verified Results Section */}
-        <div id="demo-video" className="mt-12 md:mt-16 mx-auto px-4 md:px-8 max-w-6xl">
-          {/* Premium Header */}
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center px-6 py-3 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 rounded-full shadow-sm mb-4">
-              <img src="https://www.myfxbook.com/favicon.ico" alt="Myfxbook" className="w-5 h-5 mr-3" />
-              <span className="text-gray-700 dark:text-gray-300 font-semibold text-sm tracking-wide" style={{fontFamily: 'Pier Sans, sans-serif'}}>VERIFIED BY MYFXBOOK</span>
-            </div>
-            
-            <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white mb-3" style={{fontFamily: 'Pier Sans, sans-serif'}}>
-              <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">Real Trading Results</span>
-            </h3>
-            
-            <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
-              See the actual performance data that speaks for itself
-            </p>
-          </div>
-
-          {/* Frameless Premium Carousel */}
-          <div className="relative group">
-            {/* Main Carousel Container */}
-            <div className="relative overflow-hidden rounded-3xl shadow-2xl bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 border border-gray-200/50 dark:border-gray-700/50">
-              
-              {/* Slides */}
-              <div className="relative h-[500px] md:h-[600px]">
-                <div className={`absolute inset-0 transition-all duration-500 ease-in-out ${currentSlide === 1 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-                  <img 
-                    src="https://i.ibb.co/vCJCmq6B/Screenshot-2025-07-02-at-6-32-35-PM.png" 
-                    alt="Trading Results 1"
-                    className="w-full h-full object-cover object-center"
-                  />
-                </div>
-                
-                <div className={`absolute inset-0 transition-all duration-500 ease-in-out ${currentSlide === 2 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-                  <img 
-                    src="https://www.milesweb.in/blog/wp-content/uploads/2023/03/forex-trading-software-top-picks-for-your-capital-gain.png" 
-                    alt="Trading Results 2"
-                    className="w-full h-full object-cover object-center"
-                  />
-                </div>
-                
-                <div className={`absolute inset-0 transition-all duration-500 ease-in-out ${currentSlide === 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-                  <img 
-                    src="https://www.shareindia.com/wp-content/uploads/2023/12/Decoding-Forex-Trading.webp" 
-                    alt="Trading Results 3"
-                    className="w-full h-full object-cover object-center"
-                  />
-                </div>
-              </div>
-
-              {/* Premium Navigation Arrows - Hidden */}
-              <button 
-                type="button" 
-                onClick={prevSlide} 
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm text-gray-700 dark:text-gray-300 w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 opacity-0 z-20 border border-gray-200/50 dark:border-gray-700/50"
-              >
-                <i className="fas fa-chevron-left text-lg"></i>
-              </button>
-              
-              <button 
-                type="button" 
-                onClick={nextSlide} 
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm text-gray-700 dark:text-gray-300 w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 opacity-0 z-20 border border-gray-200/50 dark:border-gray-700/50"
-              >
-                <i className="fas fa-chevron-right text-lg"></i>
-              </button>
-
-              {/* Premium Dots Indicator */}
-              <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex items-center space-x-3 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-gray-200/50 dark:border-gray-700/50">
-                <button 
-                  type="button" 
-                  onClick={() => showSlide(1)} 
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${currentSlide === 1 ? 'bg-emerald-600 scale-125' : 'bg-gray-400 hover:bg-gray-500'}`}
-                ></button>
-                <button 
-                  type="button" 
-                  onClick={() => showSlide(2)} 
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${currentSlide === 2 ? 'bg-emerald-600 scale-125' : 'bg-gray-400 hover:bg-gray-500'}`}
-                ></button>
-                <button 
-                  type="button" 
-                  onClick={() => showSlide(3)} 
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${currentSlide === 3 ? 'bg-emerald-600 scale-125' : 'bg-gray-400 hover:bg-gray-500'}`}
-                ></button>
-              </div>
-
-              {/* Premium Overlay Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none"></div>
-            </div>
-
-            {/* Premium Stats Overlay */}
-            <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 rounded-2xl px-6 py-4 shadow-xl">
-              <div className="flex items-center space-x-6 text-center">
-                <div>
-                  <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400" style={{fontFamily: 'Pier Sans, sans-serif'}}>98.5%</div>
-                  <p className="text-xs text-gray-600 dark:text-gray-400 font-medium">Win Rate</p>
-                </div>
-                <div className="w-px h-8 bg-gray-300 dark:bg-gray-600"></div>
-                <div>
-                  <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400" style={{fontFamily: 'Pier Sans, sans-serif'}}>6+</div>
-                  <p className="text-xs text-gray-600 dark:text-gray-400 font-medium">Months</p>
-                </div>
-                <div className="w-px h-8 bg-gray-300 dark:bg-gray-600"></div>
-                <div>
-                  <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400" style={{fontFamily: 'Pier Sans, sans-serif'}}>$230k+</div>
-                  <p className="text-xs text-gray-600 dark:text-gray-400 font-medium">Profits</p>
+                <div className="grid grid-cols-2 gap-3 text-sm" style={{ fontFamily: 'Pier Sans, sans-serif' }}>
+                  <div className="bg-white/60 dark:bg-gray-900/50 rounded-xl border border-white/40 dark:border-gray-700/40 px-4 py-3 shadow-lg">
+                    <span className="block text-xs text-[#19235d]/60 dark:text-gray-400">Stop-loss calculator</span>
+                    <span className="text-lg font-semibold text-[#19235d] dark:text-white">FX · Crypto · Metals</span>
+                  </div>
+                  <div className="bg-white/60 dark:bg-gray-900/50 rounded-xl border border-white/40 dark:border-gray-700/40 px-4 py-3 shadow-lg">
+                    <span className="block text-xs text-[#19235d]/60 dark:text-gray-400">Multi-timeframe core</span>
+                    <span className="text-lg font-semibold text-[#19235d] dark:text-white">7 indicators synced</span>
+                  </div>
                 </div>
               </div>
             </div>

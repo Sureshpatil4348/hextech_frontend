@@ -1,12 +1,15 @@
 import React from 'react'
 
 import { useAuth } from '../auth/AuthProvider'
+import AutomationAlertsSection from '../components/AutomationAlertsSection'
 import FAQSection from '../components/FAQSection'
 import HeroSection from '../components/HeroSection'
 import InteractiveFooter from '../components/InteractiveFooter'
 import Navbar from '../components/Navbar'
+import PlatformHighlightsSection from '../components/PlatformHighlightsSection'
 import PsychologicalBenefitsSection from '../components/PsychologicalBenefitsSection'
 import SubscriptionSection from '../components/SubscriptionSection'
+import ToolsetShowcaseSection from '../components/ToolsetShowcaseSection'
 import VideoExplanationSection from '../components/VideoExplanationSection'
 import WhySystemWorks from '../components/WhySystemWorks'
 
@@ -94,14 +97,18 @@ const Home = () => {
           <HeroSection />
         </div>
 
+        <div id="trading-dashboard">
+          <PlatformHighlightsSection />
+        </div>
+
+        <ToolsetShowcaseSection />
+
         {/* Why Our Trading System Works Section */}
         <div id="why-system-works">
           <WhySystemWorks />
         </div>
 
-       
-
-        
+        <AutomationAlertsSection />
 
         {/* Video Explanation Section */}
         <div id="video-explanation">
