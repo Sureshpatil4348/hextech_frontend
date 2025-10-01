@@ -1,8 +1,8 @@
-import { 
-  Bot, 
-  TrendingUp, 
-  Shield, 
-  Monitor
+import {
+  BarChart4,
+  Compass,
+  LayoutGrid,
+  RadioTower
 } from 'lucide-react'
 import React from 'react'
 
@@ -10,27 +10,27 @@ const WhySystemWorks = () => {
   const systemFeatures = [
     {
       id: 1,
-      icon: Bot,
-      title: "Fully Automated",
-      description: "Set it once and let it work 24/7. No need to watch charts all day."
+      icon: LayoutGrid,
+      title: 'Unified trading command center',
+      description: 'TradingView charts, market sessions, news feeds and calculators live inside one synchronized interface.'
     },
     {
       id: 2,
-      icon: TrendingUp,
-      title: "Adapts to All Markets",
-      description: "Uses ATR (Average True Range) to adjust to market volatility automatically."
+      icon: BarChart4,
+      title: 'Institutional-grade analysis',
+      description: 'Seven indicators across multiple timeframes produce clean buy/sell consensus for confident decisions.'
     },
     {
       id: 3,
-      icon: Shield,
-      title: "Built-in Protection",
-      description: "Smart stop-loss and take-profit settings protect your capital."
+      icon: Compass,
+      title: 'Precision risk framework',
+      description: 'Automated stop-loss, lot size and exposure calculations for forex, crypto and commodities in seconds.'
     },
     {
       id: 4,
-      icon: Monitor,
-      title: "Easy Setup",
-      description: "Install in 5 minutes with our step-by-step video guide."
+      icon: RadioTower,
+      title: 'Always-on intelligence',
+      description: 'High-impact news, indicator alignment and session overlaps trigger proactive alerts to your inbox.'
     }
   ]
 
