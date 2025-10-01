@@ -9,6 +9,8 @@ import PsychologicalBenefitsSection from '../components/PsychologicalBenefitsSec
 import SubscriptionSection from '../components/SubscriptionSection'
 import VideoExplanationSection from '../components/VideoExplanationSection'
 import WhySystemWorks from '../components/WhySystemWorks'
+import TradingToolsShowcase from '../components/TradingToolsShowcase'
+import PremiumFeaturesSection from '../components/PremiumFeaturesSection'
 
 
 const Home = () => {
@@ -94,14 +96,20 @@ const Home = () => {
           <HeroSection />
         </div>
 
+        {/* Premium Features Highlight */}
+        <div id="premium-features">
+          <PremiumFeaturesSection />
+        </div>
+
+        {/* Trading Tools Showcase */}
+        <div id="trading-tools">
+          <TradingToolsShowcase />
+        </div>
+
         {/* Why Our Trading System Works Section */}
         <div id="why-system-works">
           <WhySystemWorks />
         </div>
-
-       
-
-        
 
         {/* Video Explanation Section */}
         <div id="video-explanation">
@@ -122,8 +130,6 @@ const Home = () => {
         <div id="faq">
           <FAQSection />
         </div>
-
-       
 
         {/* Interactive Footer */}
         <InteractiveFooter />

@@ -70,31 +70,100 @@ const HeroSection = () => {
   return (
     <section className="pt-32 pb-16 px-4 sm:pt-40 sm:pb-20 md:px-6 w-full transition-colors duration-300">
       <div className="container mx-auto max-w-7xl">
-        <div className="flex flex-col lg:flex-row items-center">
+        <div className="flex flex-col lg:flex-row items-center gap-12">
           <div className="lg:w-1/2 text-center lg:text-left mb-8 lg:mb-0">
-            <div className="mb-4 flex flex-col items-center lg:items-start space-y-2">
-              <div className="flex items-center bg-green-100 dark:bg-green-900/30 rounded-full px-4 py-1 text-green-800 dark:text-green-300 text-sm font-medium transition-colors duration-300" style={{fontFamily: 'Pier Sans, sans-serif'}}>
-                <i className="fas fa-check-circle mr-2"></i> Say Goodbye to All-Day Chart Monitoring!
+            {/* Premium Badges with Glassy Effect */}
+            <div className="mb-6 flex flex-col items-center lg:items-start space-y-3">
+              <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 rounded-full px-5 py-2.5 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                <div className="flex items-center text-emerald-700 dark:text-emerald-300 text-sm font-semibold">
+                  <i className="fas fa-check-circle mr-2 text-emerald-500"></i> 
+                  Dubai's Premier All-in-One Trading Platform
+                </div>
               </div>
-              <div className="flex items-center bg-blue-50 dark:bg-blue-900/30 rounded-full px-4 py-1 text-blue-800 dark:text-blue-300 text-xs font-medium transition-colors duration-300" style={{fontFamily: 'Pier Sans, sans-serif'}}>
-                <i className="fas fa-users mr-2"></i> 100+ traders using our proven system
-              </div>
-              </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mb-4" style={{fontFamily: 'Pier Sans, sans-serif'}}>
-              <span className="text-[#19235d] dark:text-white transition-colors duration-300">Stop Chasing Losses: <span className="bg-gradient-to-r from-emerald-500 via-green-500 to-emerald-600 dark:from-emerald-400 dark:via-green-400 dark:to-emerald-500 bg-clip-text text-transparent">Achieve Consistent Results with Our Proven Trading Algorithm</span></span>
-            </h1>
-            <p className="text-base md:text-lg text-[#19235d] dark:text-gray-300 mb-6 transition-colors duration-300" style={{fontFamily: 'Pier Sans, sans-serif'}}>
-              Quit losing money on manual trades. Our proven automated system has empowered hundreds of clients to achieve consistent success in trading.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 mb-6">
-              <a href="https://t.me/+NgzWiBMfEj02YTM1" target="_blank" rel="noopener noreferrer" className="bg-yellow-600 dark:bg-yellow-500 text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-yellow-700 dark:hover:bg-yellow-600 transition duration-300 cta-button w-full sm:w-auto text-center" style={{fontFamily: 'Pier Sans, sans-serif'}}>
-                Join Successful Traders
-              </a>
-              <a href="#demo-video" className="border-2 border-green-600 dark:border-green-500 text-green-600 dark:text-green-400 px-6 py-3 rounded-full text-lg font-medium hover:bg-green-50 dark:hover:bg-green-900/20 transition duration-300 cta-button flex items-center justify-center w-full sm:w-auto" style={{fontFamily: 'Pier Sans, sans-serif'}}>
-                <i className="fas fa-play-circle mr-2"></i> Watch Demo
-              </a>
+              <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 rounded-full px-5 py-2 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                <div className="flex items-center text-blue-700 dark:text-blue-300 text-xs font-semibold">
+                  <i className="fas fa-users mr-2 text-blue-500"></i> 
+                  150+ Active Traders Worldwide
+                </div>
               </div>
             </div>
+
+            {/* Main Headline */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+              <span className="text-gray-900 dark:text-white transition-colors duration-300">
+                Trade Smarter with{' '}
+              </span>
+              <span className="bg-gradient-to-r from-emerald-500 via-green-500 to-emerald-600 dark:from-emerald-400 dark:via-green-400 dark:to-emerald-500 bg-clip-text text-transparent animate-gradient">
+                Professional Tools
+              </span>
+            </h1>
+
+            {/* Subheadline */}
+            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+              Access TradingView charts, live news, currency strength meters, multi-indicator analysis, 
+              calculators, and real-time alerts - all in one powerful platform.
+            </p>
+
+            {/* Premium Feature Highlights */}
+            <div className="mb-8 bg-white/40 dark:bg-gray-800/40 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 rounded-2xl p-6 shadow-lg">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center flex-shrink-0">
+                    <i className="fas fa-chart-line text-white text-sm"></i>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 dark:text-white text-sm">No Software Needed</h3>
+                    <p className="text-xs text-gray-600 dark:text-gray-400">Trade from any browser</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-emerald-500 to-green-500 flex items-center justify-center flex-shrink-0">
+                    <i className="fas fa-bell text-white text-sm"></i>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 dark:text-white text-sm">Live Alerts</h3>
+                    <p className="text-xs text-gray-600 dark:text-gray-400">Email notifications</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center flex-shrink-0">
+                    <i className="fas fa-calculator text-white text-sm"></i>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 dark:text-white text-sm">Pro Calculators</h3>
+                    <p className="text-xs text-gray-600 dark:text-gray-400">Risk management tools</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center flex-shrink-0">
+                    <i className="fas fa-globe text-white text-sm"></i>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 dark:text-white text-sm">24/7 Access</h3>
+                    <p className="text-xs text-gray-600 dark:text-gray-400">Trade anytime, anywhere</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 mb-6">
+              <a 
+                href="#subscription" 
+                className="bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 w-full sm:w-auto text-center flex items-center justify-center space-x-2"
+              >
+                <span>Get Started Now</span>
+                <i className="fas fa-arrow-right"></i>
+              </a>
+              <a 
+                href="#trading-tools" 
+                className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 text-gray-900 dark:text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 w-full sm:w-auto text-center flex items-center justify-center space-x-2"
+              >
+                <i className="fas fa-play-circle"></i>
+                <span>Explore Tools</span>
+              </a>
+            </div>
+          </div>
 
           <div className="lg:w-1/2 flex justify-center relative w-full">
             {/* Algo Trading Animation */}
