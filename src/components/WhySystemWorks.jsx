@@ -1,8 +1,8 @@
-import { 
-  Bot, 
-  TrendingUp, 
-  Shield, 
-  Monitor
+import {
+  BarChart4,
+  Compass,
+  LayoutGrid,
+  RadioTower
 } from 'lucide-react'
 import React from 'react'
 

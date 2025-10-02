@@ -1,11 +1,13 @@
 import React from 'react'
 
 import { useAuth } from '../auth/AuthProvider'
+import AutomationAlertsSection from '../components/AutomationAlertsSection'
 import FAQSection from '../components/FAQSection'
 import HeroSection from '../components/HeroSection'
 import InteractiveFooter from '../components/InteractiveFooter'
 import Navbar from '../components/Navbar'
-import PricingSection from '../components/PricingSection'
+import PsychologicalBenefitsSection from '../components/PsychologicalBenefitsSection'
+import SubscriptionSection from '../components/SubscriptionSection'
 import VideoExplanationSection from '../components/VideoExplanationSection'
 import WhySystemWorks from '../components/WhySystemWorks'
 import TradingToolsShowcase from '../components/TradingToolsShowcase'
@@ -96,16 +98,14 @@ const Home = () => {
           <HeroSection />
         </div>
 
-        {/* Trading Tools Showcase */}
-        <div id="trading-tools">
-          <TradingToolsShowcase />
-        </div>
-
-
         {/* Why Our Trading System Works Section */}
         <div id="why-system-works">
           <WhySystemWorks />
         </div>
+
+       
+
+        
 
         {/* Video Explanation Section */}
         <div id="video-explanation">
