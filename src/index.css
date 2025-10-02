@@ -19,6 +19,7 @@
 @layer base {
   html {
     font-family: 'Inter', system-ui, sans-serif;
+    scroll-behavior: smooth;
   }
   
   body {
@@ -164,6 +165,24 @@
   }
 }
 
+/* Gradient animation for hero text */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% auto;
+  animation: gradient 3s ease infinite;
+}
+
 .pulse-green {
   animation: pulseGreen 1s ease-in-out;
 }
@@ -186,4 +205,84 @@
 .button-31:hover,
 .button-31:focus {
   opacity: .75;
+}
+
+/* Ticker tape animations */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Newsletter form styling */
+.newsletter-input {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  color: #495057;
+}
+
+.newsletter-input:focus {
+  background-color: #ffffff;
+  border-color: #00e676;
+  box-shadow: 0 0 0 0.2rem rgba(0, 230, 118, 0.25);
+}
+
+.newsletter-button {
+  background-color: #00e676;
+  border: 1px solid #00e676;
+}
+
+.newsletter-button:hover {
+  background-color: #00c853;
+  border-color: #00c853;
+}
+
+/* Brand text styling */
+.brand-text {
+  background: linear-gradient(135deg, #00e676, #00c853);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Striped pattern backgrounds for Forex Market Time Zone */
+.stripes-blue {
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(59, 130, 246, 0.4),
+    rgba(59, 130, 246, 0.4) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+}
+
+.stripes-pink {
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(236, 72, 153, 0.4),
+    rgba(236, 72, 153, 0.4) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+}
+
+.stripes-green {
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(34, 197, 94, 0.4),
+    rgba(34, 197, 94, 0.4) 6px,
+    transparent 6px,
+    transparent 12px
+  );
 }

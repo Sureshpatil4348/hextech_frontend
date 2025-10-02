@@ -1,195 +1,428 @@
-import { 
-  CheckCircle, 
-  Crown, 
-  Sparkles,
-  Gift,
-  Award
-} from 'lucide-react'
-import React, { useState } from 'react'
+import { Award, Medal, Gem } from 'lucide-react';
+import React from 'react';
 
-const SubscriptionSection = () => {
-  const [_hoveredCard, _setHoveredCard] = useState(null)
-
-  const subscriptionPlans = [
-    {
-      id: 'pre-trial',
-      name: 'Pre-Trial',
-      title: 'Free 1 Month',
-      subline: 'Perfect for first-time users',
-      badge: {
-        text: 'Best for First-Time Users',
-        color: 'bg-gradient-to-r from-gray-500 to-blue-500',
-        icon: Gift
-      },
-      price: 'Free',
-      period: '1 Month',
-      features: [
-        'Basic RSI Analysis',
-        '5 Currency Pairs',
-        'Email Support',
-        'Mobile Access',
-        'Basic Alerts',
-        'Community Access',
-        'Tutorial Videos',
-        '7-Day Refund'
-      ],
-      ctaButton: {
-        text: 'Start Free Trial',
-        color: 'bg-gradient-to-r from-gray-600 to-blue-600 hover:from-gray-700 hover:to-blue-700'
-      }
-    },
-    {
-      id: 'quarter',
-      name: 'Quarter Plan',
-      title: 'Most Popular',
-      subline: 'Perfect for serious traders',
-      badge: {
-        text: 'Most Popular',
-        color: 'bg-gradient-to-r from-green-500 to-emerald-500',
-        icon: Award
-      },
-      price: '$199',
-      period: '3 Months',
-      features: [
-        'Advanced RSI Analysis',
-        '25 Currency Pairs',
-        'AI News Analysis',
-        'Priority Support',
-        'Real-Time Alerts',
-        'Telegram Notifications',
-        'Advanced Charts',
-        'Risk Management Tools'
-      ],
-      ctaButton: {
-        text: 'Choose Quarter Plan',
-        color: 'bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700'
-      }
-    },
-    {
-      id: 'annual',
-      name: 'Annual Plan',
-      title: 'Best Value',
-      subline: 'Maximum savings & features',
-      badge: {
-        text: 'Best Value',
-        color: 'bg-gradient-to-r from-yellow-500 to-amber-500',
-        icon: Crown
-      },
-      price: '$599',
-      period: '12 Months',
-      originalPrice: '$799',
-      savings: 'Save $200',
-      features: [
-        'Premium RSI Suite',
-        'All 150+ Pairs',
-        'AI Trading Bot',
-        '24/7 VIP Support',
-        'API Integration',
-        'Personal Coach',
-        'Advanced Analytics',
-        'Priority Feature Access'
-      ],
-      ctaButton: {
-        text: 'Choose Annual Plan',
-        color: 'bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700'
-      }
-    }
-  ]
-
+export default function SubscriptionSection() {
   return (
-    <section className="relative py-24">
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Premium Header */}
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center space-x-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-6 py-2 text-emerald-600 dark:text-emerald-400 text-sm font-medium mb-8">
-            <Sparkles className="w-4 h-4" />
-            <span>CHOOSE YOUR PLAN</span>
-          </div>
-          
-          <h2 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-8 leading-tight font-poppins">
-            <span className="bg-gradient-to-r from-emerald-600 to-green-600 dark:from-emerald-400 dark:to-green-400 bg-clip-text text-transparent">
-              Choose Your
-            </span>
-            <br />
-            <span className="text-gray-600 dark:text-gray-300 text-2xl md:text-3xl font-normal">Trading Plan</span>
-          </h2>
-          
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Join <span className="text-emerald-600 dark:text-emerald-400 font-semibold">150+ successful traders</span> using our proven system
-          </p>
-        </div>
-
-        {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          {subscriptionPlans.map((plan, _index) => (
-            <div
-              key={plan.id}
-              className={`relative bg-white dark:bg-gray-800/50 rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-700/50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl cursor-pointer ${
-                plan.id === 'quarter' ? 'ring-2 ring-green-500/30' : ''
-              }`}
-                onMouseEnter={() => _setHoveredCard(plan.id)}
-                onMouseLeave={() => _setHoveredCard(null)}
-            >
-              {/* Badge */}
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <div className={`${plan.badge.color} text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg flex items-center space-x-1`}>
-                  <plan.badge.icon className="w-4 h-4" />
-                  <span>{plan.badge.text}</span>
+    <>
+    <section id="packages" className="py-12 md:py-16 px-4 md:px-6 w-full transition-colors duration-300" style={{fontFamily: 'Pier Sans, sans-serif'}}>
+      
+        <div className="container mx-auto max-w-7xl">
+            <div className="text-center mb-10 md:mb-12">
+                <h2 className="text-3xl md:text-4xl font-medium mb-4 text-gray-900 dark:text-white transition-colors duration-300" style={{fontFamily: 'Pier Sans, sans-serif'}}>Choose Your <span className="text-green-500 dark:text-green-400">Trading Edge</span></h2>
+                <p className="text-lg md:text-xl text-[#19235d] dark:text-gray-300 max-w-3xl mx-auto mb-2 transition-colors duration-300">
+                    Join 150+ successful traders using our proven system
+                </p>
+                <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 rounded-lg p-3 max-w-2xl mx-auto mt-4 transition-colors duration-300">
+                    <p className="text-green-800 dark:text-green-300 text-sm font-medium transition-colors duration-300">
+                        ✅ Established system with proven track record - $230k+ profit generated by our active users
+                    </p>
                 </div>
-              </div>
-
-              {/* Headline */}
-              <div className="text-center mb-8 pt-4">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 font-poppins">{plan.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 text-sm">{plan.subline}</p>
-              </div>
-
-              {/* Price */}
-              <div className="text-center mb-8">
-                {plan.savings && (
-                  <div className="text-yellow-600 dark:text-yellow-400 text-sm font-semibold mb-2">
-                    {plan.savings}
-                  </div>
-                )}
-                <div className="flex items-baseline justify-center">
-                  <span className="text-5xl font-bold text-gray-900 dark:text-white">{plan.price}</span>
-                  <span className="text-gray-600 dark:text-gray-400 ml-2">/{plan.period}</span>
+                <div className="flex flex-wrap justify-center items-center space-x-2 md:space-x-6 mt-4">
+                    <div className="flex items-center mb-2 md:mb-0">
+                        <i className="fas fa-star text-green-500 dark:text-green-400 mr-1"></i>
+                        <i className="fas fa-star text-green-500 dark:text-green-400 mr-1"></i>
+                        <i className="fas fa-star text-green-500 dark:text-green-400 mr-1"></i>
+                        <i className="fas fa-star text-green-500 dark:text-green-400 mr-1"></i>
+                        <i className="fas fa-star text-green-500 dark:text-green-400 mr-2"></i>
+                        <span className="text-[#19235d] dark:text-gray-300 font-medium transition-colors duration-300"></span>
+                    </div>
+                    <div className="h-6 border-l border-gray-300 dark:border-gray-600 hidden md:block transition-colors duration-300"></div>
+                    <div className="flex items-center">
+                        <i className="fas fa-shield-alt text-green-500 dark:text-green-400 mr-2"></i>
+                        <span className="text-[#19235d] dark:text-gray-300 font-medium transition-colors duration-300">Secure Payment</span>
+                    </div>
                 </div>
-                {plan.originalPrice && (
-                  <div className="text-gray-500 dark:text-gray-400 text-sm line-through mt-1">
-                    {plan.originalPrice}
-                  </div>
-                )}
-              </div>
-
-              {/* Features */}
-              <div className="space-y-3 mb-8">
-                {plan.features.map((feature, featureIndex) => (
-                  <div key={featureIndex} className="flex items-center space-x-3">
-                    <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
-                    <span className="text-gray-700 dark:text-gray-300 text-sm">{feature}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* CTA Button */}
-              <button className={`w-full py-4 px-6 rounded-xl font-semibold text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg ${plan.ctaButton.color}`}>
-                {plan.ctaButton.text}
-              </button>
             </div>
-          ))}
-        </div>
 
-        {/* Trust Line */}
-        <div className="text-center">
-          <p className="text-gray-600 dark:text-gray-400 text-sm">
-            7-day refund on paid plans · Cancel anytime · Trusted by traders worldwide
-          </p>
+            {/* Card Container with Shadow Effect */}
+            <div className="relative z-0 mb-12">
+                
+                {/* Pricing Cards */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-6 relative z-10">
+                    {/* Silver Package */}
+                    <div className="pricing-card bg-white/50 dark:bg-gray-800/50 backdrop-blur-xl border border-gray-200/50 dark:border-gray-700/50 rounded-3xl p-6 md:p-8 transition-all duration-500 ease-in-out hover:shadow-2xl dark:hover:shadow-gray-900/50 hover:z-10 relative flex flex-col h-full transform hover:scale-105">
+                        <div className="absolute top-0 right-0 left-0 h-1 bg-gradient-to-r from-gray-300 to-gray-400 dark:from-gray-400 dark:to-gray-500 rounded-t-3xl"></div>
+                        <div className="text-center mb-6">
+                            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 dark:bg-gray-700 mb-4">
+                                <Award className="w-8 h-8 text-gray-600 dark:text-gray-300" />
+                            </div>
+                            <h3 className="text-2xl font-medium text-gray-900 dark:text-white">Silver</h3>
+                            <div className="text-gray-500 dark:text-gray-400 mt-1">Perfect for beginners</div>
+                            <div className="text-sm bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full px-3 py-1 inline-block mt-2">For Single Direction Trading</div>
+                        </div>
+                        
+                        <div className="text-center mb-6 pb-6 border-b border-gray-100 dark:border-gray-700">
+                            <div className="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs font-medium px-3 py-1 rounded-full inline-block mb-3">
+                                Standard Pricing
+                            </div>
+                            <div className="flex items-end justify-center mt-2">
+                                <span className="text-4xl md:text-5xl font-medium text-gray-900 dark:text-white">$ 1,099</span>
+                                <span className="text-gray-500 dark:text-gray-400 ml-2 mb-1">/lifetime</span>
+                            </div>
+                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">One-time payment, no recurring fees</p>
+                        </div>
+                        
+                        <div className="mb-6 md:mb-8 flex-grow">
+                            <h4 className="font-medium mb-3 text-center text-gray-900 dark:text-white">Key Features:</h4>
+                            <ul className="space-y-3">
+                                <li className="flex items-start">
+                                    <i className="fas fa-check-circle text-green-500 dark:text-green-400 mr-2 text-lg mt-0.5"></i>
+                                    <span className="text-gray-700 dark:text-gray-300"><strong>Trading Direction:</strong> Choose Buy Only OR Sell Only</span>
+                                </li>
+                                <li className="flex items-start">
+                                    <i className="fas fa-check-circle text-green-500 dark:text-green-400 mr-2 text-lg mt-0.5"></i>
+                                    <span className="text-gray-700 dark:text-gray-300"><strong>Instruments:</strong> EURUSD, GOLD</span>
+                                </li>
+                                <li className="flex items-start">
+                                    <i className="fas fa-check-circle text-green-500 dark:text-green-400 mr-2 text-lg mt-0.5"></i>
+                                    <span className="text-gray-700 dark:text-gray-300"><strong>Stop-Loss:</strong> Standard unified protection</span>
+                                </li>
+                                <li className="flex items-start">
+                                    <i className="fas fa-check-circle text-green-500 dark:text-green-400 mr-2 text-lg mt-0.5"></i>
+                                    <span className="text-gray-700 dark:text-gray-300"><strong>Interface:</strong> Basic dashboard</span>
+                                </li>
+                                <li className="flex items-start">
+                                    <i className="fas fa-times-circle text-red-400 dark:text-red-500 mr-2 text-lg mt-0.5"></i>
+                                    <span className="text-gray-400 dark:text-gray-500">Bi-directional trading</span>
+                                </li>
+                                <li className="flex items-start">
+                                    <i className="fas fa-times-circle text-red-400 dark:text-red-500 mr-2 text-lg mt-0.5"></i>
+                                    <span className="text-gray-400 dark:text-gray-500">Enhanced re-entry logic</span>
+                                </li>
+                                <li className="flex items-start">
+                                    <i className="fas fa-times-circle text-red-400 dark:text-red-500 mr-2 text-lg mt-0.5"></i>
+                                    <span className="text-gray-400 dark:text-gray-500">Advanced customization</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div className="mt-auto">
+                            <a href="https://buy.stripe.com/6oUaEXc2Lg8j6OP94e57W07" data-price="1099" data-package="silver" target="_blank" rel="noreferrer" className="block w-full py-4 border-2 border-gray-600 dark:border-gray-500 text-gray-800 dark:text-gray-200 font-medium rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300 flex items-center justify-center">
+                                Choose Silver <i className="fas fa-arrow-right ml-2"></i>
+                            </a>
+                            <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-4">30-day email support included</p>
+                        </div>
+                    </div>
+                    
+                    {/* Gold Package */}
+                    <div className="pricing-card bg-white/50 dark:bg-gray-800/50 backdrop-blur-xl border border-gray-200/50 dark:border-gray-700/50 rounded-3xl p-6 md:p-8 transition-all duration-500 ease-in-out hover:shadow-2xl dark:hover:shadow-gray-900/50 hover:z-10 relative flex flex-col h-full transform hover:scale-105">
+                        <div className="absolute top-0 right-0 left-0 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 dark:from-yellow-400 dark:to-yellow-500 rounded-t-3xl"></div>
+                        <div className="text-center mb-6 pt-4">
+                            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 dark:bg-gray-700 mb-4">
+                                <Medal className="w-8 h-8 text-yellow-600 dark:text-yellow-400" />
+                            </div>
+                            <h3 className="text-2xl font-medium text-gray-900 dark:text-white">Gold</h3>
+                            <div className="text-gray-500 dark:text-gray-400 mt-1">For professional traders</div>
+                            <div className="text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full px-3 py-1 inline-block mt-2">Best for Bi-directional Trading</div>
+                        </div>
+                        
+                        <div className="text-center mb-6 pb-6 border-b border-gray-100 dark:border-gray-700">
+                            <div className="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs font-medium px-3 py-1 rounded-full inline-block mb-3">
+                                Standard Pricing
+                            </div>
+                            <div className="flex items-end justify-center mt-2">
+                                <span className="text-4xl md:text-5xl font-medium text-gray-900 dark:text-white">$ 1,399</span>
+                                <span className="text-gray-500 dark:text-gray-400 ml-2 mb-1">/lifetime</span>
+                            </div>
+                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">One-time payment, no recurring fees</p>
+                        </div>
+                        
+                        <div className="mb-6 md:mb-8 flex-grow">
+                            <h4 className="font-medium mb-3 text-center text-gray-900 dark:text-white">Everything in Silver, Plus:</h4>
+                            <ul className="space-y-3">
+                                <li className="flex items-start">
+                                    <i className="fas fa-check-circle text-green-500 dark:text-green-400 mr-2 text-lg mt-0.5"></i>
+                                    <span className="text-gray-700 dark:text-gray-300"><strong>Trading Direction:</strong> Buy Only, Sell Only and Both Mode</span>
+                                </li>
+                                <li className="flex items-start">
+                                    <i className="fas fa-check-circle text-green-500 dark:text-green-400 mr-2 text-lg mt-0.5"></i>
+                                    <span className="text-gray-700 dark:text-gray-300"><strong>Profit Potential:</strong> Increases with bi-directional trading</span>
+                                </li>
+                                <li className="flex items-start">
+                                    <i className="fas fa-check-circle text-green-500 dark:text-green-400 mr-2 text-lg mt-0.5"></i>
+                                    <span className="text-gray-700 dark:text-gray-300"><strong>Instruments:</strong> EURUSD, GOLD, GBPUSD, AUDUSD, USDJPY</span>
+                                </li>
+                                <li className="flex items-start">
+                                    <i className="fas fa-check-circle text-green-500 dark:text-green-400 mr-2 text-lg mt-0.5"></i>
+                                    <span className="text-gray-700 dark:text-gray-300"><strong>Market Adaptability:</strong> Profit in trending markets</span>
+                                </li>
+                                <li className="flex items-start">
+                                    <i className="fas fa-check-circle text-green-500 dark:text-green-400 mr-2 text-lg mt-0.5"></i>
+                                    <span className="text-gray-700 dark:text-gray-300"><strong>Risk Management:</strong> Advanced protection</span>
+                                </li>
+                                <li className="flex items-start">
+                                    <i className="fas fa-times-circle text-red-400 dark:text-red-500 mr-2 text-lg mt-0.5"></i>
+                                    <span className="text-gray-400 dark:text-gray-500">Custom trading schedules</span>
+                                </li>
+                                <li className="flex items-start">
+                                    <i className="fas fa-times-circle text-red-400 dark:text-red-500 mr-2 text-lg mt-0.5"></i>
+                                    <span className="text-gray-400 dark:text-gray-500">Advanced customization options</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div className="mt-auto">
+                            <a href="https://buy.stripe.com/aFa28rfeXaNZ6OP1BM57W08" data-price="1399" data-package="gold" target="_blank" rel="noreferrer" className="block w-full py-4 border-2 border-gray-600 dark:border-gray-500 text-gray-800 dark:text-gray-200 font-medium rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300 flex items-center justify-center">
+                                Choose Gold <i className="fas fa-arrow-right ml-2"></i>
+                            </a>
+                            <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-4">90-day priority support</p>
+                        </div>
+                    </div>
+                    
+                    {/* Diamond Package */}
+                    <div className="pricing-card diamond-package bg-white/50 dark:bg-gray-800/50 backdrop-blur-xl border-2 border-emerald-400/70 dark:border-emerald-500/70 rounded-3xl p-6 md:p-8 md:transform md:scale-105 shadow-2xl dark:shadow-gray-900/50 z-20 transition-all duration-500 ease-in-out hover:shadow-3xl dark:hover:shadow-gray-900/70 relative flex flex-col h-full">
+                        <div className="absolute -top-8 inset-x-0 flex justify-center z-30">
+                            <span className="bg-gradient-to-r from-emerald-500 to-green-600 text-white font-bold px-6 py-2 rounded-full text-sm uppercase tracking-wide shadow-lg backdrop-blur-sm">Most Popular</span>
+                            </div>
+                        {/* Best Seller Tag */}
+                        <div className="absolute -right-2 top-12 bg-gradient-to-r from-red-500 to-red-600 text-white px-4 py-1 rounded-l-lg shadow-lg transform rotate-0 z-30 hidden md:block">
+                            <span className="text-sm font-bold">BEST SELLER</span>
+                            <div className="absolute top-full right-0 w-2 h-2 bg-red-700 dark:bg-red-800" style={{clipPath: "polygon(100% 0, 0 0, 100% 100%)"}}></div>
+                        </div>
+                        <div className="absolute top-0 right-0 left-0 h-1 bg-gradient-to-r from-emerald-400 via-green-500 to-emerald-600 dark:from-emerald-500 dark:via-green-600 dark:to-emerald-700 rounded-t-3xl"></div>
+                        <div className="text-center mb-6 pt-4">
+                            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 dark:bg-blue-900/30 mb-4">
+                                <Gem className="w-8 h-8 text-blue-600 dark:text-blue-400" />
+                            </div>
+                            <h3 className="text-2xl font-medium text-gray-900 dark:text-white">Diamond</h3>
+                            <div className="text-gray-500 dark:text-gray-400 mt-1">For professional traders</div>
+                            <div className="text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full px-3 py-1 inline-block mt-2">Maximum Customization & Power</div>
+                        </div>
+                        
+                        <div className="text-center mb-6 pb-6 border-b border-gray-100 dark:border-gray-700">
+                            <div className="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs font-medium px-3 py-1 rounded-full inline-block mb-3">
+                                Standard Pricing
+                            </div>
+                            <div className="flex items-end justify-center mt-2">
+                                <span className="text-4xl md:text-5xl font-medium text-gray-900 dark:text-white">$ 1,999</span>
+                                <span className="text-gray-500 dark:text-gray-400 ml-2 mb-1">/lifetime</span>
+                            </div>
+                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">One-time payment, no recurring fees</p>
+                        </div>
+                        
+                        <div className="mb-6 md:mb-8 flex-grow">
+                            <h4 className="font-medium mb-3 text-center text-gray-900 dark:text-white">Everything in Gold, Plus:</h4>
+                            <ul className="space-y-3">
+                                <li className="flex items-start">
+                                    <i className="fas fa-check-circle text-green-500 dark:text-green-400 mr-2 text-lg mt-0.5"></i>
+                                    <span className="text-gray-700 dark:text-gray-300"><strong>Advanced Features:</strong> Full system customization</span>
+                                </li>
+                                <li className="flex items-start">
+                                    <i className="fas fa-check-circle text-green-500 dark:text-green-400 mr-2 text-lg mt-0.5"></i>
+                                    <span className="text-gray-700 dark:text-gray-300"><strong>Trading Schedule:</strong> Set custom trading hours</span>
+                                </li>
+                                <li className="flex items-start">
+                                    <i className="fas fa-check-circle text-green-500 dark:text-green-400 mr-2 text-lg mt-0.5"></i>
+                                    <span className="text-gray-700 dark:text-gray-300"><strong>Price Range:</strong> Set specific trading zones</span>
+                                </li>
+                                <li className="flex items-start">
+                                    <i className="fas fa-check-circle text-green-500 dark:text-green-400 mr-2 text-lg mt-0.5"></i>
+                                    <span className="text-gray-700 dark:text-gray-300"><strong>Position Sizing:</strong> Advanced risk control</span>
+                                </li>
+                                <li className="flex items-start">
+                                    <i className="fas fa-check-circle text-green-500 dark:text-green-400 mr-2 text-lg mt-0.5"></i>
+                                    <span className="text-green-500 dark:text-green-400"><strong>Instruments:</strong> Unlimited Pairs</span>
+                                </li>
+                                <li className="flex items-start">
+                                    <i className="fas fa-check-circle text-green-500 dark:text-green-400 mr-2 text-lg mt-0.5"></i>
+                                    <span className="text-gray-700 dark:text-gray-300"><strong>Re-entry:</strong> Visual tracking lines</span>
+                                </li>
+                                <li className="flex items-start">
+                                    <i className="fas fa-check-circle text-green-500 dark:text-green-400 mr-2 text-lg mt-0.5"></i>
+                                    <span className="text-gray-700 dark:text-gray-300"><strong>Support:</strong> Lifetime VIP Support</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div className="mt-auto">
+                            <a href="https://buy.stripe.com/14AeVd4Aj09l0qr6W657W09" data-price="1999" data-package="diamond" target="_blank" rel="noreferrer" className="block w-full py-4 bg-blue-500 dark:bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-600 dark:hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center shadow-md">
+                                Choose Diamond <i className="fas fa-arrow-right ml-2"></i>
+                            </a>
+                            <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-4">Lifetime VIP support</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            {/* Success Stories Section */}
+            <div className="max-w-5xl mx-auto mb-12">
+                <div className="bg-white/40 dark:bg-gray-800/40 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 rounded-3xl p-6 md:p-8 shadow-2xl transition-colors duration-300">
+                    <div className="text-center mb-6">
+                        <h3 className="text-xl md:text-2xl font-bold text-gray-800 dark:text-white mb-2 transition-colors duration-300">
+                            <span className="bg-gradient-to-r from-emerald-600 to-green-600 dark:from-emerald-400 dark:to-green-400 bg-clip-text text-transparent">
+                                Success Stories
+                            </span>
+                        </h3>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl rounded-2xl p-6 shadow-lg border border-white/30 dark:border-gray-700/30 transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                            <div className="text-center">
+                                <div className="text-3xl font-bold bg-gradient-to-r from-emerald-600 to-green-600 dark:from-emerald-400 dark:to-green-400 bg-clip-text text-transparent mb-2">150+</div>
+                                <p className="text-sm text-gray-600 dark:text-gray-300 font-medium">successful traders using our proven system</p>
+                            </div>
+                        </div>
+                        <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl rounded-2xl p-6 shadow-lg border border-white/30 dark:border-gray-700/30 transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                            <div className="text-center">
+                                <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-blue-400 dark:to-cyan-400 bg-clip-text text-transparent mb-2">$230k+</div>
+                                <p className="text-sm text-gray-600 dark:text-gray-300 font-medium">Total verified profits generated by our community</p>
+                            </div>
+                        </div>
+                        <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl rounded-2xl p-6 shadow-lg border border-white/30 dark:border-gray-700/30 transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                            <div className="text-center">
+                                <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent mb-2">6+ Months</div>
+                                <p className="text-sm text-gray-600 dark:text-gray-300 font-medium">Proven track record with consistent results</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div className="mt-6 text-center">
+                        <p className="text-xs text-gray-500 dark:text-gray-400 italic">*Results based on verified community reports and Myfxbook data from our founding members</p>
+                    </div>
+                </div>
+            </div>
+
+
+           
+            
+
+
+            
+            
+
+    {/* Testimonials with Phone Mockups */}
+    <section id="testimonials" className="py-12 md:py-16 px-4 md:px-6 bg-gray-50 dark:bg-gray-900 w-full transition-colors duration-300">
+        <div className="container mx-auto max-w-7xl">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 text-gray-900 dark:text-white transition-colors duration-300">Proven Results from Our <span className="text-green-500 dark:text-green-400">Community</span></h2>
+            <p className="text-lg md:text-xl text-[#19235d] dark:text-gray-300 mb-8 md:mb-10 text-center max-w-3xl mx-auto transition-colors duration-300">
+                Real results from our 150+ founding members using our established system:
+            </p>
+            
+            {/* Phone Mockups Container */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+                {/* Phone 1 */}
+                <div className="relative mx-auto">
+                    <div className="phone-mockup relative w-[240px] h-[480px] sm:w-[280px] sm:h-[570px] bg-[#19235d] rounded-[3rem] shadow-xl">
+                        {/* Phone Frame */}
+                        <div className="absolute top-0 w-full h-full rounded-[3rem] overflow-hidden border-[8px] border-[#19235d]">
+                            {/* Notch */}
+                            <div className="absolute top-0 inset-x-0 h-6 bg-[#19235d]"></div>
+                            {/* Screen Content */}
+                            <img src="https://media.istockphoto.com/id/1465618017/photo/businessmen-investor-think-before-buying-stock-market-investment-using-smartphone-to-analyze.jpg?s=612x612&w=0&k=20&c=YNEkfoME1jbz6FUJImxCQtaGZZntrf7u-Byxmgk4pOY=" 
+                                 alt="Trading Results Screenshot 1"
+                                 className="w-full h-full object-cover"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                {/* Phone 2 */}
+                <div className="relative mx-auto">
+                    <div className="phone-mockup relative w-[240px] h-[480px] sm:w-[280px] sm:h-[570px] bg-[#19235d] rounded-[3rem] shadow-xl">
+                        {/* Phone Frame */}
+                        <div className="absolute top-0 w-full h-full rounded-[3rem] overflow-hidden border-[8px] border-[#19235d]">
+                            {/* Notch */}
+                            <div className="absolute top-0 inset-x-0 h-6 bg-[#19235d]"></div>
+                            {/* Screen Content */}
+                            <img src="https://hycm.s3.amazonaws.com/public/files/articles/how_to_trade.webp" 
+                                 alt="Trading Results Screenshot 2"
+                                 className="w-full h-full object-cover"
+                            />
+                        </div>
+                    </div>
+                </div>
+                    
+                {/* Phone 3 */}
+                <div className="relative mx-auto">
+                    <div className="phone-mockup relative w-[240px] h-[480px] sm:w-[280px] sm:h-[570px] bg-[#19235d] rounded-[3rem] shadow-xl">
+                        {/* Phone Frame */}
+                        <div className="absolute top-0 w-full h-full rounded-[3rem] overflow-hidden border-[8px] border-[#19235d]">
+                            {/* Notch */}
+                            <div className="absolute top-0 inset-x-0 h-6 bg-[#19235d]"></div>
+                            {/* Screen Content */}
+                            <img src="https://www.shareindia.com/wp-content/uploads/2023/12/What-is-Forex-Trading.webp" 
+                                 alt="Trading Results Screenshot 3"
+                                 className="w-full h-full object-cover"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
+            {/* Disclaimer */}
+            <div className="mt-8 md:mt-12 text-center text-sm text-gray-500 dark:text-gray-400 max-w-3xl mx-auto transition-colors duration-300">
+                <p>*These are real trading results from our clients. Trading involves substantial risk of loss and is not suitable for everyone. Past performance is not indicative of future results.</p>
+            </div>
         </div>
-      </div>
     </section>
-  )
-}
 
-export default SubscriptionSection
+    {/* Community Section */}
+    <section id="community" className="py-12 md:py-16 px-4 md:px-6 w-full transition-colors duration-300">
+        <div className="container mx-auto max-w-7xl">
+            <div className="flex flex-col lg:flex-row items-start gap-8 md:gap-12">
+                <div className="lg:w-1/2 flex flex-col h-full">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-white transition-colors duration-300">Join 150+ <span className="text-green-500 dark:text-green-400">Successful Traders</span></h2>
+                    <p className="text-base md:text-lg text-[#19235d] dark:text-gray-300 mb-8 transition-colors duration-300">
+                        When you purchase the Hextech Algo Trading System, you&apos;re not just getting software - you&apos;re joining an established community of 150+ successful forex traders with a proven track record.
+                    </p>
+                    
+                    <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 mb-8 flex-grow transition-colors duration-300">
+                        <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white transition-colors duration-300">What You Get:</h3>
+                        <ul className="space-y-4">
+                            <li className="flex items-start">
+                                <div className="flex-shrink-0 h-6 w-6 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mt-1 transition-colors duration-300">
+                                    <i className="fas fa-users text-green-600 dark:text-green-400 text-sm transition-colors duration-300"></i>
+                                </div>
+                                <p className="ml-3 text-[#19235d] dark:text-gray-300 transition-colors duration-300"><strong>Private Community</strong> – Direct access to experienced traders</p>
+                            </li>
+                            <li className="flex items-start">
+                                <div className="flex-shrink-0 h-6 w-6 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mt-1 transition-colors duration-300">
+                                    <i className="fas fa-calendar-alt text-green-600 dark:text-green-400 text-sm transition-colors duration-300"></i>
+                                </div>
+                                <p className="ml-3 text-[#19235d] dark:text-gray-300 transition-colors duration-300"><strong>Monthly Live Webinars</strong> – Learn advanced strategies</p>
+                            </li>
+                            <li className="flex items-start">
+                                <div className="flex-shrink-0 h-6 w-6 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mt-1 transition-colors duration-300">
+                                    <i className="fas fa-file-alt text-green-600 dark:text-green-400 text-sm transition-colors duration-300"></i>
+                                </div>
+                                <p className="ml-3 text-[#19235d] dark:text-gray-300 transition-colors duration-300"><strong>Market Analysis Reports</strong> – Weekly insights on major pairs</p>
+                            </li>
+                            <li className="flex items-start">
+                                <div className="flex-shrink-0 h-6 w-6 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mt-1 transition-colors duration-300">
+                                    <i className="fas fa-laptop text-green-600 dark:text-green-400 text-sm transition-colors duration-300"></i>
+                                </div>
+                                <p className="ml-3 text-[#19235d] dark:text-gray-300 transition-colors duration-300"><strong>System Updates</strong> – Get all future upgrades</p>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div className="mt-auto flex space-x-4">
+                        <a href="https://t.me/+NgzWiBMfEj02YTM1" className="w-full sm:w-auto bg-green-500 dark:bg-green-600 text-white px-6 py-3 rounded-full flex items-center justify-center hover:bg-green-600 dark:hover:bg-green-700 transition duration-300">
+                            Join the Community <i className="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                {/* Placeholder for community image/video, if applicable */}
+                <div className="lg:w-1/2 flex justify-center items-center h-full">
+                    <div className="flex justify-center items-center w-full">
+                        <dotlottie-player
+                        src="https://lottie.host/32354f13-c19a-42fb-9075-78dc0dd14042/4EppzcR81P.lottie"
+                        background="transparent"
+                        speed="1"
+                        style={{width: "500px", height: "500px"}}
+                        loop
+                        autoplay
+                      ></dotlottie-player>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    </div>
+    </section>
+</>
+  );
+}

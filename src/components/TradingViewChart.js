@@ -430,7 +430,7 @@ const TradingViewChart = ({ symbol }) => {
       {/* Backdrop overlay for fullscreen */}
       {isFullscreen && (
         <div 
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 backdrop-blur-sm animate-in fade-in duration-300 cursor-pointer"
+          className="fixed inset-0 bg-[#19235d] bg-opacity-50 z-40 backdrop-blur-sm animate-in fade-in duration-300 cursor-pointer"
           onClick={() => setIsFullscreen(false)}
           onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setIsFullscreen(false); } }}
           role="button"

@@ -816,9 +816,9 @@ useEffect(() => {
   
   return (
     <>
-    <div className="widget-card h-full flex flex-col" style={{position: 'relative'}} key={`heatmap-${tradingStyle}`}>
+    <div className="h-full flex flex-col p-2 pb-2" style={{position: 'relative'}} key={`heatmap-${tradingStyle}`}>
       {/* Header */}
-      <div className="mb-2 px-4">
+      <div className="mb-1 px-2 flex-shrink-0">
         {/* Top Row - Title, Trading Signals, and Controls */}
         <div className="widget-header flex items-center justify-between mb-2">
           {/* Title */}
@@ -1084,14 +1084,14 @@ useEffect(() => {
           )}
       
       {/* Heatmap Table - Full Height */}
-      <div className="overflow-x-auto overflow-y-hidden lg:overflow-y-auto flex-1 min-w-0 min-h-0">
+      <div className="overflow-x-auto flex-1 min-w-0 min-h-0">
         <table className="w-full border-collapse min-w-[600px]">
           <thead>
             <tr className="border-b border-gray-200 dark:border-slate-600">
-              <th className="text-left py-0.5 sm:py-1 px-1 font-bold text-gray-700 dark:text-slate-300 text-sm w-20"></th>
+              <th className="text-left py-2 px-2 font-bold text-gray-700 dark:text-slate-300 text-xs w-20"></th>
               {indicators.map(indicator => (
-                <th key={indicator} className="text-center py-0.5 sm:py-1 px-0.5 text-gray-700 dark:text-slate-300">
-                  <span className="text-sm font-bold">{formatIndicatorDisplay(indicator)}</span>
+                <th key={indicator} className="text-center py-2 px-1 text-gray-700 dark:text-slate-300">
+                  <span className="text-xs font-bold">{formatIndicatorDisplay(indicator)}</span>
                 </th>
               ))}
             </tr>
@@ -1099,9 +1099,9 @@ useEffect(() => {
           <tbody>
             {[...new Set(timeframes)].filter(tf => tf !== '1W').map((timeframe) => (
               <tr key={timeframe} className="border-b border-slate-100/50 dark:border-slate-700/50">
-                <td className="py-0.5 sm:py-1 px-1 font-medium text-slate-800 dark:text-slate-200 text-xs">
-                  <div className="flex items-center space-x-1 ml-2">
-                    <span className="text-sm font-normal">{formatTimeframeDisplay(timeframe)}</span>
+                <td className="py-3 px-2 font-medium text-slate-800 dark:text-slate-200 text-xs">
+                  <div className="flex items-center">
+                    <span className="text-xs font-normal">{formatTimeframeDisplay(timeframe)}</span>
                   </div>
                 </td>
                 {indicators.map(indicator => {
@@ -1110,67 +1110,18 @@ useEffect(() => {
                   const hasData = data?.hasData || false;
                   
                   return (
-                    <td key={indicator} className="text-center py-1 px-1">
+                    <td key={indicator} className="text-center py-3 px-1">
                       <div className="relative h-full flex items-center justify-center">
                         <button 
-                          className=""
-                          style={hasData ? {
-                            backgroundColor: score > 0 ? '#03c05d' : score < 0 ? '#e03f4c' : '#9ca3af',
-                            borderRadius: '4px',
-                            borderStyle: 'none',
-                            boxSizing: 'border-box',
-                            color: '#fff',
-                            cursor: 'pointer',
-                            display: 'inline-block',
-                            fontFamily: 'Inter, system-ui, sans-serif',
-                            fontSize: window.innerWidth < 768 ? '10px' : '12px',
-                            fontWeight: '700',
-                            lineHeight: '1.5',
-                            margin: '0',
-                            maxWidth: 'none',
-                            minHeight: window.innerWidth < 768 ? '24px' : '32px',
-                            minWidth: window.innerWidth < 768 ? '48px' : '64px',
-                            outline: 'none',
-                            overflow: 'hidden',
-                            padding: window.innerWidth < 768 ? '4px 6px' : '6px 8px',
-                            position: 'relative',
-                            textAlign: 'center',
-                            textTransform: 'none',
-                            userSelect: 'none',
-                            WebkitUserSelect: 'none',
-                            touchAction: 'manipulation',
-                            width: window.innerWidth < 768 ? '48px' : '64px',
-                            height: window.innerWidth < 768 ? '24px' : '32px',
-                            boxShadow: '0 2px 4px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)'
-                          } : {
-                            backgroundColor: '#f3f4f6',
-                            color: '#9ca3af',
-                            border: '2px dashed #d1d5db',
-                            borderRadius: '4px',
-                            borderStyle: 'none',
-                            boxSizing: 'border-box',
-                            cursor: 'not-allowed',
-                            display: 'inline-block',
-                            fontFamily: 'Inter, system-ui, sans-serif',
-                            fontSize: window.innerWidth < 768 ? '10px' : '12px',
-                            fontWeight: '700',
-                            lineHeight: '1.5',
-                            margin: '0',
-                            maxWidth: 'none',
-                            minHeight: window.innerWidth < 768 ? '24px' : '32px',
-                            minWidth: window.innerWidth < 768 ? '48px' : '64px',
-                            outline: 'none',
-                            overflow: 'hidden',
-                            padding: window.innerWidth < 768 ? '4px 6px' : '6px 8px',
-                            position: 'relative',
-                            textAlign: 'center',
-                            textTransform: 'none',
-                            userSelect: 'none',
-                            WebkitUserSelect: 'none',
-                            touchAction: 'manipulation',
-                            width: '64px',
-                            height: '32px'
-                          }}
+                          className={`w-full h-6 rounded-md font-semibold text-xs transition-all duration-200 hover:opacity-80 ${
+                            hasData 
+                              ? score > 0 
+                                ? 'bg-green-500 text-white' 
+                                : score < 0 
+                                  ? 'bg-red-500 text-white' 
+                                  : 'bg-gray-400 text-white'
+                              : 'bg-gray-100 dark:bg-gray-700 text-gray-400 dark:text-gray-500 cursor-not-allowed'
+                          }`}
                           title={
                             hasData ? `Signal: ${data.signal}, Score: ${score.toFixed(2)}` : data?.error || 'No data'
                           }
@@ -1186,30 +1137,30 @@ useEffect(() => {
             ))}
             
             {/* Buy/Sell Progress Bar Row */}
-            <tr className="border-b-0" style={{ height: 'calc(100% / ' + ([...new Set(timeframes)].filter(tf => tf !== '1W').length + 1) + ')' }}>
-              <td className="py-0.5 px-1 font-medium text-slate-800 dark:text-slate-200 text-xs">
-                <div className="flex items-center space-x-1 ml-2">
+            <tr className="border-b-0">
+              <td className="py-2 px-2 font-medium text-slate-800 dark:text-slate-200 text-xs">
+                <div className="flex items-center">
                 </div>
               </td>
-              <td colSpan={indicators.length} className="py-1 px-1">
+              <td colSpan={indicators.length} className="py-2 px-1">
                 <div className="flex items-center justify-center">
                   {(() => {
                     const buyPct = finalResults.buyNowPercent;
                     const sellPct = finalResults.sellNowPercent;
                     
                     return (
-                      <div className="flex items-center gap-3 w-full">
+                      <div className="flex items-center gap-2 w-full">
                         <span 
-                          className="text-xs font-bold text-emerald-600 dark:text-emerald-400 whitespace-nowrap -ml-16"
+                          className="text-xs font-semibold text-green-600 dark:text-green-400 whitespace-nowrap"
                         >BUY {buyPct.toFixed(1)}%</span>
                         <div className="flex-1 relative">
-                          <div className="w-full h-4 bg-gray-200 dark:bg-slate-600 rounded-full overflow-hidden">
+                          <div className="w-full h-4 bg-gray-200 dark:bg-gray-700 rounded-md overflow-hidden">
                             <div 
                               className="h-full transition-all duration-500 ease-out"
                               style={{ 
                                 width: `${buyPct}%`,
-                                background: '#03c05d',
-                                borderRadius: '8px 0 0 8px'
+                                background: '#10b981',
+                                borderRadius: buyPct === 100 ? '6px' : '6px 0 0 6px'
                               }}
                             />
                             <div 
@@ -1217,14 +1168,14 @@ useEffect(() => {
                               style={{ 
                                 left: `${buyPct}%`,
                                 width: `${sellPct}%`,
-                                background: '#dc2626',
-                                borderRadius: '0 8px 8px 0'
+                                background: '#ef4444',
+                                borderRadius: sellPct === 100 ? '6px' : '0 6px 6px 0'
                               }}
                             />
                           </div>
                         </div>
                         <span 
-                          className="text-xs font-bold text-red-600 dark:text-red-400 whitespace-nowrap m-2"
+                          className="text-xs font-semibold text-red-600 dark:text-red-400 whitespace-nowrap"
                         >SELL {sellPct.toFixed(1)}%</span>
                       </div>
                     );

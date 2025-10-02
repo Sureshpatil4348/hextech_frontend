@@ -6,7 +6,7 @@ const LoadingOverlay = ({ status, connectionAttempts, onRetry, dashboardConnecti
     switch (status) {
       case 'INITIALIZING':
         return {
-          title: 'Initializing FXLabs Dashboard',
+          title: 'Initializing HEXTECH ALGO Dashboard',
           message: 'Preparing to connect to market data servers...',
           icon: <RefreshCw className="w-8 h-8 text-blue-500 animate-spin" />,
           showProgress: false
@@ -63,7 +63,7 @@ const LoadingOverlay = ({ status, connectionAttempts, onRetry, dashboardConnecti
   const totalCount = Object.keys(dashboardConnections).length;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-[#19235d] bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50">
       <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full animate-fadeIn">
         {/* Header */}
         <div className="text-center mb-6">

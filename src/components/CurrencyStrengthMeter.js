@@ -314,8 +314,8 @@ const CurrencyStrengthMeter = () => {
 
   return (
     <div className="card z-10 relative h-full flex flex-col">
-      {/* Fixed Header Section */}
-      <div className="flex-shrink-0">
+      {/* Scrollable Content Area - Now includes header */}
+      <div className="flex-1 overflow-y-auto min-h-0 max-h-96">
         {/* Header */}
         <div className="widget-header flex items-center justify-between mb-2">
         <div>
@@ -369,10 +369,6 @@ const CurrencyStrengthMeter = () => {
           );
         })}
         </div>
-      </div>
-
-      {/* Scrollable Content Area */}
-      <div className="flex-1 overflow-y-auto min-h-0">
         {strengthData.length > 0 ? (
           <>
             {viewMode === 'bars' && (
@@ -505,7 +501,7 @@ const CurrencyStrengthMeter = () => {
 
       {/* Settings Modal */}
       {showSettings && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-[#19235d] bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg p-6 w-full max-w-md mx-4">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Currency Strength Settings</h3>
             

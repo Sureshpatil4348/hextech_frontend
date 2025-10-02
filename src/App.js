@@ -8,7 +8,12 @@ import ChangePassword from './pages/ChangePassword';
 import Dashboard from './pages/Dashboard';
 import ForgotPassword from './pages/ForgotPassword';
 import Home from './pages/Home';
+import Login from './pages/Login';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import RefundPolicy from './pages/RefundPolicy';
 import Reset from './pages/Reset';
+import TermsAndConditions from './pages/TermsAndConditions';
+
 
 function App() {
   const { loading } = useAuth();
@@ -29,9 +34,13 @@ function App() {
       <Routes>
         {/* Public routes */}
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/forgot" element={<ForgotPassword />} />
         <Route path="/reset" element={<Reset />} />
-        
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+        <Route path="/refund-policy" element={<RefundPolicy />} />
+
         {/* Protected routes */}
         <Route path="/dashboard" element={
           <ProtectedRoute>
@@ -43,7 +52,7 @@ function App() {
             <ChangePassword />
           </ProtectedRoute>
         } />
-        
+
         {/* Catch all - redirect to home */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

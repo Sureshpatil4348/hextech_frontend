@@ -1,168 +1,122 @@
+import React from 'react';
 import { 
-  Play,
-  Bell,
-  Filter,
-  Target,
-  TrendingUp,
-  Sparkles
-} from 'lucide-react'
-import React, { useState } from 'react'
+  Grid3x3, 
+  Wallet, 
+  TrendingUp, 
+  Shield
+} from 'lucide-react';
 
 const VideoExplanationSection = () => {
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false)
-
   const features = [
     {
-      id: 1,
-      title: "Never Miss a Move",
-      description: "Get instant alerts the moment opportunities appear.",
-      icon: Bell,
-      highlight: "Never"
+      icon: Grid3x3,
+      title: "Multi-Time Frame Analysis",
+      description: "Analyze the market from multiple time frames to identify trends and opportunities"
     },
     {
-      id: 2,
-      title: "Cut the Noise",
-      description: "Only the signals that matter, nothing extra.",
-      icon: Filter,
-      highlight: "Cut"
+      icon: Wallet,
+      title: "Smart money management",
+      description: "Use Lotsize calculator to calculate the optimal lot size for your account"
     },
     {
-      id: 3,
-      title: "Trade with Confidence",
-      description: "AI-backed insights, zero guesswork.",
-      icon: Target,
-      highlight: "Trade"
-    },
-    {
-      id: 4,
-      title: "Stay Ahead of the Herd",
-      description: "Spot moves before everyone else.",
       icon: TrendingUp,
-      highlight: "Stay"
+      title: "News Alerts",
+      description: "Get instant notifications for high-impact news events and indicator signals directly via email"
+    },
+    {
+      icon: Shield,
+      title: "Trading View Integration",
+      description: "Access professional-grade charting tools with no software installation required. Trade directly from your browser with real-time data."
     }
-  ]
+  ];
 
   return (
-    <section className="relative py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-6 py-2 text-emerald-600 dark:text-emerald-400 text-sm font-medium mb-8">
-            <Sparkles className="w-4 h-4" />
-            <span>HOW IT WORKS</span>
+    <section className="py-12 md:py-16 px-4 md:px-6 w-full transition-colors duration-300 relative overflow-hidden">
+      {/* Background Decoration */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 -left-48 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 -right-48 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container mx-auto max-w-7xl relative z-10">
+        {/* Section Header */}
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center justify-center mb-6">
+            <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 rounded-full px-6 py-3 shadow-lg">
+              <span className="bg-gradient-to-r from-emerald-600 to-green-600 dark:from-emerald-400 dark:to-green-400 bg-clip-text text-transparent font-semibold text-sm uppercase tracking-wider">
+                Advanced Technology
+              </span>
+            </div>
           </div>
           
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-8 font-poppins">
-            <span className="bg-gradient-to-r from-emerald-600 to-green-600 dark:from-emerald-400 dark:to-green-400 bg-clip-text text-transparent">
-              Why Choose FXLabs.AI?
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 dark:text-white">
+            Advanced{' '}
+            <span className="bg-gradient-to-r from-emerald-600 via-green-500 to-emerald-600 dark:from-emerald-400 dark:via-green-400 dark:to-emerald-500 bg-clip-text text-transparent">
+              Trading Technology
             </span>
           </h2>
           
-          <p className="text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            Experience the power of <span className="text-emerald-600 dark:text-emerald-400 font-semibold">AI-driven trading</span> with our proven system
+          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Years of refinement through thousands of trades. Here&apos;s what makes it different from everything else you&apos;ve tried.
           </p>
         </div>
 
-        {/* Main Content - Side by Side */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          
-          {/* Video Section */}
-          <div className="relative">
-            {!isVideoPlaying ? (
+        <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12">
+          {/* Features Column */}
+          <div className="lg:w-1/2 space-y-3">
+            {features.map((feature, index) => (
               <div 
-                className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl group cursor-pointer" 
-                onClick={() => setIsVideoPlaying(true)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    setIsVideoPlaying(true);
-                  }
-                }}
-                role="button"
-                tabIndex={0}
-                aria-label="Play FXLabs.AI Demo Video"
+                key={index}
+                className="flex items-start space-x-3 p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-emerald-500 dark:hover:border-emerald-500 transition-colors duration-300"
               >
-                {/* Video Thumbnail */}
-                <div className="relative w-full h-full bg-gradient-to-br from-emerald-600 via-green-600 to-teal-700">
-                  <img 
-                    src="https://img.youtube.com/vi/xH3vWTPYMsY/maxresdefault.jpg" 
-                    alt="FXLabs.AI Demo Video Thumbnail"
-                    className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
-                  />
-                  {/* Overlay Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                  
-                  {/* Play Button */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <button className="group/btn relative w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300 hover:scale-110">
-                      <Play className="w-10 h-10 text-white ml-1 group-hover/btn:scale-110 transition-transform duration-300" />
-                    </button>
-                  </div>
-                  
-                  {/* Video Title Overlay */}
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-white font-bold text-lg mb-1 font-poppins">FXLabs.AI Trading System Demo</h3>
-                    <p className="text-white/80 text-sm">See how our AI-powered alerts work in real-time</p>
-                  </div>
+                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-emerald-500/10 dark:bg-emerald-500/20 flex items-center justify-center">
+                  <feature.icon className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-1">
+                    {feature.title}
+                  </h3>
+                  <p className="text-xs text-gray-600 dark:text-gray-400">
+                    {feature.description}
+                  </p>
                 </div>
               </div>
-            ) : (
-              <div className="relative bg-black aspect-video overflow-hidden rounded-2xl shadow-2xl">
-                <iframe
-                  src="https://www.youtube.com/embed/xH3vWTPYMsY?autoplay=1&rel=0&modestbranding=1"
-                  title="FXLabs.AI Demo Video"
-                  className="w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-            )}
+            ))}
           </div>
 
-          {/* Features Section - Unique Design */}
-          <div className="space-y-6">
-            {features.map((feature, index) => {
-              const IconComponent = feature.icon
+          {/* Video Column */}
+          <div className="lg:w-1/2 w-full">
+            <div className="relative bg-white/50 dark:bg-gray-800/50 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 rounded-3xl shadow-2xl overflow-hidden p-2">
+              {/* Gradient Border Effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 via-green-500/20 to-emerald-500/20 rounded-3xl blur-xl opacity-50"></div>
               
-              return (
-                <div key={feature.id} className="relative group">
-                  {/* Unique Progress Line */}
-                  {index < features.length - 1 && (
-                    <div className="absolute left-5 top-16 w-0.5 h-10 bg-gradient-to-b from-emerald-500 to-transparent opacity-30"></div>
-                  )}
-                  
-                  <div className="flex items-start space-x-5">
-                    {/* Unique Icon with Glow */}
-                    <div className="relative">
-                      <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-emerald-500/30 transition-all duration-300">
-                        <IconComponent className="w-6 h-6 text-white" />
-                      </div>
-                      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 to-green-600 rounded-xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
-                    </div>
-                    
-                    {/* Content with Unique Styling */}
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 leading-tight font-poppins">
-                        <span className="relative">
-                          <span className="text-emerald-600 dark:text-emerald-400">{feature.highlight}</span>
-                          <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-emerald-500/30 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-                        </span>
-                        <span className="text-gray-900 dark:text-white"> {feature.title.replace(feature.highlight, '')}</span>
-                      </h3>
-                      <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors duration-300">
-                        {feature.description}
-                      </p>
-                    </div>
-                  </div>
+              {/* Video Container */}
+              <div className="relative bg-gray-900 rounded-2xl overflow-hidden aspect-video">
+                <iframe 
+                  width="100%" 
+                  height="100%" 
+                  src="https://www.youtube.com/embed/1CcpagwYKNQ" 
+                  title="Hextech Algo Trading System" 
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowFullScreen 
+                  className="aspect-video w-full h-full"
+                ></iframe>
+              </div>
+
+              {/* Video Badge */}
+              <div className="absolute top-6 left-6 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border border-white/30 dark:border-gray-700/30 rounded-full px-4 py-2 shadow-lg">
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+                  <span className="text-sm font-semibold text-gray-900 dark:text-white">Live Demo</span>
                 </div>
-              )
-            })}
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default VideoExplanationSection
+export default VideoExplanationSection;
