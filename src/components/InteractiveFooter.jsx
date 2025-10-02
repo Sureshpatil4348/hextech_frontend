@@ -41,7 +41,7 @@ const InteractiveFooter = () => {
   return (
     <>
       {/* Forex Ticker Tape */}
-      <div className="ticker-tape border-y border-gray-200 dark:border-gray-700 py-2 md:py-3 overflow-hidden w-full transition-colors duration-300">
+      <div className="ticker-tape border-y border-gray-200 dark:border-gray-700 py-2 sm:py-2.5 md:py-3 overflow-hidden w-full transition-colors duration-300">
         <div className="ticker-content flex items-center animate-scroll">
           {/* First Set */}
           {/* EUR/USD */}
@@ -212,17 +212,17 @@ const InteractiveFooter = () => {
  
 
       {/* Footer */}
-      <footer className="bg-[#19235d] text-white py-10 md:py-12 px-4 md:px-6 w-full">
+      <footer className="bg-[#19235d] text-white py-8 sm:py-10 md:py-12 px-4 md:px-6 w-full">
         <div className="container mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-12">
             <div>
-              <div className="flex items-center mb-4 justify-center md:justify-start">
-                <h3 className="text-2xl font-bold text-[#00e676]">HEXTECH ALGO</h3>
+              <div className="flex items-center mb-3 sm:mb-4 justify-center md:justify-start">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#00e676]">HEXTECH ALGO</h3>
               </div>
-              <p className="mb-4 text-center md:text-left text-gray-300">
+              <p className="mb-3 sm:mb-4 text-center md:text-left text-gray-300 text-sm sm:text-base">
                 Professional forex trading system helping hundreds+ achieve consistent profits trading analysis software.
               </p>
-              <div className="flex space-x-4 justify-center md:justify-start">
+              <div className="flex space-x-3 sm:space-x-4 justify-center md:justify-start">
                 <a href="https://www.instagram.com/hextechalgo?igsh=MWViMG1ua2l1bDc3dw==" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#00e676] transition duration-300">
                   <i className="fab fa-instagram text-xl"></i>
                 </a>
@@ -235,8 +235,8 @@ const InteractiveFooter = () => {
               </div>
             </div>
             <div className="text-center md:text-left">
-              <h4 className="text-lg font-bold mb-4 text-white">Quick Links</h4>
-              <ul className="space-y-2">
+              <h4 className="text-base sm:text-lg font-bold mb-3 sm:mb-4 text-white">Quick Links</h4>
+              <ul className="space-y-1.5 sm:space-y-2 text-sm sm:text-base">
                 <li><a href="#features" className="text-gray-300 hover:text-[#00e676] transition duration-300">System Features</a></li>
                 <li><a href="#pricing" className="text-gray-300 hover:text-[#00e676] transition duration-300">Packages</a></li>
                 <li><a href="#faq" className="text-gray-300 hover:text-[#00e676] transition duration-300">FAQ</a></li>
@@ -247,8 +247,8 @@ const InteractiveFooter = () => {
             </div>
            
             <div className="text-center md:text-left">
-              <h4 className="text-lg font-bold mb-4 text-white">Contact Information</h4>
-              <ul className="space-y-3">
+              <h4 className="text-base sm:text-lg font-bold mb-3 sm:mb-4 text-white">Contact Information</h4>
+              <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base">
                 <li className="flex items-start justify-center md:justify-start">
                   <i className="fas fa-map-marker-alt mt-1 mr-2 text-gray-400"></i>
                   <span className="text-gray-300">UAE - Dubai</span>
@@ -267,9 +267,9 @@ const InteractiveFooter = () => {
               </ul>
             </div>
           </div>
-          <div className="border-t border-gray-600 mt-10 md:mt-12 pt-6 md:pt-8 text-center">
-            <p className="text-gray-300">&copy; 2025 Hextech Algo. All Rights Reserved.</p>
-            <p className="mt-2 text-sm text-gray-400 max-w-4xl mx-auto">
+          <div className="border-t border-gray-600 mt-8 sm:mt-10 md:mt-12 pt-5 sm:pt-6 md:pt-8 text-center">
+            <p className="text-gray-300 text-sm sm:text-base">&copy; 2025 Hextech Algo. All Rights Reserved.</p>
+            <p className="mt-2 text-xs sm:text-sm text-gray-400 max-w-4xl mx-auto px-4">
               Trading involves significant risk of loss and may not be suitable for all investors. Past performance is not indicative of future results. Before
               deciding to trade, you should carefully consider your investment objectives, level of experience, and risk appetite.
             </p>

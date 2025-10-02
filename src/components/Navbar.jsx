@@ -63,7 +63,7 @@ const Navbar = () => {
                     <img 
                       src={isDarkMode ? require('../assets/black.png') : require('../assets/white.png')} 
                       alt="HEXTECH ALGO Logo" 
-                      className="w-30 h-30 sm:w-30 sm:h-30 md:w-32 md:h-32 object-contain transition-all duration-300 group-hover:scale-105"
+                      className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 object-contain transition-all duration-300 group-hover:scale-105"
                     />
                   </Link>
                 </div>
