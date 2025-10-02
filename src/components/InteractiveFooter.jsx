@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+
 import forexService from '../services/forexService'
 
 const InteractiveFooter = () => {

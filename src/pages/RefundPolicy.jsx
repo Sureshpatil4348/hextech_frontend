@@ -1,6 +1,7 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
+
 import InteractiveFooter from '../components/InteractiveFooter'
+import Navbar from '../components/Navbar'
 
 const RefundPolicy = () => {
   return (
