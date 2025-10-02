@@ -1,15 +1,15 @@
-import React, { useState } from 'react'
-import { 
-  LineChart, 
-  TrendingUp, 
-  Newspaper, 
-  Gauge, 
-  Bell, 
-  Calculator, 
+import {
+  LineChart,
+  TrendingUp,
+  Newspaper,
+  Gauge,
+  Bell,
+  Calculator,
   Activity,
   Globe,
   CheckCircle2
 } from 'lucide-react'
+import React, { useState } from 'react'
 
 const TradingToolsShowcase = () => {
   const [activeTab, setActiveTab] = useState(1)
@@ -116,7 +116,7 @@ const TradingToolsShowcase = () => {
   const activeTool = tools[activeTab]
 
   return (
-    <section className="py-12 md:py-16 px-4 md:px-6 w-full transition-colors duration-300 relative overflow-hidden">
+    <section id="trading-tools" className="py-14 md:py-20 px-4 md:px-6 w-full transition-colors duration-300 relative overflow-hidden">
       {/* Background Decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 -left-48 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl"></div>
@@ -125,7 +125,7 @@ const TradingToolsShowcase = () => {
 
       <div className="container mx-auto max-w-7xl relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 md:mb-16">
           <div className="inline-flex items-center justify-center mb-6">
             <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 rounded-full px-6 py-3 shadow-lg">
               <span className="bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-blue-400 dark:to-cyan-400 bg-clip-text text-transparent font-semibold text-sm uppercase tracking-wider">
@@ -134,7 +134,7 @@ const TradingToolsShowcase = () => {
             </div>
           </div>
           
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 dark:text-white">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 dark:text-white">
             Your Complete{' '}
             <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 dark:from-blue-400 dark:via-cyan-400 dark:to-blue-500 bg-clip-text text-transparent">
               Trading Arsenal
@@ -147,9 +147,9 @@ const TradingToolsShowcase = () => {
         </div>
 
         {/* Interactive Tabs with Glassy Effect */}
-        <div className="mb-12">
+        <div className="mb-10 md:mb-12">
           <div className="bg-white/40 dark:bg-gray-800/40 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 rounded-3xl p-2 shadow-xl">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
               {tools.map((tool) => (
                 <button
                   key={tool.id}
@@ -169,7 +169,7 @@ const TradingToolsShowcase = () => {
                       activeTab === tool.id ? 'text-white' : 'text-gray-600 dark:text-gray-400'
                     }`} />
                   </div>
-                  <span className={`text-xs font-semibold text-center ${
+                  <span className={`text-xs font-semibold text-center leading-snug ${
                     activeTab === tool.id
                       ? 'text-gray-900 dark:text-white'
                       : 'text-gray-600 dark:text-gray-400'
@@ -189,7 +189,7 @@ const TradingToolsShowcase = () => {
           
           {/* Main Content Card */}
           <div className="relative bg-white/50 dark:bg-gray-800/50 backdrop-blur-2xl border border-white/40 dark:border-gray-700/40 rounded-3xl shadow-2xl overflow-hidden">
-            <div className="grid md:grid-cols-2 gap-8 p-8 md:p-12">
+            <div className="grid md:grid-cols-2 gap-8 p-6 sm:p-8 md:p-12">
               {/* Left Column - Description */}
               <div className="space-y-6">
                 {/* Icon and Title */}
@@ -205,7 +205,7 @@ const TradingToolsShowcase = () => {
                 </div>
 
                 {/* Description */}
-                <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                   {activeTool.description}
                 </p>
 
@@ -230,7 +230,7 @@ const TradingToolsShowcase = () => {
                       <div className={`mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r ${activeTool.gradient} flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300`}>
                         <CheckCircle2 className="w-4 h-4 text-white" />
                       </div>
-                      <span className="text-gray-700 dark:text-gray-300 text-base leading-relaxed">
+                      <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
                         {feature}
                       </span>
                     </li>

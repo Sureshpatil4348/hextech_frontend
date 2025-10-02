@@ -1,14 +1,14 @@
-import React from 'react'
-import { 
-  TrendingUp, 
-  Newspaper, 
-  Gauge, 
-  Bell, 
-  BarChart3, 
+import {
+  TrendingUp,
+  Newspaper,
+  Gauge,
+  Bell,
+  BarChart3,
   Calculator,
   Globe,
   Mail
 } from 'lucide-react'
+import React from 'react'
 
 const PremiumFeaturesSection = () => {
   const features = [

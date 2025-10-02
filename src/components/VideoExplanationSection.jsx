@@ -1,10 +1,10 @@
-import React from 'react';
-import { 
-  Grid3x3, 
-  Wallet, 
-  TrendingUp, 
+import {
+  Grid3x3,
+  Wallet,
+  TrendingUp,
   Shield
 } from 'lucide-react';
+import React from 'react';
 
 const VideoExplanationSection = () => {
   const features = [

@@ -1,4 +1,4 @@
-import { LogIn, BarChart3, Sun, Moon, Settings, Users, HelpCircle, Menu, X } from 'lucide-react'
+import { LogIn, BarChart3, Settings, Users, HelpCircle, Menu, X } from 'lucide-react'
 import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
@@ -9,7 +9,7 @@ import { useTheme } from '../contexts/ThemeContext'
 
 const Navbar = () => {
   const { user } = useAuth()
-  const { isDarkMode, toggleTheme } = useTheme()
+  const { isDarkMode } = useTheme()
   const location = useLocation()
   const isOnDashboard = location.pathname === '/dashboard'
   const isOnProtectedPage = isOnDashboard

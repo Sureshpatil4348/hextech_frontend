@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+
 import aiIcon from '../assets/artificial-intelligence.png'
 
 const HeroSection = () => {
@@ -25,10 +26,10 @@ const HeroSection = () => {
   }
 
   return (
-    <section className="pt-20 pb-12 px-4 sm:pt-24 sm:pb-16 md:px-6 w-full transition-colors duration-300">
+    <section className="pt-28 pb-16 px-4 sm:pt-32 sm:pb-20 md:px-6 w-full transition-colors duration-300">
       <div className="container mx-auto max-w-7xl">
         <div className="flex flex-col lg:flex-row items-center gap-12">
-          <div className="lg:w-1/2 text-center lg:text-left mb-8 lg:mb-0">
+          <div className="w-full lg:w-1/2 text-center lg:text-left mb-8 lg:mb-0">
             {/* Premium Badges with Glassy Effect */}
             <div className="mb-6 flex flex-col items-center lg:items-start space-y-3">
               <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 rounded-full px-5 py-2.5 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
@@ -50,12 +51,12 @@ const HeroSection = () => {
             </h1>
 
             {/* Subheadline */}
-            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
               Experience seamless, all-in-one trading intelligence—every tool and insight you need, unified in a single world-class platform.
             </p>
 
             {/* Premium Feature Highlights */}
-            <div className="mb-8 relative p-[1.5px] rounded-3xl bg-gradient-to-br from-white/60 via-white/30 to-white/10 dark:from-white/20 dark:via-white/10 dark:to-white/5 shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
+            <div className="mb-10 sm:mb-12 relative p-[1.5px] rounded-3xl bg-gradient-to-br from-white/60 via-white/30 to-white/10 dark:from-white/20 dark:via-white/10 dark:to-white/5 shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
               <div className="rounded-3xl bg-white/30 dark:bg-gray-900/30 backdrop-blur-xl border border-white/20 dark:border-white/10 p-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="group flex items-center space-x-3 rounded-xl bg-white/10 dark:bg-white/[0.04] border border-white/20 dark:border-white/10 p-3 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/20">
@@ -85,7 +86,7 @@ const HeroSection = () => {
                       <p className="text-xs text-gray-600 dark:text-gray-400">Email notifications</p>
                     </div>
                   </div>
-                  <div className="group8 flex items-center space-x-3 rounded-xl bg-white/10 dark:bg-white/[0.04] border border-white/20 dark:border-white/10 p-3 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/20">
+                  <div className="group flex items-center space-x-3 rounded-xl bg-white/10 dark:bg-white/[0.04] border border-white/20 dark:border-white/10 p-3 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/20">
                     <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 shadow-md flex items-center justify-center flex-shrink-0">
                       <svg viewBox="0 0 24 24" className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                         <rect x="4" y="3" width="16" height="18" rx="2"></rect>
@@ -134,12 +135,12 @@ const HeroSection = () => {
             </div>
           </div>
 
-          <div className="lg:w-2/3 flex justify-center items-center relative w-full">
+          <div className="w-full lg:w-1/2 flex justify-center items-center relative">
             {/* Algo Trading Animation */}
-            <div className="relative w-full max-w-[1600px] h-[620px] sm:h-[460px] md:h-[520px] lg:h-[620px] xl:h-[700px] overflow-visible flex items-center justify-center">
+            <div className="relative w-full max-w-[360px] sm:max-w-[520px] md:max-w-[620px] lg:max-w-[700px] xl:max-w-[820px] h-[260px] sm:h-[360px] md:h-[420px] lg:h-[520px] xl:h-[600px] overflow-visible flex items-center justify-center">
               <iframe
                 src="https://lottie.host/embed/5637be98-92ff-4474-bac5-6c8af542c916/TnmAcbV7Y0.lottie"
-                className="w-full h-full transform scale-[1.25] sm:scale-[1.15] md:scale-[1.25] lg:scale-[1.25] translate-x-[8%] sm:translate-x-[6%] md:translate-x-[8%] lg:translate-x-[8%] translate-y-0"
+                className="w-full h-full transform scale-[1.05] sm:scale-[1.1] md:scale-[1.15] lg:scale-[1.2] xl:scale-[1.25] translate-x-0 md:translate-x-[4%] lg:translate-x-[6%]"
                 style={{ border: 'none' }}
                 title="Trading Animation"
               />
@@ -238,19 +239,19 @@ const HeroSection = () => {
             </div>
 
             {/* Premium Stats Overlay */}
-            <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 rounded-2xl px-6 py-4 shadow-xl">
-              <div className="flex items-center space-x-6 text-center">
-                <div>
+            <div className="absolute -bottom-8 sm:-bottom-6 left-1/2 transform -translate-x-1/2 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 rounded-2xl px-5 sm:px-6 py-4 shadow-xl w-full max-w-xs sm:max-w-md">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 text-center sm:text-left">
+                <div className="flex flex-col items-center sm:items-start">
                   <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400" style={{fontFamily: 'Pier Sans, sans-serif'}}>80% +</div>
                   <p className="text-xs text-gray-600 dark:text-gray-400 font-medium">Accuracy</p>
                 </div>
-                <div className="w-px h-8 bg-gray-300 dark:bg-gray-600"></div>
-                <div>
+                <div className="hidden sm:block w-px h-8 bg-gray-300 dark:bg-gray-600"></div>
+                <div className="flex flex-col items-center sm:items-start">
                   <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400" style={{fontFamily: 'Pier Sans, sans-serif'}}>17+</div>
                   <p className="text-xs text-gray-600 dark:text-gray-400 font-medium">Trading Tools</p>
                 </div>
-                <div className="w-px h-8 bg-gray-300 dark:bg-gray-600"></div>
-                <div>
+                <div className="hidden sm:block w-px h-8 bg-gray-300 dark:bg-gray-600"></div>
+                <div className="flex flex-col items-center sm:items-start">
                   <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400" style={{fontFamily: 'Pier Sans, sans-serif'}}>$580k+</div>
                   <p className="text-xs text-gray-600 dark:text-gray-400 font-medium">Profit Generated</p>
                 </div>

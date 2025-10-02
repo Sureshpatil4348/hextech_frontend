@@ -1,18 +1,18 @@
 import React from 'react'
 
 import { useAuth } from '../auth/AuthProvider'
+import AfterPurchaseSection from '../components/AfterPurchaseSection'
 import AutomationAlertsSection from '../components/AutomationAlertsSection'
+import CommunitySection from '../components/CommunitySection'
 import FAQSection from '../components/FAQSection'
 import HeroSection from '../components/HeroSection'
 import InteractiveFooter from '../components/InteractiveFooter'
 import Navbar from '../components/Navbar'
+import PricingSection from '../components/PricingSection'
 import PsychologicalBenefitsSection from '../components/PsychologicalBenefitsSection'
-import SubscriptionSection from '../components/SubscriptionSection'
+import TradingToolsShowcase from '../components/TradingToolsShowcase'
 import VideoExplanationSection from '../components/VideoExplanationSection'
 import WhySystemWorks from '../components/WhySystemWorks'
-import TradingToolsShowcase from '../components/TradingToolsShowcase'
-import AfterPurchaseSection from '../components/AfterPurchaseSection'
-import CommunitySection from '../components/CommunitySection'
 
 
 const Home = () => {
@@ -92,38 +92,45 @@ const Home = () => {
 
       <div className="relative z-10 w-full">
         <Navbar />
-        
-        {/* Hero Section */}
-        <div id="hero">
-          <HeroSection />
-        </div>
 
-        {/* Why Our Trading System Works Section */}
-        <div id="why-system-works">
-          <WhySystemWorks />
-        </div>
+        <main className="flex flex-col">
+          {/* Hero Section */}
+          <div id="hero">
+            <HeroSection />
+          </div>
 
-       
+          {/* Trading Tools Showcase */}
+          <TradingToolsShowcase />
 
-        
+          {/* Automation Workflow */}
+          <AutomationAlertsSection />
 
-        {/* Video Explanation Section */}
-        <div id="video-explanation">
-          <VideoExplanationSection />
-        </div>
+          {/* Psychological Benefits */}
+          <PsychologicalBenefitsSection />
 
-        {/* Pricing Section */}
-        <div id="pricing">
-          <PricingSection />
-        </div>
+          {/* Why Our Trading System Works Section */}
+          <div id="why-system-works">
+            <WhySystemWorks />
+          </div>
 
-        <AfterPurchaseSection />
-        <CommunitySection />
+          {/* Video Explanation Section */}
+          <div id="video-explanation">
+            <VideoExplanationSection />
+          </div>
 
-        {/* FAQ Section */}
-        <div id="faq">
-          <FAQSection />
-        </div>
+          {/* Pricing Section */}
+          <div id="pricing">
+            <PricingSection />
+          </div>
+
+          <AfterPurchaseSection />
+          <CommunitySection />
+
+          {/* FAQ Section */}
+          <div id="faq">
+            <FAQSection />
+          </div>
+        </main>
 
         {/* Interactive Footer */}
         <InteractiveFooter />
