@@ -1,15 +1,18 @@
 import React from 'react'
 
 import { useAuth } from '../auth/AuthProvider'
+import AfterPurchaseSection from '../components/AfterPurchaseSection'
+import AutomationAlertSection from '../components/AutomationAlertSection'
+import CommunitySection from '../components/CommunitySection'
 import FAQSection from '../components/FAQSection'
 import HeroSection from '../components/HeroSection'
 import InteractiveFooter from '../components/InteractiveFooter'
 import Navbar from '../components/Navbar'
 import PsychologicalBenefitsSection from '../components/PsychologicalBenefitsSection'
 import SubscriptionSection from '../components/SubscriptionSection'
+import TradingToolsShowcase from '../components/TradingToolsShowcase'
 import VideoExplanationSection from '../components/VideoExplanationSection'
 import WhySystemWorks from '../components/WhySystemWorks'
-
 
 const Home = () => {
   const { user: _user } = useAuth()
@@ -94,6 +97,24 @@ const Home = () => {
           <HeroSection />
         </div>
 
+
+{/* Trading Tools Section */}
+<div id="why-system-works">
+          <TradingToolsShowcase />
+        </div>
+
+
+        {/* Automation Alerts Section */}
+        <div id="automation-alerts">
+          <AutomationAlertSection />
+        </div>
+
+
+{/* Psychological Benefits Section */}
+<div id="psychological-benefits">
+          <PsychologicalBenefitsSection />
+        </div>
+
         {/* Why Our Trading System Works Section */}
         <div id="why-system-works">
           <WhySystemWorks />
@@ -108,14 +129,24 @@ const Home = () => {
           <VideoExplanationSection />
         </div>
 
-        {/* Psychological Benefits Section */}
-        <div id="psychological-benefits">
-          <PsychologicalBenefitsSection />
-        </div>
+        
 
         {/* Subscription Section */}
         <div id="subscription">
           <SubscriptionSection />
+        </div>
+
+
+
+{/* After Purchase Section */}
+<div id="after-purchase">
+          <AfterPurchaseSection />
+        </div>
+
+
+{/* Community Section */}
+<div id="community">
+          <CommunitySection />
         </div>
 
         {/* FAQ Section */}
