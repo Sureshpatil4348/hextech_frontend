@@ -401,6 +401,33 @@ const ForexMarketTimeZone = () => {
     { value: "America/Los_Angeles", label: "Los Angeles", flag: "🇺🇸", gmt: "-8" },
   ];
 
+  // Get session bar position and width based on GMT hours (constrains cross-midnight to end of day)
+  const getSessionBarStyle = (gmtHours) => {
+    const timeRange = gmtHours.replace(' GMT', '').split('-');
+    let startHour = parseInt(timeRange[0].split(':')[0]);
+    let endHour = parseInt(timeRange[1].split(':')[0]);
+
+    if (isNaN(startHour) || isNaN(endHour)) return { left: '0%', width: '0%' };
+
+    // If session crosses midnight, only show from start to 24:00 within current day
+    if (endHour < startHour) {
+      const startPercent = (startHour / 24) * 100;
+      const widthPercent = ((24 - startHour) / 24) * 100;
+      return {
+        left: `${startPercent}%`,
+        width: `${widthPercent}%`
+      };
+    }
+
+    const duration = endHour - startHour;
+    const startPercent = (startHour / 24) * 100;
+    const widthPercent = (duration / 24) * 100;
+    return {
+      left: `${startPercent}%`,
+      width: `${widthPercent}%`
+    };
+  };
+
   const markets = [
     {
       name: "Sydney",
@@ -513,7 +540,7 @@ const ForexMarketTimeZone = () => {
   ];
 
   return (
-    <div className="bg-white dark:bg-gray-800 p-3 max-w-4xl mx-auto font-sans relative rounded-xl shadow-md dark:shadow-lg">
+  <div className="bg-white dark:bg-gray-800 p-3 max-w-4xl mx-auto font-sans relative rounded-xl shadow-md dark:shadow-lg overflow-x-hidden">
       {/* Time Format Toggle - Top Right */}
       <div className="absolute top-4 right-4 flex items-center gap-2">
         <span className="text-xs text-gray-500 dark:text-gray-400">12h</span>
@@ -734,10 +761,13 @@ const ForexMarketTimeZone = () => {
               </div>
 
               {/* Timeline bar with session indicator */}
-              <div className="flex-1 ml-6">
-                <div className={`h-6 w-1/4 rounded-lg relative overflow-hidden ${
-                  getMarketStatus(m.timezone).includes('SESSION') ? 'opacity-100' : 'opacity-30'
-                }`}>
+              <div className="flex-1 ml-2 relative h-6">
+                <div 
+                  className={`h-6 rounded-lg absolute overflow-hidden ${
+                    getMarketStatus(m.timezone).includes('SESSION') ? 'opacity-100' : 'opacity-30'
+                  }`}
+                  style={getSessionBarStyle(m.gmtHours)}
+                >
                   {/* Base gradient background */}
                   <div className={`absolute inset-0 ${m.color}`}></div>
                   {/* Striped pattern overlay */}
@@ -767,7 +797,7 @@ const ForexMarketTimeZone = () => {
                     }}
                   ></div>
                 </div>
-                <p className="text-xs text-gray-400 dark:text-gray-500 mt-1">{m.gmtHours}</p>
+                <p className="text-xs text-gray-400 dark:text-gray-500 mt-8">{m.gmtHours}</p>
               </div>
             </div>
           ))}
