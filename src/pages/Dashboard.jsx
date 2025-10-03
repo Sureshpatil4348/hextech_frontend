@@ -187,10 +187,8 @@ const Dashboard = () => {
 
                   {/* Top Right - Multi Time Analysis */}
                   <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden p-2">
-                    <div className="h-full overflow-y-auto">
-                      <div className="transform scale-75 origin-top-left w-[133%] h-[133%]">
-                        <MultiTimeAnalysis />
-                      </div>
+                    <div className="h-full overflow-y-auto overflow-x-hidden">
+                      <MultiTimeAnalysis />
                     </div>
                   </div>
                 </div>
